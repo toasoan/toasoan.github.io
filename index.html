@@ -226,6 +226,19 @@ section{padding:clamp(80px,11vw,140px) clamp(16px,6vw,96px)}
 .aw-e{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.14em;color:var(--red);text-transform:uppercase;margin:6px 0 8px;font-weight:600}
 .aw-t{font-size:14px;color:var(--muted);line-height:1.55}
 .aw-a{margin-top:8px;font-size:12.5px;color:var(--red-deep);font-weight:600}
+
+a.hm,a.aw{color:inherit;text-decoration:none;cursor:pointer}
+.hm .go{display:inline-block;margin-top:12px;font-style:normal;font-size:12px;font-weight:700;color:#5a0c09;background:var(--gold);padding:6px 12px;border-radius:99px;transition:transform .3s}
+.hm:hover .go{transform:translateY(-2px)}
+.aw{flex-direction:row}.aw-b{display:flex;flex-direction:column;min-height:100%}
+.aw-go{margin-top:auto;padding-top:12px;font-size:12.5px;font-weight:700;color:var(--red);display:inline-flex;gap:6px;align-items:center}
+.aw:hover .aw-go{text-decoration:underline}
+.aw-f{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.aw-f button{font:inherit;font-size:14px;font-weight:600;padding:9px 18px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;transition:.3s}
+.aw-f button:hover{color:var(--red);border-color:rgba(212,48,41,.4)}
+.aw-f button.on{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 10px 24px -12px rgba(212,48,41,.8)}
+.aws{margin-top:18px}
+.aw.hide{display:none}
 @media(max-width:1000px){.hl{grid-template-columns:1fr}.aws{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.hl-r{grid-template-columns:1fr}.hm{display:grid;grid-template-columns:auto 1fr;column-gap:16px;text-align:left;align-items:center}.hm .medal{grid-row:span 4;margin:0;--m:64px}.aws{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.hl::after{animation:none}.hl.in .medal{animation:none}}
@@ -718,7 +731,7 @@ document.addEventListener('DOMContentLoaded',function(){
   <section id="vinh-danh" class="honors">
     <div class="sec-head reveal">
       <div><span class="num">04 — VINH DANH</span><h2>Những trang viết được <em>vinh danh</em>.</h2></div>
-      <p>Các giải báo chí tiêu biểu Báo Pháp luật Việt Nam đã đạt được từ năm 2020 đến nay — ghi nhận cho ngòi bút dấn thân vì pháp quyền.</p>
+      <p>Các giải báo chí tiêu biểu Báo Pháp luật Việt Nam đã đạt được từ năm 2020 đến nay — ghi nhận cho ngòi bút dấn thân vì pháp quyền. Bấm vào từng giải để đọc tác phẩm và tin vinh danh.</p>
     </div>
     <div class="hl reveal">
       <div class="hl-l">
@@ -727,18 +740,29 @@ document.addEventListener('DOMContentLoaded',function(){
         <p>Ba mùa giải liền 2022 – 2023 – 2024, Báo Pháp luật Việt Nam đều có tác phẩm đoạt Giải A.</p>
       </div>
       <div class="hl-r">
-        <div class="hm"><div class="medal lg"><span>A</span></div><b>2022</b><small>Lần thứ VII</small><p>“Chống lợi ích nhóm trong xây dựng và áp dụng pháp luật”</p><i>Vân Anh · Hà Dung · Minh Ngọc</i></div>
-        <div class="hm"><div class="medal lg"><span>A</span></div><b>2023</b><small>Lần thứ VIII</small><p>Loạt 5 kỳ về kiểm soát quyền lực trong các cơ quan phòng, chống tham nhũng, tiêu cực</p><i>Lương Thị Vân Anh</i></div>
-        <div class="hm"><div class="medal lg"><span>A</span></div><b>2024</b><small>Lần thứ IX</small><p>“Chặn hiểm họa từ doanh nghiệp sân sau” (loạt 5 kỳ)</p><i>Lương Thị Vân Anh</i></div>
+        <a class="hm" href="https://baophapluat.vn/chong-loi-ich-nhom-trong-xay-dung-va-ap-dung-phap-luat-ky-1-quyet-tam-nhat-quan-cua-dang-post456114.html" target="_blank" rel="noopener"><div class="medal lg"><span>A</span></div><b>2022</b><small>Lần thứ VII</small><p>“Chống lợi ích nhóm trong xây dựng và áp dụng pháp luật”</p><i>Vân Anh · Hà Dung · Minh Ngọc</i><em class="go">Đọc tác phẩm ↗</em></a>
+        <a class="hm" href="https://baophapluat.vn/bao-phap-luat-viet-nam-duoc-trao-giai-a-bua-liem-vang-nam-2023-post503394.html" target="_blank" rel="noopener"><div class="medal lg"><span>A</span></div><b>2023</b><small>Lần thứ VIII</small><p>Loạt 5 kỳ “Kiểm soát quyền lực trong các cơ quan phòng, chống tham nhũng, tiêu cực”</p><i>Lương Thị Vân Anh</i><em class="go">Xem tin vinh danh ↗</em></a>
+        <a class="hm" href="https://baophapluat.vn/bao-phap-luat-viet-nam-dat-giai-a-giai-bua-liem-vang-2024-post538198.html" target="_blank" rel="noopener"><div class="medal lg"><span>A</span></div><b>2024</b><small>Lần thứ IX</small><p>“Chặn hiểm họa từ doanh nghiệp sân sau” (loạt 5 kỳ)</p><i>Lương Thị Vân Anh</i><em class="go">Xem tin vinh danh ↗</em></a>
       </div>
     </div>
-    <div class="aws">
-      <article class="aw reveal"><div class="medal"><span>C</span></div><div class="aw-b"><div class="aw-n">Giải Búa liềm vàng</div><div class="aw-e">Lần thứ X · 2025</div><p class="aw-t">“Sức mạnh lòng dân – Nền tảng vững chắc của mọi thắng lợi” (loạt 5 kỳ)</p><div class="aw-a">Hà Ánh Bình · Lương Thị Vân Anh</div></div></article>
-      <article class="aw reveal"><div class="medal sm"><span>KK</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí Quốc gia</div><div class="aw-e">Lần thứ XX</div><p class="aw-t">Loạt 5 kỳ về chống lãng phí, tiêu cực trong xây dựng và thực thi pháp luật</p><div class="aw-a">Lương Thị Vân Anh · Tống Anh Tuấn</div></div></article>
-      <article class="aw reveal"><div class="medal "><span>B</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí toàn quốc phòng, chống tham nhũng, lãng phí, tiêu cực</div><div class="aw-e">Lần thứ V · 2024 – 2025</div><p class="aw-t">“Chống lãng phí, tiêu cực trong xây dựng và thực thi pháp luật: Đòi hỏi cấp bách” (loạt 5 kỳ) — cùng 01 giải C</p><div class="aw-a">Lương Thị Vân Anh</div></div></article>
-      <article class="aw reveal"><div class="medal"><span>A</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí toàn quốc về Bình đẳng giới</div><div class="aw-e">Lần thứ II · 2026</div><p class="aw-t">Loạt bài đăng trên ấn phẩm Chủ nhật</p></div></article>
-      <article class="aw reveal"><div class="medal sm"><span>Nhì</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí “Vì sự nghiệp Giáo dục Việt Nam”</div><div class="aw-e">Năm 2026</div><p class="aw-t">“Thầy cô thời AI” (loạt 5 kỳ, báo in)</p></div></article>
-      <article class="aw reveal"><div class="medal"><span>C</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí “Vì sự nghiệp Đại đoàn kết toàn dân tộc”</div><div class="aw-e">Lần thứ XVII</div></div></article>
+    <div class="aw-f" role="tablist" id="awF"><button class="on" data-f="all">Tất cả</button><button data-f="tq">Giải toàn quốc</button><button data-f="bn">Bộ, ngành</button><button data-f="dp">Địa phương</button></div>
+    <div class="aws" id="aws">
+      <a class="aw reveal" data-sc="tq" href="https://baophapluat.vn/bao-phap-luat-viet-nam-dat-giai-a-giai-bao-chi-toan-quoc-ve-binh-dang-gioi-lan-thu-ii-nam-2026.html" target="_blank" rel="noopener"><div class="medal"><span>A</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí toàn quốc về Bình đẳng giới</div><div class=aw-e>Lần thứ II · 2026</div><p class="aw-t">Loạt bài đăng trên ấn phẩm Chủ nhật</p><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
+      <a class="aw reveal" data-sc="tq" href="https://baophapluat.vn/bao-phap-luat-viet-nam-doat-giai-nhi-giai-bao-chi-vi-su-nghiep-giao-duc-viet-nam-nam-2026.html" target="_blank" rel="noopener"><div class="medal sm"><span>Nhì</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí “Vì sự nghiệp Giáo dục Việt Nam”</div><div class=aw-e>Năm 2026</div><p class="aw-t">“Thầy cô thời AI” (loạt 5 kỳ, báo in)</p><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
+      <a class="aw reveal" data-sc="tq" href="https://baophapluat.vn/bao-phap-luat-viet-nam-gianh-giai-khuyen-khich-giai-bao-chi-quoc-gia-lan-thu-xx.html" target="_blank" rel="noopener"><div class="medal sm"><span>KK</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí Quốc gia</div><div class=aw-e>Lần thứ XX</div><p class="aw-t">Loạt 5 kỳ về chống lãng phí, tiêu cực trong xây dựng và thực thi pháp luật</p><div class=aw-a>Lương Thị Vân Anh · Tống Anh Tuấn</div><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
+      <a class="aw reveal" data-sc="tq" href="https://baophapluat.vn/suc-manh-long-dan-nen-tang-vung-chac-cua-moi-thang-loi-ky-1-khi-y-dang-hoa-nhip-cung-long-dan.html" target="_blank" rel="noopener"><div class="medal"><span>C</span></div><div class="aw-b"><div class="aw-n">Giải Búa liềm vàng</div><div class=aw-e>Lần thứ X · 2025</div><p class="aw-t">“Sức mạnh lòng dân – Nền tảng vững chắc của mọi thắng lợi” (loạt 5 kỳ)</p><div class=aw-a>Hà Ánh Bình · Lương Thị Vân Anh</div><span class="aw-go">Đọc tác phẩm ↗</span></div></a>
+      <a class="aw reveal" data-sc="tq" href="https://www.moj.gov.vn/qt/tintuc/Pages/hoat-dong-cua-cac-don-vi-thuoc-bo.aspx?ItemID=5685" target="_blank" rel="noopener"><div class="medal"><span>B</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí toàn quốc phòng, chống tham nhũng, lãng phí, tiêu cực</div><div class=aw-e>Lần thứ V · 2024 – 2025</div><p class="aw-t">“Chống lãng phí, tiêu cực trong xây dựng và thực thi pháp luật: Đòi hỏi cấp bách” (loạt 5 kỳ) — cùng 01 giải C</p><div class=aw-a>Lương Thị Vân Anh</div><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
+      <a class="aw reveal" data-sc="tq" href="https://baophapluat.vn/loat-bai-dao-lam-thay-bao-phap-luat-viet-nam-doat-giai-a-giai-bao-chi-giao-duc-2025.html" target="_blank" rel="noopener"><div class="medal"><span>A</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí “Vì sự nghiệp Giáo dục Việt Nam”</div><div class=aw-e>Năm 2025</div><p class="aw-t">Loạt bài “Đạo làm thầy”</p><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
+      <a class="aw reveal" data-sc="tq" href="https://baophapluat.vn/bao-phap-luat-viet-nam-doat-giai-c-giai-bao-chi-vi-su-nghiep-dai-doan-ket-toan-dan-toc-lan-thu-xvii.html" target="_blank" rel="noopener"><div class="medal"><span>C</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí “Vì sự nghiệp Đại đoàn kết toàn dân tộc”</div><div class=aw-e>Lần thứ XVII</div><p class="aw-t">Loạt bài “Phụ nữ vùng cao trong kỷ nguyên số”</p><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
+      <a class="aw reveal" data-sc="tq" href="https://baophapluat.vn/bao-phap-luat-viet-nam-gianh-giai-bao-chi-dien-hong-post536951.html" target="_blank" rel="noopener"><div class="medal"><span>★</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí Diên Hồng</div><div class=aw-e>Lần thứ III · 2025</div><p class="aw-t">02 giải và Bằng khen của Chủ nhiệm Văn phòng Quốc hội — một trong 20 cơ quan báo chí tiêu biểu</p><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
+      <a class="aw reveal" data-sc="tq" href="https://baophapluat.vn/bao-phap-luat-viet-nam-gianh-giai-bao-chi-dien-hong-lan-thu-2-post501112.html" target="_blank" rel="noopener"><div class="medal sm"><span>KK</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí Diên Hồng</div><div class=aw-e>Lần thứ II</div><p class="aw-t">Giải Khuyến khích của nhóm phóng viên Báo Pháp luật Việt Nam</p><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
+      <a class="aw reveal" data-sc="bn" href="https://image.baophapluat.vn/Uploaded/2024/athlraqhpghat/2024_11_10/pdf-3152024-2199.pdf" target="_blank" rel="noopener"><div class="medal sm"><span>KK</span></div><div class="aw-b"><div class="aw-n">Giải thưởng Báo chí về Khoa học và Công nghệ</div><div class=aw-e>Năm 2024</div><p class="aw-t">“Bản quyền văn hóa thời AI” (ấn phẩm Chủ nhật, số 315)</p><span class="aw-go">Xem báo in (PDF) ↗</span></div></a>
+      <a class="aw reveal" data-sc="bn" href="https://www.most.gov.vn/vn/tin-tuc/24346/bo-khoa-hoc-va-cong-nghe-vinh-danh-cac-tac-gia-doat-giai-bao-chi-ve-khcn-nam-2023.aspx" target="_blank" rel="noopener"><div class="medal sm"><span>KK</span></div><div class="aw-b"><div class="aw-n">Giải thưởng Báo chí về Khoa học và Công nghệ</div><div class=aw-e>Năm 2023</div><p class="aw-t">Nhóm tác phẩm “Phụ nữ với sở hữu trí tuệ”</p><span class="aw-go">Xem danh sách giải ↗</span></div></a>
+      <a class="aw reveal" data-sc="bn" href="https://vneconomy.vn/vinh-danh-cac-tac-pham-tieu-bieu-vi-su-phat-trien-ben-vung-nganh-cong-thuong.htm" target="_blank" rel="noopener"><div class="medal"><span>B</span></div><div class="aw-b"><div class="aw-n">Giải báo chí vì sự phát triển bền vững ngành Công Thương</div><p class="aw-t">Tác phẩm của nhóm tác giả Báo Pháp luật Việt Nam</p><div class=aw-a>Hoàng Tú · Quỳnh Chi</div><span class="aw-go">Xem danh sách giải ↗</span></div></a>
+      <a class="aw reveal" data-sc="dp" href="https://baophapluat.vn/bao-phap-luat-viet-nam-dat-giai-cuoc-thi-bao-chi-phu-tho-vung-buoc-di-len.html" target="_blank" rel="noopener"><div class="medal"><span>★</span></div><div class="aw-b"><div class="aw-n">Cuộc thi báo chí “Phú Thọ vững bước đi lên”</div><p class="aw-t">Nhóm tác giả Báo Pháp luật Việt Nam đạt giải</p><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
+      <a class="aw reveal" data-sc="dp" href="https://baophapluat.vn/bao-phap-luat-viet-nam-dat-giai-tai-cuoc-thi-chinh-luan-bao-ve-nen-tang-tu-tuong-cua-dang-o-thanh-hoa.html" target="_blank" rel="noopener"><div class="medal sm"><span>KK</span></div><div class="aw-b"><div class="aw-n">Cuộc thi chính luận bảo vệ nền tảng tư tưởng của Đảng — Thanh Hóa</div><p class="aw-t">“Tăng sức đề kháng số” (loạt 2 kỳ)</p><div class=aw-a>Bùi Văn Ý</div><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
+      <a class="aw reveal" data-sc="dp" href="https://baophapluat.vn/cong-bo-va-trao-giai-bao-chi-thanh-pho-hai-phong-nam-2023-2024-post552024.html" target="_blank" rel="noopener"><div class="medal sm"><span>KK</span></div><div class="aw-b"><div class="aw-n">Giải Báo chí thành phố Hải Phòng</div><div class=aw-e>2023 – 2024</div><p class="aw-t">“Tăng cường sự lãnh đạo của Đảng đối với hoạt động của Hội đồng nhân dân – Ghi nhận từ Hải Phòng” (loạt 3 kỳ)</p><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
+      <a class="aw reveal" data-sc="dp" href="https://baophapluat.vn/10-su-kien-noi-bat-cua-bao-phap-luat-viet-nam-nam-2024-post536583.html" target="_blank" rel="noopener"><div class="medal sm"><span>Ba</span></div><div class="aw-b"><div class="aw-n">Giải báo chí về xây dựng Đảng các địa phương</div><div class=aw-e>Năm 2024</div><p class="aw-t">Giải Búa liềm vàng TP Cần Thơ lần III · giải Ba tỉnh Quảng Trị · giải Khuyến khích tỉnh Thừa Thiên Huế</p><span class="aw-go">Xem tin vinh danh ↗</span></div></a>
     </div>
   </section>
 
@@ -911,6 +935,11 @@ function tick(){const p=Object.fromEntries(fmt.formatToParts(new Date()).map(x=>
 tEl.textContent=`${String(hh).padStart(2,'0')}:${p.minute}:${p.second}`;dEl.textContent=`${p.day}/${p.month}/${p.year}`;
 const f=(hh*3600+mm*60+ss)/86400;arc.setAttribute('stroke-dasharray',`${(f*1000).toFixed(1)} 1000`);const a=f*2*Math.PI;dot.setAttribute('cx',(110+92*Math.sin(a)).toFixed(1));dot.setAttribute('cy',(110-92*Math.cos(a)).toFixed(1))}
 tick();setInterval(tick,1000)})();
+
+/* award filter */
+(()=>{const f=document.getElementById('awF');if(!f)return;f.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+f.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const v=b.dataset.f;
+document.querySelectorAll('#aws .aw').forEach(c=>{const show=v==='all'||c.dataset.sc===v;c.classList.toggle('hide',!show);if(show)c.classList.add('in')})})})();
 
 /* reveal + counters */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');
