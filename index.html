@@ -235,21 +235,31 @@ a.hm,a.aw{color:inherit;text-decoration:none;cursor:pointer}
 .aw:hover .aw-go{text-decoration:underline}
 
 /* medal cloud */
-.mcloud{position:relative;height:clamp(300px,34vw,420px);margin-top:22px;border-radius:28px;overflow:hidden;isolation:isolate;
-  background:radial-gradient(70% 90% at 50% 50%,#fff 0%,#fff6ef 55%,#fde9e2 100%);border:1px solid var(--line);box-shadow:0 30px 70px -45px rgba(158,23,18,.5)}
-.mc-field{position:absolute;inset:0;perspective:800px}
-.mc-field .medal{position:absolute;left:var(--x);top:var(--y);--m:var(--sz);transform:translate(-50%,-50%) scale(0);opacity:0;filter:blur(var(--bl,0));z-index:var(--z,1)}
-.mcloud.in .mc-field .medal{animation:mpour .9s cubic-bezier(.2,.9,.3,1.35) var(--d) forwards,mbob var(--t) ease-in-out calc(var(--d) + .9s) infinite alternate}
-@keyframes mpour{0%{transform:translate(calc(-50% + var(--fx)),calc(-50% - 260px)) rotate(-180deg) scale(.4);opacity:0}100%{transform:translate(-50%,-50%) rotate(var(--r)) scale(1);opacity:var(--o)}}
-@keyframes mbob{0%{transform:translate(-50%,-50%) rotate(var(--r)) scale(1);opacity:var(--o)}100%{transform:translate(-50%,calc(-50% - var(--by))) rotate(calc(var(--r) * -1)) rotateY(var(--ry)) scale(1.04);opacity:var(--o)}}
-.mc-txt{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:50;text-align:center;white-space:nowrap;padding:22px 38px;border-radius:999px;
-  font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(24px,3.4vw,46px);line-height:1.1;color:var(--text);
-  background:radial-gradient(closest-side,rgba(255,255,255,.96),rgba(255,255,255,.85) 70%,rgba(255,255,255,0));opacity:0;transition:opacity 1s 1.4s,transform 1s 1.4s}
-.mcloud.in .mc-txt{opacity:1}
-.mc-txt em{font-style:italic;background:linear-gradient(100deg,var(--red-deep),var(--red2) 40%,#c8921a 60%,var(--red-deep));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}
-.mc-dots{color:var(--gold);letter-spacing:.05em}
-@media(max-width:640px){.mc-txt{white-space:normal;width:86%;padding:18px 20px}}
-@media (prefers-reduced-motion:reduce){.mcloud.in .mc-field .medal{animation:none;transform:translate(-50%,-50%) rotate(var(--r));opacity:var(--o)}}
+.mcloud{position:relative;height:clamp(460px,48vw,600px);margin-top:22px;border-radius:28px;overflow:hidden;isolation:isolate;
+  background:radial-gradient(60% 70% at 50% 50%,#fff 0%,#fff6ef 50%,#fbe3da 100%);border:1px solid var(--line);box-shadow:0 30px 70px -45px rgba(158,23,18,.5)}
+.mcloud::before{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(242,193,78,.07) 0 4deg,transparent 4deg 15deg);animation:gspin2 70s linear infinite}
+@keyframes gspin2{to{transform:rotate(360deg) scale(1.6)}}
+.mc-field{position:absolute;inset:0}
+.mc-field .medal{position:absolute;left:50%;top:50%;--m:var(--sz);margin:calc(var(--sz)/-2) 0 0 calc(var(--sz)/-2);opacity:0;will-change:transform,opacity}
+.mcloud.run .mc-field .medal{animation:mfly var(--t) cubic-bezier(.45,0,.75,.6) var(--d) infinite}
+@keyframes mfly{
+  0%{transform:translate(var(--sx),var(--sy)) rotate(var(--r)) scale(1.15);opacity:0}
+  12%{opacity:1}
+  70%{opacity:1}
+  100%{transform:translate(0,0) rotate(calc(var(--r) * -2)) scale(.15);opacity:0}}
+.mc-box{position:absolute;left:50%;top:50%;width:clamp(240px,30vw,360px);aspect-ratio:1;transform:translate(-50%,-50%);z-index:5;
+  border-radius:32px;display:grid;place-items:center;text-align:center;
+  background:linear-gradient(160deg,#fff,#fff8f0);border:2px solid rgba(242,193,78,.75);
+  box-shadow:0 0 0 10px rgba(255,255,255,.55),0 0 0 11px rgba(242,193,78,.35),0 40px 80px -30px rgba(158,23,18,.55),0 0 70px rgba(242,193,78,.45);animation:mbox 2.4s ease-in-out infinite}
+@keyframes mbox{50%{box-shadow:0 0 0 14px rgba(255,255,255,.45),0 0 0 15px rgba(242,193,78,.25),0 40px 80px -30px rgba(158,23,18,.55),0 0 110px rgba(242,193,78,.7)}}
+.mc-ring{position:absolute;inset:-2px;border-radius:32px;padding:2px;background:conic-gradient(from var(--ang,0deg),transparent 0 70%,#f2c14e 80%,#fff3c4 85%,transparent 95%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:ring 3s linear infinite}
+@property --ang{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes ring{to{--ang:360deg}}
+.mc-txt{position:relative;font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(26px,3vw,40px);line-height:1.15;color:var(--text);display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 18px}
+.mc-txt em{font-style:italic;font-size:1.22em;background:linear-gradient(100deg,var(--red-deep),var(--red2) 40%,#c8921a 60%,var(--red-deep));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}
+.mc-dots{color:var(--gold);font-size:.55em;letter-spacing:.2em;margin-bottom:6px}
+@media (prefers-reduced-motion:reduce){.mcloud::before,.mc-box,.mc-ring{animation:none}.mcloud.run .mc-field .medal{animation:none}}
 @media(max-width:1000px){.hl{grid-template-columns:1fr}.aws{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.hl-r{grid-template-columns:1fr}.hm{display:grid;grid-template-columns:auto 1fr;column-gap:16px;text-align:left;align-items:center}.hm .medal{grid-row:span 5;margin:0;--m:64px}.hm .go{grid-column:2;justify-self:start}.aws{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.hl::after{animation:none}.hl.in .medal{animation:none}}
@@ -758,7 +768,7 @@ document.addEventListener('DOMContentLoaded',function(){
     </div>
     <div class="mcloud reveal" id="mcloud" aria-label="Cùng nhiều Giải Báo chí khác">
       <div class="mc-field" id="mcField" aria-hidden="true"></div>
-      <div class="mc-txt"><span class="mc-dots">…</span> Cùng nhiều <em>Giải Báo chí</em> khác</div>
+      <div class="mc-box"><div class="mc-ring" aria-hidden="true"></div><div class="mc-txt"><span class="mc-dots">• • •</span>Cùng nhiều<em>Giải Báo chí</em>khác</div></div>
     </div>
   </section>
 
@@ -933,12 +943,14 @@ const f=(hh*3600+mm*60+ss)/86400;arc.setAttribute('stroke-dasharray',`${(f*1000)
 tick();setInterval(tick,1000)})();
 
 /* medal cloud */
-(()=>{const f=document.getElementById('mcField');if(!f)return;let sd=7;const rnd=()=>(sd=(sd*16807)%2147483647)/2147483647;
-const L=['A','B','C','A','KK','Nhì','Ba','★','A','C','B','Nhất'];const k=Math.max(.6,Math.min(1,f.clientWidth/1000));let h='',n=0,tries=0;
-while(n<46&&tries<2000){tries++;const x=rnd()*100,y=rnd()*100,dx=(x-50)/(k<.7?44:36),dy=(y-50)/(k<.7?20:23);if(dx*dx+dy*dy<1)continue;
- const sz=Math.round((34+rnd()*58)*k),far=sz<50*k,lb=L[Math.floor(rnd()*L.length)];
- h+=`<div class="medal${lb.length>1&&lb!=='★'?' sm':''}" style="--x:${x.toFixed(1)}%;--y:${y.toFixed(1)}%;--sz:${sz}px;--r:${(rnd()*50-25).toFixed(0)}deg;--ry:${(rnd()>.5?1:-1)*(20+rnd()*40).toFixed(0)}deg;--d:${(rnd()*1.3).toFixed(2)}s;--t:${(2.6+rnd()*2.4).toFixed(2)}s;--by:${(6+rnd()*12).toFixed(0)}px;--fx:${(rnd()*160-80).toFixed(0)}px;--o:${far?.55:1};--bl:${far?'1.2px':'0'};--z:${sz}"><span>${lb}</span></div>`;n++}
-f.innerHTML=h})();
+(()=>{const box=document.getElementById('mcloud'),f=document.getElementById('mcField');if(!f)return;
+const L=['A','B','C','A','KK','Nhì','Ba','★','A','C','B','Nhất'];
+function build(){const W=f.clientWidth,H=f.clientHeight,k=Math.max(.6,Math.min(1,W/1000)),N=W<600?34:64;let h='';
+ for(let i=0;i<N;i++){const a=Math.random()*Math.PI*2,sz=Math.round((40+Math.random()*56)*k),t=3.2+Math.random()*2.6,lb=L[i%L.length];
+  h+=`<div class="medal${lb.length>1&&lb!=='★'?' sm':''}" style="--sz:${sz}px;--sx:${(Math.cos(a)*(W/2+50)).toFixed(0)}px;--sy:${(Math.sin(a)*(H/2+50)).toFixed(0)}px;--r:${(Math.random()*90-45).toFixed(0)}deg;--t:${t.toFixed(2)}s;--d:${(-Math.random()*t).toFixed(2)}s"><span>${lb}</span></div>`}
+ f.innerHTML=h}
+build();let w=f.clientWidth;addEventListener('resize',()=>{if(Math.abs(f.clientWidth-w)>80){w=f.clientWidth;build()}});
+new IntersectionObserver(([e])=>box.classList.toggle('run',e.isIntersecting),{threshold:.05}).observe(box)})();
 
 /* reveal + counters */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');
