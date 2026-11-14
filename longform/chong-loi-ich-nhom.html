@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chống “lợi ích nhóm” trong xây dựng và áp dụng pháp luật · Longform</title>
+<meta name="description" content="Loạt bài 5 kỳ của Báo Pháp luật Việt Nam — Giải C, Giải Búa liềm vàng lần thứ VII năm 2022.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--red:#d43029;--red2:#e8372f;--deep:#9e1712;--ink:#5a0c09;--gold:#f2c14e;--gold2:#ffe7a3;--bg:#fffaf5;--paper:#fff;--text:#1d1413;--muted:#6f5d5a;--line:rgba(158,23,18,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"Be Vietnam Pro",system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--red);color:#fff}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:80;background:linear-gradient(90deg,var(--red),var(--gold))}
+
+/* top bar */
+.top{position:fixed;inset:0 0 auto;z-index:70;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px clamp(16px,4vw,40px);transition:background .35s,box-shadow .35s}
+.top.s{background:rgba(255,250,245,.92);backdrop-filter:blur(12px);box-shadow:0 10px 30px -20px rgba(90,12,9,.5)}
+.top .lg{background:#fff;border-radius:10px;padding:5px 10px;display:flex}
+.top .lg img{height:30px;width:auto;mix-blend-mode:multiply}
+.top .tl{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.2em;color:#fff;transition:color .35s;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top.s .tl{color:var(--red)}
+.top .home{font-size:13px;font-weight:600;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.5);padding:7px 14px;border-radius:99px;white-space:nowrap;transition:.35s}
+.top.s .home{color:var(--red);border-color:rgba(212,48,41,.4)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;color:#fff;overflow:hidden;isolation:isolate;padding:120px clamp(16px,6vw,80px) clamp(48px,8vh,90px)}
+.hero-bg{position:absolute;inset:-4%;z-index:-2;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:4px;animation:drift 30s ease-in-out infinite alternate}
+.hero-bg div{background-size:cover;background-position:center;filter:grayscale(1) contrast(1.1) brightness(.9)}
+@keyframes drift{to{transform:scale(1.08) translate(-1.5%,-1%)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(90,12,9,.55),rgba(90,12,9,.82) 45%,#3a0806 100%),linear-gradient(90deg,rgba(212,48,41,.55),transparent 70%);mix-blend-mode:multiply}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(30,4,3,.2),rgba(30,4,3,.75))}
+.badge{display:inline-flex;align-items:center;gap:12px;padding:8px 16px 8px 8px;border-radius:99px;background:rgba(255,255,255,.1);border:1px solid rgba(255,231,163,.45);backdrop-filter:blur(8px);font-size:13px;font-weight:600;color:var(--gold2);opacity:0;transform:translateY(20px);animation:up .9s .2s forwards}
+.badge i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-family:"Playfair Display";font-weight:800;color:var(--ink);background:radial-gradient(circle at 35% 30%,#fff3c4,#f2c14e 60%,#c8921a)}
+.kicker{font-family:"JetBrains Mono";font-size:12px;letter-spacing:.3em;color:var(--gold2);margin:28px 0 14px;opacity:0;animation:up .9s .35s forwards}
+.hero h1{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(38px,6vw,84px);line-height:1.04;letter-spacing:-.01em;max-width:18ch}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:inline-block;transform:translateY(105%);animation:rise 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .ln:nth-child(2) span{animation-delay:.12s}.hero h1 .ln:nth-child(3) span{animation-delay:.24s}
+.hero h1 em{color:var(--gold);font-style:italic}
+@keyframes rise{to{transform:none}}
+@keyframes up{to{opacity:1;transform:none}}
+.hero .by{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:28px;font-size:15px;color:rgba(255,255,255,.85);opacity:0;animation:up .9s .6s forwards}
+.hero .by b{color:#fff}
+.cue{position:absolute;right:clamp(16px,6vw,80px);bottom:clamp(48px,8vh,90px);display:flex;flex-direction:column;align-items:center;gap:10px;font-family:"JetBrains Mono";font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.7);text-decoration:none;writing-mode:vertical-rl}
+.cue::after{content:"";width:1px;height:60px;background:linear-gradient(var(--gold),transparent);animation:cue 1.8s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* series intro */
+.intro{max-width:780px;margin:0 auto;padding:clamp(56px,9vw,100px) 20px 10px;text-align:center}
+.intro p{font-family:"Noto Serif",serif;font-size:clamp(18px,2vw,22px);line-height:1.7;color:#3b2a28}
+.intro .orn{color:var(--gold);letter-spacing:.6em;margin-bottom:20px}
+
+/* ky nav */
+.knav{position:sticky;top:58px;z-index:60;margin:clamp(32px,5vw,56px) auto 0;padding:10px clamp(12px,3vw,24px);max-width:1180px}
+.knav-in{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:8px;border-radius:20px;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 20px 50px -30px rgba(90,12,9,.45)}
+.kb{position:relative;display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:14px;text-decoration:none;transition:background .3s,color .3s,transform .3s;overflow:hidden}
+.kb b{font-family:"Playfair Display";font-size:18px;font-weight:800;color:var(--red)}
+.kb span{font-size:12px;color:var(--muted);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.kb:hover{background:#fff1ec;transform:translateY(-2px)}
+.kb.on{background:linear-gradient(135deg,var(--red2),var(--deep));box-shadow:0 12px 26px -12px rgba(212,48,41,.8)}
+.kb.on b{color:var(--gold2)}.kb.on span{color:rgba(255,255,255,.88)}
+
+/* article */
+.ky{display:none;max-width:1180px;margin:0 auto;padding:clamp(40px,6vw,72px) 20px 40px}
+.ky.on{display:block;animation:fadein .7s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(24px)}}
+.ky-head{position:relative;max-width:900px;margin:0 auto;text-align:center;padding-top:40px}
+.ky-num{position:absolute;left:50%;top:-20px;transform:translateX(-50%);font-family:"Playfair Display";font-weight:800;font-size:clamp(120px,18vw,220px);line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(212,48,41,.18);z-index:-1;user-select:none}
+.ky-kick{display:inline-block;font-family:"JetBrains Mono";font-size:12px;letter-spacing:.3em;color:#fff;background:var(--red);padding:6px 14px;border-radius:6px}
+.ky-title{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(32px,5vw,62px);line-height:1.1;margin:22px 0 18px;color:var(--text)}
+.ky-meta{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--muted)}
+.ky-meta span:first-child{color:var(--deep);font-weight:600}
+.sapo{max-width:760px;margin:40px auto 0;padding:26px 30px;border-left:4px solid var(--red);background:linear-gradient(90deg,#fff1ec,transparent);font-family:"Noto Serif",serif;font-size:clamp(18px,1.9vw,21px);font-weight:600;line-height:1.65;color:#2b1d1b;border-radius:0 16px 16px 0}
+.sapo b{color:var(--red)}
+.body{max-width:700px;margin:44px auto 0;font-family:"Noto Serif",serif;font-size:clamp(17px,1.6vw,19.5px);line-height:1.85;color:#2a201f}
+.body>p{margin:0 0 1.25em;text-align:justify;hyphens:auto}
+.body>p.lead-p::first-letter{float:left;font-family:"Playfair Display";font-weight:800;font-size:4.2em;line-height:.82;padding:6px 12px 0 0;color:var(--red)}
+.body strong{color:#1d1413}
+.sh{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(24px,2.8vw,32px);line-height:1.25;margin:1.8em 0 .8em;color:var(--text)}
+.sh span{background:linear-gradient(transparent 62%,rgba(242,193,78,.45) 62%);padding:0 2px}
+.sh::before{content:"";display:block;width:56px;height:4px;border-radius:4px;background:var(--red);margin-bottom:16px}
+figure{margin:0}
+.wide{margin:2.4em calc(50% - min(50vw - 20px,560px));}
+.wide img{width:100%;max-height:78vh;object-fit:cover;border-radius:18px;box-shadow:0 30px 60px -35px rgba(90,12,9,.6)}
+figcaption{font-family:"Be Vietnam Pro";font-size:14px;color:var(--muted);text-align:center;margin-top:12px;font-style:italic}
+.pq{position:relative;margin:2.6em calc(50% - min(50vw - 20px,520px));padding:clamp(28px,4vw,48px);border-radius:24px;color:#fff;overflow:hidden;isolation:isolate;
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,40px);align-items:center;background:linear-gradient(135deg,var(--ink),var(--deep) 60%,var(--red))}
+.pq::before{content:"“";position:absolute;right:20px;top:-40px;font-family:"Playfair Display";font-size:260px;line-height:1;color:rgba(255,231,163,.12);z-index:-1}
+.pq-ph{width:clamp(110px,14vw,170px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid var(--gold);box-shadow:0 0 0 8px rgba(242,193,78,.15)}
+.pq-ph img{width:100%;height:100%;object-fit:cover}
+.pq blockquote{font-family:"Playfair Display",serif;font-style:italic;font-weight:700;font-size:clamp(19px,2.2vw,26px);line-height:1.45}
+.pq cite{grid-column:2;display:block;font-style:normal;font-family:"JetBrains Mono";font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-top:-10px}
+.bx{margin:2.4em 0;padding:28px 30px;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:0 24px 50px -36px rgba(90,12,9,.45);position:relative;font-size:.94em}
+.bx::before{content:"";position:absolute;left:0;top:24px;bottom:24px;width:4px;border-radius:0 4px 4px 0;background:linear-gradient(var(--red),var(--gold))}
+.bx h3{font-family:"Playfair Display";font-weight:800;font-size:1.25em;line-height:1.3;margin-bottom:.6em;color:var(--deep)}
+.bx h3+h3{font-size:1.05em;color:var(--text);font-style:italic}
+.bx p{margin:0 0 1em;text-align:justify}.bx p:last-child{margin-bottom:0}
+.bx-ph{float:right;width:min(42%,260px);margin:4px 0 12px 22px}
+.bx-ph img{border-radius:14px;width:100%}
+.bx-ph figcaption{font-size:12.5px;margin-top:8px}
+.bx::after{content:"";display:block;clear:both}
+
+/* source + pager */
+.src{max-width:700px;margin:54px auto 0;padding:24px 26px;border-radius:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:#fff;border:1px dashed rgba(212,48,41,.4)}
+.src-l{font-size:14px;color:var(--muted)}
+.src-btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:15px;color:#fff;padding:12px 20px 12px 12px;border-radius:99px;background:linear-gradient(135deg,var(--red2),var(--deep));box-shadow:0 14px 30px -12px rgba(212,48,41,.75);transition:transform .3s}
+.src-btn:hover{transform:translateY(-2px)}
+.src-k{font-family:"JetBrains Mono";font-size:11px;letter-spacing:.15em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:5px 9px;border-radius:99px}
+.pager{max-width:900px;margin:40px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pg{display:block;text-decoration:none;padding:22px 24px;border-radius:20px;border:1px solid var(--line);background:#fff;transition:transform .35s,box-shadow .35s,border-color .35s}
+.pg small{display:block;font-family:"JetBrains Mono";font-size:11px;letter-spacing:.15em;color:var(--red);text-transform:uppercase;margin-bottom:6px}
+.pg b{font-family:"Playfair Display";font-size:19px;line-height:1.3}
+.pg.next{text-align:right;background:linear-gradient(135deg,#fff,#fff1ec)}
+.pg:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(90,12,9,.5);border-color:rgba(212,48,41,.4)}
+
+.foot{margin-top:70px;padding:40px 20px;text-align:center;background:linear-gradient(160deg,var(--deep),var(--ink));color:rgba(255,255,255,.8);font-size:14px}
+.foot a{color:var(--gold2)}
+
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:860px){
+  .knav{top:54px;padding:8px 10px}
+  .knav-in{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .knav-in::-webkit-scrollbar{display:none}
+  .kb{flex:0 0 auto;min-width:0;scroll-snap-align:start;padding:9px 14px}
+  .kb span{display:none}
+  .top .tl{display:none}
+}
+@media(max-width:640px){
+  .pq{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .pq cite{grid-column:1;margin-top:0}
+  .bx{padding:22px 20px}
+  .bx-ph{float:none;width:100%;margin:0 0 14px}
+  .pager{grid-template-columns:1fr}
+  .sapo{padding:20px 20px}
+  .cue{display:none}
+  .hero-bg{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(4,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.hero h1 .ln span,.badge,.kicker,.hero .by{opacity:1;transform:none}}
+</style>
+<style id="gate-css">
+html.locked body>*:not(#gate){display:none!important}
+#gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;font-family:"Be Vietnam Pro",system-ui,sans-serif;
+  background:radial-gradient(120% 80% at 50% 20%,#e8372f 0%,#9e1712 55%,#4a0906 100%);color:#fff;overflow:hidden;transition:opacity .6s,visibility .6s}
+#gate::before{content:"";position:absolute;inset:-50%;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,231,163,.08) 0 5deg,transparent 5deg 18deg);animation:gspin 80s linear infinite}
+@keyframes gspin{to{transform:rotate(360deg)}}
+#gate.out{opacity:0;visibility:hidden}
+#gate .gbox{position:relative;width:min(100%,420px);text-align:center;padding:40px 30px 34px;border-radius:28px;background:rgba(255,255,255,.1);border:1px solid rgba(255,231,163,.3);backdrop-filter:blur(14px);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+#gate .glogo{display:inline-block;background:#fff;border-radius:16px;padding:10px 18px;margin-bottom:22px}
+#gate .glogo img{height:52px;display:block;mix-blend-mode:multiply}
+#gate h1{font-family:"Playfair Display",serif;font-weight:800;font-size:30px;line-height:1.15;margin:0 0 6px}
+#gate h1 em{color:#ffe7a3}
+#gate p{margin:0 0 24px;font-size:14px;color:rgba(255,255,255,.8)}
+#gate label{display:block;text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;color:#ffe7a3;margin-bottom:8px}
+#gate .grow{display:flex;flex-direction:column;gap:12px}
+#gate input{width:100%;height:52px;text-align:center;border-radius:14px;border:2px solid rgba(255,255,255,.35);background:#fff;color:#1d1413;padding:0 16px;font-size:17px;font-family:inherit;outline:none;transition:border-color .2s}
+#gate input::placeholder{color:#9a8f8c}
+#gate input:focus{border-color:#f2c14e}
+#gate button{height:52px;padding:0 20px;border:0;border-radius:14px;background:#f2c14e;color:#5a0c09;font-weight:700;font-size:15px;font-family:inherit;cursor:pointer;transition:transform .2s}
+#gate button:hover{transform:translateY(-2px)}
+#gate .gerr{min-height:20px;margin-top:12px;font-size:13.5px;color:#ffe7a3}
+#gate .shake{animation:gshake .45s}
+@keyframes gshake{20%{transform:translateX(-10px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
+@media (prefers-reduced-motion:reduce){#gate::before{animation:none}}
+</style>
+<script>
+(function(){var ok=false;try{ok=sessionStorage.getItem('bplvn-ok')==='1'}catch(e){}
+if(ok)return;document.documentElement.classList.add('locked');
+var H='fd58c47bd292266e32d22cc6e8eb36d3590ad151629acabb60ff736ec1540d9f';
+document.addEventListener('DOMContentLoaded',function(){
+  var lg=document.querySelector('img[src^="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAj8AAACb"]');
+  var g=document.createElement('div');g.id='gate';
+  g.innerHTML='<form class="gbox" autocomplete="off">'+(lg?'<div class="glogo"><img alt="Báo Pháp luật Việt Nam" src="'+lg.src+'"></div>':'')+
+   '<h1>Siêu toà soạn<br><em>công nghệ số</em></h1><p>Vui lòng nhập mật khẩu để vào trang</p>'+
+   '<label for="gpw">MẬT KHẨU</label><div class="grow"><input id="gpw" type="password" inputmode="numeric" placeholder="Gợi ý: ngày thành lập Báo" required><button type="submit">Vào trang</button></div>'+
+   '<div class="gerr" id="gerr" role="alert"></div></form>';
+  document.body.appendChild(g);
+  var f=g.querySelector('form'),i=g.querySelector('input'),er=g.querySelector('#gerr');setTimeout(function(){i.focus()},50);
+  function hex(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return('0'+x.toString(16)).slice(-2)}).join('')}
+  f.addEventListener('submit',function(e){e.preventDefault();var v=i.value.replace(/\D/g,'');
+    crypto.subtle.digest('SHA-256',new TextEncoder().encode(v)).then(function(d){
+      if(hex(d)===H){try{sessionStorage.setItem('bplvn-ok','1')}catch(e){}
+        document.documentElement.classList.remove('locked');g.classList.add('out');window.scrollTo(0,0);
+        window.dispatchEvent(new Event('resize'));setTimeout(function(){g.remove()},700)}
+      else{er.textContent='Mật khẩu chưa đúng, vui lòng thử lại.';f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake');i.select()}})});
+});})();
+</script>
+</head>
+<body>
+<div id="prog"></div>
+<div class="top" id="top">
+  <a class="lg" href="../index.html" aria-label="Về trang chủ"><img src="data:image/png;base64,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" alt="Báo Pháp luật Việt Nam"></a>
+  <span class="tl">Longform · Chống “lợi ích nhóm”</span>
+  <a class="home" href="../index.html#vinh-danh">← Siêu toà soạn</a>
+</div>
+
+<header class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div style="background-image:url(img/k3-1.jpg)"></div><div style="background-image:url(img/k1-1.jpg)"></div><div style="background-image:url(img/k5-1.jpg)"></div><div style="background-image:url(img/k4-1.jpg)"></div>
+    <div style="background-image:url(img/k2-1.jpg)"></div><div style="background-image:url(img/k3-2.jpg)"></div><div style="background-image:url(img/k1-2.jpg)"></div><div style="background-image:url(img/k4-2.jpg)"></div>
+  </div>
+  <div>
+    <div class="badge"><i>C</i>Giải Búa liềm vàng lần thứ VII · 2022</div>
+    <div class="kicker">LOẠT BÀI 5 KỲ · BÁO PHÁP LUẬT VIỆT NAM</div>
+    <h1><span class="ln"><span>Chống</span></span><span class="ln"><span><em>“lợi ích nhóm”</em></span></span><span class="ln"><span>trong xây dựng và áp dụng pháp luật</span></span></h1>
+    <div class="by"><span>Nhóm tác giả <b>Vân Anh · Hà Dung · Minh Ngọc</b></span><span>24 – 28/10/2022</span></div>
+  </div>
+  <a class="cue" href="#ky-1">CUỘN ĐỂ ĐỌC</a>
+</header>
+
+<section class="intro reveal">
+  <div class="orn">◆ ◆ ◆</div>
+  <p>Kiểm soát quyền lực để phòng, chống “lợi ích nhóm” trong xây dựng và áp dụng pháp luật có vai trò đặc biệt quan trọng trong việc hoàn thiện thể chế. Loạt bài 5 kỳ nhận diện những biểu hiện tiêu cực, cách thức “cài cắm” lợi ích và đề xuất giải pháp đổi mới quy trình xây dựng pháp luật.</p>
+</section>
+
+<nav class="knav" aria-label="Các kỳ của loạt bài"><div class="knav-in" id="knav"><a class="kb" href="#ky-1" data-k="1"><b>Kỳ 1</b><span>Quyết tâm nhất quán của Đảng</span></a><a class="kb" href="#ky-2" data-k="2"><b>Kỳ 2</b><span>Nhận diện những hành vi tiêu cực</span></a><a class="kb" href="#ky-3" data-k="3"><b>Kỳ 3</b><span>“Cài cắm” khi xây dựng văn bản</span></a><a class="kb" href="#ky-4" data-k="4"><b>Kỳ 4</b><span>Cần đổi mới mạnh mẽ quy trình xây dựng pháp luật</span></a><a class="kb" href="#ky-5" data-k="5"><b>Kỳ 5</b><span>Cần sớm có văn bản nhận diện đầy đủ, chính xác các biểu hiện tiêu cực</span></a></div></nav>
+
+<main id="main">
+
+<article class="ky" id="ky-1" data-k="1" aria-labelledby="t1">
+  <header class="ky-head">
+    <div class="ky-num" aria-hidden="true">01</div>
+    <div class="ky-kick">KỲ 1 / 5</div>
+    <h2 class="ky-title" id="t1">Quyết tâm nhất quán của Đảng</h2>
+    <div class="ky-meta"><span>✍ Vân Anh</span><span>24/10/2022 · 06:56</span></div>
+  </header>
+  <p class="sapo"><b>(PLVN) –</b> Kiểm soát quyền lực để phòng, chống “lợi ích nhóm” trong xây dựng và áp dụng pháp luật có vai trò đặc biệt quan trọng trong việc hoàn thiện thể chế - một trong ba đột phá chiến lược mà Nghị quyết Đại hội XIII của Đảng đã đề ra.</p>
+  <div class="body">
+<p class="lead-p">Bởi vậy, Đảng và Nhà nước đã đề ra nhiều chủ trương, biện pháp mới nhằm ngăn chặn nguy cơ nảy sinh tham nhũng, tiêu cực ngay từ khi xây dựng chính sách, pháp luật.</p>
+<h2 class="sh reveal"><span>Sự nguy hiểm của hành vi “tham nhũng chính sách”</span></h2>
+<p>Thời gian qua, công tác xây dựng, hoàn thiện thể chế luôn được Đảng, Nhà nước đẩy mạnh và đạt được nhiều bước tiến mới. Tuy nhiên, công tác này còn không ít bất cập; trong đó, nổi lên là hệ thống pháp luật có những quy định chưa đồng bộ; tính ổn định của một số luật, pháp lệnh còn hạn chế… Ngoài những nguyên nhân khách quan, vẫn còn một số tiêu cực trong xây dựng chính sách, pháp luật. Ngăn ngừa tình trạng này nhằm kịp thời tháo gỡ những tồn tại, vướng mắc, tạo động lực mới cho sự phát triển nhanh và bền vững đất nước là vấn đề luôn được Đảng và Nhà nước ta nỗ lực thực hiện với quyết tâm chính trị rất cao.</p>
+<aside class="pq reveal"><div class="pq-ph"><img src="img/k1-1.jpg" alt="Tổng Bí thư Nguyễn Phú Trọng" loading="lazy"></div><blockquote>“Phải có cơ chế kiểm soát chặt chẽ việc xây dựng chính sách, pháp luật về quản lý kinh tế - xã hội để hạn chế sự tác động tiêu cực của “nhóm lợi ích”, “sân sau”, “tư duy nhiệm kỳ”. Ngăn chặn nguy cơ nảy sinh tham nhũng, tiêu cực ngay từ khi xây dựng chính sách, luật pháp…”.</blockquote><cite>Tổng Bí thư Nguyễn Phú Trọng</cite></aside>
+<p>Các chuyên gia cho rằng, hậu quả của “lợi ích nhóm” trong lĩnh vực nào cũng đều gây tổn thất nhất định, là tiền đề “đẻ” ra tham nhũng; nhưng hậu quả của “lợi ích nhóm”, tham nhũng chính sách trong công tác xây dựng thể chế thì nguy hại khôn lường. Bởi xây dựng pháp luật chính là bệ đỡ cho đất nước phát triển bền vững, nếu khâu này bị chi phối bởi các nhóm lợi ích “sân sau”, sẽ tác động đến kiến trúc thượng tầng, ảnh hưởng sâu rộng đến toàn xã hội. Đặc biệt, nó tạo ra khung pháp lý bảo vệ cho hành vi tham nhũng có hệ thống.</p>
+<p>Khi có tác động của “nhóm lợi ích”, chính sách có thể bị “biến dạng”, tạo ra những dự án luật nhiều khiếm khuyết, khiến Quốc hội (QH), Chính phủ phải mất thời gian, kinh phí để sửa đổi, xây dựng các dự án luật thay thế và gây ra nhiều hệ lụy khác như: tham nhũng, thất thoát nguồn lực của đất nước; xói mòn lòng tin của nhân dân vào chế độ...</p>
+<p>Nói như ông Vũ Trọng Kim - Đại biểu QH, Ủy viên Đoàn Chủ tịch Ủy ban Trung ương MTTQ Việt Nam - thì, “cái cuối cùng của “lợi ích nhóm” là thất thoát, tham nhũng, là chiếm dụng của công, chiếm dụng tài sản, lợi ích hợp pháp của người dân, doanh nghiệp (DN) để đem lại lợi ích cho một bộ phận nào đó”.</p>
+<p>Trên thực tế, những bất cập trong việc xây dựng và thực thi chính sách, pháp luật trong lĩnh vực đất đai, đầu tư, đấu thầu… đã tạo ra những “lỗ hổng” cho nhóm lợi ích tiêu cực lợi dụng. Ví dụ, tình trạng xin đất làm sân golf nhưng lại kinh doanh bất động sản, khiến nhiều “nhóm lợi ích” tiêu cực chiếm dụng đất đai một cách dễ dàng. Theo một báo cáo của Bộ Kế hoạch và Đầu tư về việc thực hiện quy hoạch sân golf (năm 2011) thì trong số 90 dự án sân golf nằm trong quy hoạch, chỉ có 21 dự án là kinh doanh sân golf, còn lại 69 dự án kết hợp kinh doanh sân golf với bất động sản, du lịch...</p>
+<p>Hoặc trong các dự án đổi đất lấy hạ tầng theo hình thức BT (hợp đồng xây dựng - chuyển giao), không hiếm trường hợp DN đầu tư làm vài km đường, nhưng lại nhận được vài chục héc-ta đất... Lỗ hổng này xuất phát từ vấn đề pháp luật đất đai quy định chưa đầy đủ về hình thức đầu tư BT…</p>
+<h2 class="sh reveal"><span>Đảm bảo sự lãnh đạo của Đảng trong công tác xây dựng pháp luật</span></h2>
+<p>Một trong những đột phá chiến lược và nhiệm vụ trọng tâm được Nghị quyết Đại hội lần thứ XIII của Đảng đề ra là: “Hoàn thiện đồng bộ thể chế phát triển, trước hết là thể chế phát triển nền kinh tế thị trường định hướng XHCN. Tập trung ưu tiên hoàn thiện đồng bộ, có chất lượng và tổ chức thực hiện tốt hệ thống luật pháp, cơ chế, chính sách; tạo lập môi trường đầu tư kinh doanh thuận lợi, lành mạnh, công bằng cho mọi thành phần kinh tế…”. Nhằm thể chế hoá tinh thần trên, Đảng ta đã đề ra nhiều chủ trương, chính sách mới, trong đó nhấn mạnh cần tiếp tục xây dựng, hoàn thiện đồng bộ, chặt chẽ thể chế, pháp luật để thực hiện mục tiêu “không thể tham nhũng, tiêu cực”.</p>
+<p>Theo đó, Kết luận số 19-KL/TW ngày 14/10/2021 của Bộ Chính trị, ban hành định hướng Chương trình xây dựng pháp luật (XDPL) nhiệm kỳ QH khoá XV đã đặt ra yêu cầu: Chú trọng hoàn thiện hệ thống pháp luật đầy đủ, đồng bộ, thống nhất, kịp thời, khả thi, ổn định, công khai, minh bạch, có sức cạnh tranh quốc tế; lấy quyền và lợi ích hợp pháp, chính đáng của người dân, DN làm trọng tâm… Đồng thời, siết chặt kỷ luật, kỷ cương, đề cao trách nhiệm, nhất là người đứng đầu trong XDPL; chống tiêu cực ngay trong công tác XDPL, không bị chi phối, tác động bởi các hành vi không lành mạnh của bất cứ tổ chức, cá nhân nào; không để xảy ra tình trạng lồng ghép “lợi ích nhóm”, lợi ích cục bộ của cơ quan quản lý Nhà nước trong văn bản pháp luật.</p>
+<p>Gần đây, Kết luận số 34-KL/TW ngày 18/4/2022 của Bộ Chính trị về Chiến lược kiểm tra, giám sát của Đảng đến năm 2030, cũng đặt ra yêu cầu tăng cường kiểm tra, giám sát trách nhiệm của người đứng đầu trong công tác XDPL; kịp thời ngăn chặn vi phạm trong ban hành văn bản pháp luật, lồng ghép “lợi ích nhóm”, “lợi ích cục bộ”… Trước đó, Kết luận số 83-KL/TW ngày 29/7/2020 của Bộ Chính trị về tổng kết việc thực hiện Nghị quyết số 48-NQ/TW, nêu rõ: “Tiếp tục đổi mới phương thức lãnh đạo của Đảng đối với công tác xây dựng và tổ chức thi hành pháp luật; tăng cường kiểm tra, giám sát đối với việc thể chế hóa các chủ trương, đường lối của Đảng thành pháp luật và công tác tổ chức thi hành pháp luật…”.</p>
+<p>Khẳng định quyết tâm của Đảng trong vấn đề này, phát biểu chỉ đạo tại Hội nghị toàn quốc tổng kết 10 năm công tác phòng chống tham nhũng, tiêu cực diễn ra vào cuối tháng 6 vừa qua, Tổng Bí thư Nguyễn Phú Trọng nhấn mạnh: Phải có cơ chế kiểm soát chặt chẽ việc xây dựng chính sách, pháp luật về quản lý kinh tế - xã hội để hạn chế sự tác động tiêu cực của “nhóm lợi ích”, “sân sau”, “tư duy nhiệm kỳ”; ngăn chặn nguy cơ nảy sinh tham nhũng, tiêu cực ngay từ khi xây dựng chính sách, luật pháp…</p>
+<p>Tại Hội nghị của Chính phủ về công tác xây dựng và hoàn thiện thể chế, diễn ra tháng 9/2021, Thủ tướng Phạm Minh Chính cũng yêu cầu xây dựng và hoàn thiện thể chế phải bám sát chủ trương, đường lối của Đảng, cụ thể là 3 đột phá chiến lược, 6 nhiệm vụ trọng tâm và 12 định hướng lớn mà Đại hội XIII của Đảng đã đề ra. Thực hiện đổi mới quy trình XDPL theo hướng đơn giản, kịp thời, theo kịp với diễn biến tình hình cuộc sống. Các luật, quy định không nên có phạm vi điều chỉnh quá rộng, đối tượng tác động quá lớn mà phải ngắn gọn, cụ thể. Đồng thời, phải chống tham nhũng, tiêu cực, “lợi ích nhóm” trong xây dựng và hoàn thiện thể chế.</p>
+<p>“Kiên quyết với những dự án luật cài cắm lợi ích nhóm” cũng là chỉ đạo xuyên suốt của Chủ tịch QH Vương Đình Huệ ngay từ đầu nhiệm kỳ. Tại các cuộc họp, người đứng đầu QH nêu rõ, chúng ta yêu cầu Chính phủ liêm chính, hành động, phục vụ người dân và DN thì bản thân công tác lập pháp của QH cũng phải liêm chính, không được để “lợi ích nhóm”, “lợi ích cục bộ” cài cắm vào trong quá trình xây dựng pháp luật...</p>
+<aside class="pq reveal"><div class="pq-ph"><img src="img/k1-2.jpg" alt="Ảnh minh họa" loading="lazy"></div><blockquote>“Phải chống cho được lợi ích nhóm trong xây dựng pháp luật… Người ta nói chống tham nhũng nói chung là rất quan trọng, cần thiết, nhưng chống tham nhũng trong làm chính sách pháp luật càng quan trọng hơn. Cần giữ được sự liêm chính trong xây dựng, hoàn thiện hệ thống pháp luật và thi hành pháp luật” - Chủ tịch nước Nguyễn Xuân Phúc (khi làm Thủ tướng Chính phủ) nhấn mạnh điều này tại Hội nghị trực tuyến của Chính phủ về công tác xây dựng, hoàn thiện pháp luật và thi hành pháp luật, diễn ra tháng 11/2020.</blockquote></aside>
+<aside class="bx reveal"><h3>“Lợi ích cục bộ” cài cắm trong các văn bản luật là một dạng tham nhũng chính sách</h3><p>Cho rằng “lợi ích nhóm”, “lợi ích cục bộ” cài cắm trong các văn bản chính sách, pháp luật là một dạng tham nhũng chính sách, Thiếu tướng Nguyễn Mai Bộ, nguyên Ủy viên Thường trực Ủy ban Quốc phòng và An ninh của QH nhận xét, khi tham nhũng chính sách không bị phát hiện, ngăn chặn sẽ cản trở sự phát triển lành mạnh của xã hội; nguyên tắc công bằng, bình đẳng trước pháp luật bị xâm hại; nguồn lực đất nước bị phân tán, năng lực cạnh tranh quốc gia suy giảm.</p><p>“Một chính sách phát triển ngành có sự lồng ghép “lợi ích cục bộ” mà được thông qua có thể làm lợi rất lớn cho một bộ phận người trong ngành đó, nhưng cũng có thể làm cạn kiệt các nguồn lực của đất nước và xã hội. Một quyền năng không chính đáng được cài cắm vào trong luật có thể hợp pháp hóa sự nhũng nhiễu của một số người, nhưng cũng có thể làm cho đời sống của người dân, hoạt động của DN thêm khó khăn” - Thiếu tướng Nguyễn Mai Bộ nói.</p></aside>
+  </div>
+  <div class="src">
+    <span class="src-l">Bài viết đăng trên Báo Pháp luật Việt Nam ngày 24/10/2022</span>
+    <a class="src-btn" href="https://baophapluat.vn/chong-loi-ich-nhom-trong-xay-dung-va-ap-dung-phap-luat-ky-1-quyet-tam-nhat-quan-cua-dang-post456114.html" target="_blank" rel="noopener"><span class="src-k">Nguồn</span> Báo Pháp luật Việt Nam ↗</a>
+  </div>
+  <div class="pager"><span></span><a class="pg next" href="#ky-2"><small>Đọc tiếp Kỳ 2 →</small><b>Nhận diện những hành vi tiêu cực</b></a></div>
+</article>
+
+<article class="ky" id="ky-2" data-k="2" aria-labelledby="t2">
+  <header class="ky-head">
+    <div class="ky-num" aria-hidden="true">02</div>
+    <div class="ky-kick">KỲ 2 / 5</div>
+    <h2 class="ky-title" id="t2">Nhận diện những hành vi tiêu cực</h2>
+    <div class="ky-meta"><span>✍ Vân Anh</span><span>25/10/2022 · 06:34</span></div>
+  </header>
+  <p class="sapo"><b>(PLVN) –</b> Xác định “lợi ích nhóm” trong lĩnh vực xây dựng pháp luật khó hơn rất nhiều so với các lĩnh vực khác, bởi nó liên quan đến nhiều cấp, nhiều ngành, nhiều vấn đề, thậm chí “ẩn giấu” trong một văn bản… Vì thế, muốn phòng chống một cách hiệu quả, phải nhận diện cụ thể những hành vi tiêu cực này.</p>
+  <div class="body">
+<h2 class="sh reveal"><span>Tồn tại tất yếu và đa dạng</span></h2>
+<p class="lead-p">Các chuyên gia pháp luật và đại biểu Quốc hội (QH) nhận định, biểu hiện của “lợi ích nhóm” trong xây dựng và áp dụng chính sách, pháp luật rất tinh vi và đa dạng. Đó có thể là hành vi lợi dụng, lạm dụng quyền lực để đưa vào chương trình xây dựng pháp luật các văn bản chỉ có lợi cho một nhóm người hoặc một ngành, địa phương nào đó. Cũng có thể là hành vi tác động, gây ảnh hưởng đến người có chức vụ, quyền hạn để đưa chính sách chỉ có lợi cho một nhóm người, nhóm doanh nghiệp (DN)… vào các văn bản pháp luật.</p>
+<p>Trong hệ thống văn bản quy phạm pháp luật (QPPL), các thông tư của các bộ, ngành và văn bản của các địa phương có nguy cơ chứa đựng “lợi ích nhóm” và tiêu cực nhiều nhất, trong khi đây là những văn bản “sát sườn”, được các bộ, ngành, người dân trực tiếp áp dụng.</p>
+<p>Đại biểu QH Vũ Trọng Kim, Ủy viên Đoàn Chủ tịch Ủy ban Trung ương MTTQ Việt Nam cho rằng, biên soạn ra một cách khác để mang lại lợi ích cho một bộ phận, một nhóm lợi ích nào đó, suy cho cùng đó cũng là tham nhũng chính sách. Từ “luật khung”, “luật ống” nên định hướng trong các chế định pháp luật chưa bao gồm được các nội hàm cụ thể để điều chỉnh, vì thế, khi “anh” làm những văn bản dưới luật có mở rộng ra nhưng không đúng với tinh thần của điều luật.</p>
+<p>Chỗ này dễ bị nhóm lợi ích lợi dụng với lý do “cụ thể hóa điều luật” nhưng lại “ngầm” để phục vụ cho một nhóm hay một ngành nào đó. Điều đó sau khi áp dụng một thời gian mới phát hiện ra, cuộc sống đã chỉ cho chúng ta thấy tính khả thi không có, thậm chí bị lệch hướng... “Đây chính là vấn đề cụ thể hóa điều luật bằng các văn bản, nghị định, quyết định, thông tư hướng dẫn thi hành pháp luật. Do vậy, chúng ta cần phải chú ý - tất nhiên không phải là tất cả”, ông Kim lưu ý.</p>
+<p>Là người có thâm niên công tác lâu năm ở Liên đoàn Thương mại và Công nghiệp Việt Nam (VCCI), Luật sư (LS) Trần Hữu Huỳnh, nguyên Trưởng Ban Pháp chế VCCI; nguyên Chủ tịch Trung tâm Trọng tài Quốc tế Việt Nam nhấn mạnh, ở bất kỳ thể chế, điều kiện nào, các cá nhân luôn hướng tới động cơ hưởng lợi và liên kết với nhau cả theo chiều ngang và chiều dọc, do vậy, nhóm lợi ích là tất yếu.</p>
+<p>Liên kết ngang là giữa các DN trong cùng ngành hàng hoặc khác ngành hàng; hoặc những Hiệp hội cùng liên kết với nhau để vừa tác động vào thị trường (vì thế chúng ta có Luật Cạnh tranh để chống cạnh tranh không lành mạnh, chống độc quyền); vừa tác động vào chính sách (vì thế chúng ta có Luật Ban hành văn bản QPPL để hạn chế, ngăn chặn việc tác động vào chính sách). Liên kết dọc là liên kết với các cán bộ trong bộ máy Nhà nước để tác động vào chính sách, pháp luật…</p>
+<h2 class="sh reveal"><span>Sự giằng co dai dẳng</span></h2>
+<p>Phân tích cụ thể hơn, LS Trần Hữu Huỳnh nhận xét: trước đây, khi Nhà nước nắm giữ nhiều nguồn lực thì vấn đề cạnh tranh không phức tạp như hiện nay. Nhưng khi chúng ta mở rộng hội nhập, thực hiện cải cách và có nhiều thành phần kinh tế thì các nhóm lợi ích đa dạng, phức tạp và tinh vi hơn.</p>
+<figure class="wide reveal"><img src="img/k2-1.jpg" alt="Nhận diện những hành vi tiêu cực" loading="lazy"></figure>
+<p>“Ngày xưa, khi chúng tôi làm Luật DN, nhóm DN Nhà nước không mong muốn có DN tư nhân ra đời - vì phải cạnh tranh; họ cũng không muốn DN nước ngoài vào nhiều - vì thích độc quyền, không thích san sẻ thị trường và mất dần lợi thế… Ngược lại, DN tư nhân mới ra đời họ cũng cần có tiếng nói, cần sự liên kết, nên cuộc đấu tranh giữa các nhóm lợi ích là cả một quá trình; đó là sự “giằng xé” lợi ích giữa các bên” - LS Huỳnh chia sẻ.</p>
+<p>Chỉ ra hai biểu hiện của các nhóm lợi ích trong xây dựng chính sách, pháp luật, LS Huỳnh cho rằng, thứ nhất là từ phía các cơ quan xây dựng pháp luật, đó là biểu hiện của cơ chế xin - cho; cơ chế này thể hiện ở chỗ không tự do hóa các ngành nghề.</p>
+<p>Ông cho biết: “Trước đây, chúng tôi thống kê các giấy phép, việc bỏ cái này, đấu tranh cái kia, đôi khi dai dẳng. Thủ tướng Chính phủ phải thành lập một tổ công tác để rà soát các hiện tượng giấy phép; cuối cùng, lập thống kê ra không biết bao nhiêu loại giấy phép… Khi xây dựng Luật DN năm 1999, chỉ bỏ được khoảng hơn 30 giấy phép mà phải đấu tranh ác liệt lắm. Sau này, bỏ đến hàng nghìn giấy phép”.</p>
+<p>Về phía các DN, trước đây, khối DN Nhà nước độc quyền nhiều lĩnh vực. Đối với những lĩnh vực quan trọng như năng lượng, hàng hải…, lấy lý do yêu cầu an ninh quốc gia, an ninh năng lượng… để vận động giữ quyền lợi cho cho ngành của mình ở vị trí ưu tiên hơn. Cộng đồng DN thì vận động giảm các tiêu chuẩn môi trường, vận động để được khai thác những nguồn lợi chung của quốc gia (như khoáng sản và các ngành đưa lại lợi ích lớn, như xăng dầu, điện lực, lương thực, giao thông vận tải, cảng biển, sân bay…).</p>
+<p>“Thông thường, họ vận động qua cơ quan quản lý trực tiếp đối với lĩnh vực đó. Ví dụ, đối với sức khỏe thì vận động qua Bộ Y tế và các cơ quan liên quan đến tiêu chuẩn, quy chuẩn kỹ thuật. Vấn đề về giao thông vận tải thì vận động qua Bộ Giao thông Vận tải; xăng dầu, điện, năng lượng… thì qua Bộ Công Thương và những cơ quan có liên quan khác…”, LS huỳnh chia sẻ.</p>
+<p><em>(còn nữa)</em></p>
+<aside class="bx reveal"><h3>Kiến nghị bỏ hơn 5.000 điều kiện kinh doanh</h3><p>LS Trần Hữu Huỳnh cho biết: “Trước đây, quá trình VCCI kiến nghị để bãi bỏ các giấy phép, các điều kiện kinh doanh (ĐKKD) rất gian nan. Giai đoạn 2005 -2007, qua rà soát hơn 11.000 ĐKKD, chúng tôi kiên quyết kiến nghị bỏ hơn một nửa (hơn 5.000 ĐKKD). Không chỉ vậy, những ĐKKD dưới dạng giấy phép, chứng chỉ hành nghề, các quy chuẩn, tiêu chuẩn trong các lĩnh vực, từ thương mại đến giao thông, du lịch, xây dựng, bất động sản… cũng được chúng tôi thường xuyên rà soát. Đến bây giờ vẫn làm”.</p></aside>
+<aside class="bx reveal"><h3>Điều kiện kinh doanh “giết chết” nhiều doanh nghiệp nhỏ và vừa</h3><p>Báo cáo rà soát điều kiện kinh doanh (ĐKKD) và quyền tự do kinh doanh ở Việt Nam do VCCI thực hiện vào năm 2017 cho biết, Nhóm nghiên cứu đã lựa chọn một số lĩnh vực “nóng”, chứa đựng nhiều bất cập của ba Bộ: Công Thương, Giao thông Vận tải, Khoa học và Công nghệ.</p><p>Qua rà soát 14 ngành, nghề, Nhóm nghiên cứu thấy nổi lên ba vấn đề lớn. Thứ nhất, ĐKKD có tính chất áp đặt quy mô DN: các ĐKKD dạng này thường thể hiện ở các hình thức yêu cầu các chủ thể kinh doanh phải có tối thiểu cơ sở vật chất nào đó (ví dụ, thương nhân xuất khẩu, nhập khẩu khí hóa lỏng (LPG) phải có kho tổng dung tích các bồn chứa tối thiểu 3.000m3…); yêu cầu tổ chức bộ máy phải có bộ phận nhất định… Thứ hai, ĐKKD có tính chất can thiệp vào quyền tự quyết của DN. Ví dụ, yêu cầu phải tổ chức kinh doanh theo một phương thức cứng nhắc; theo quy mô nhất định… Thứ ba, ĐKKD có tính chất can thiệp vào thị trường bằng các biện pháp/mệnh lệnh hành chính. Ví dụ: yêu cầu nhân viên phục vụ trên phương tiện vận chuyển khách du lịch phải được tập huấn về nghiệp vụ du lịch…</p><p>“Với những đặc điểm của ĐKKD được chỉ ra ở trên, các DN nhỏ và vừa muốn tham gia vào thị trường của các ngành, nghề trên là rất khó khăn… Thực tế cũng đã chứng minh, những điều kiện kinh doanh trên đã “giết chết” rất nhiều DN nhỏ và vừa và biến thị trường thành “sân chơi” của một số DN có tiềm lực tài chính (ví dụ: thị trường xuất khẩu gạo, phân phối khí).</p><p>Đôi khi nhà làm luật đang có sự nhầm lẫn khi xác định mục tiêu ban hành các ĐKKD, họ quan tâm quá nhiều đến hiệu quả kinh doanh của DN khi xây dựng một ĐKKD nào đó. Ví dụ, đối với vận tải biển, các DN bắt buộc phải có bộ phận pháp chế, với lý do sẽ giúp DN vận dụng, chấp hành pháp luật tốt hơn, bảo vệ được quyền lợi của mình khi xảy ra tranh chấp... Yêu cầu này là hoàn toàn không cần thiết bởi tự bản thân DN sẽ phải nhận thức được điều này xuất phát từ quyền lợi của chính họ. Ngay cả khi DN không ý thức được và thất bại trong các tranh chấp pháp lý thì quyền lợi của chính DN bị ảnh hưởng và không liên quan gì tới lợi ích công cộng” - Báo cáo của VCCI nhận xét.</p><p>Từ những bất cập trên, VCCI đã kiến nghị, trong 5 ngành, nghề kinh doanh có điều kiện thuộc phạm vi quản lý của Bộ Công Thương: đề xuất bỏ 56 ĐKKD; sửa đổi 4 ĐKKD. Trong 4 ngành, nghề kinh doanh có điều kiện thuộc phạm vi quản lý của Bộ Giao thông Vận tải, đề xuất bỏ 27 ĐKKD; sửa đổi 4 ĐKKD. Trong 5 ngành, nghề kinh doanh có điều kiện thuộc phạm vi quản lý của Bộ Khoa học và Công nghệ, đề xuất bỏ 13 ĐKKD; sửa đổi 5 ĐKKD.</p><p>Phần lớn những kiến nghị trong báo cáo của VCCI sau đó đã được Chính phủ và các bộ, ngành liên quan lắng nghe, chấp nhận sửa đổi, bãi bỏ nhằm thúc đẩy môi trường đầu tư, kinh doanh của nước ta trở nên thông thoáng hơn, tiệm cận với tinh thần về “quyền tự do kinh doanh” được ghi nhận tại Hiến pháp 2013.</p></aside>
+  </div>
+  <div class="src">
+    <span class="src-l">Bài viết đăng trên Báo Pháp luật Việt Nam ngày 25/10/2022</span>
+    <a class="src-btn" href="https://baophapluat.vn/chong-loi-ich-nhom-trong-xay-dung-va-ap-dung-phap-luat-ky-2-nhan-dien-nhung-hanh-vi-tieu-cuc-post456237.html" target="_blank" rel="noopener"><span class="src-k">Nguồn</span> Báo Pháp luật Việt Nam ↗</a>
+  </div>
+  <div class="pager"><a class="pg prev" href="#ky-1"><small>← Kỳ 1</small><b>Quyết tâm nhất quán của Đảng</b></a><a class="pg next" href="#ky-3"><small>Đọc tiếp Kỳ 3 →</small><b>“Cài cắm” khi xây dựng văn bản</b></a></div>
+</article>
+
+<article class="ky" id="ky-3" data-k="3" aria-labelledby="t3">
+  <header class="ky-head">
+    <div class="ky-num" aria-hidden="true">03</div>
+    <div class="ky-kick">KỲ 3 / 5</div>
+    <h2 class="ky-title" id="t3">“Cài cắm” khi xây dựng văn bản</h2>
+    <div class="ky-meta"><span>✍ Vân Anh - Hà Dung</span><span>26/10/2022 · 06:33</span></div>
+  </header>
+  <p class="sapo"><b>(PLVN) –</b> “Nhóm lợi ích” trong xây dựng và áp dụng pháp luật thường tạo thành đường dây có tổ chức, hoạt động tinh vi, được che giấu dưới các thủ tục hợp pháp, lợi dụng danh nghĩa lợi ích tập thể, quốc gia để hưởng lợi không chính đáng.</p>
+  <div class="body">
+<h2 class="sh reveal"><span>Từ “làm màu” đến “vận động hành lang”</span></h2>
+<p class="lead-p">Theo các chuyên gia, trong giai đoạn xây dựng và ban hành chính sách, nhóm lợi ích có thể “chèn” các câu chữ vào văn bản quy phạm pháp luật, mỗi câu chữ thêm hoặc bớt trong văn bản có thể sẽ là những thủ tục, “giấy phép con” trong quá trình thực thi chính sách.</p>
+<p>Đại biểu Quốc hội (QH) Vũ Trọng Kim, Ủy viên Đoàn Chủ tịch Ủy ban Trung ương MTTQ Việt Nam chỉ rõ: “Nhóm lợi ích” thường tác động vào đội ngũ những người có học thuật để điều chỉnh tầm vĩ mô của văn bản pháp luật - đó là cái lớn. Còn cái nhỏ, họ hướng vào việc đem lại lợi ích cho một bộ phận nào đó. “Các nhóm lợi ích cũng có khả năng “xuyên thủng” các văn bản pháp luật bằng những cách làm mà ở đó thiếu sự giám sát của các tầng lớp nhân dân, đặc biệt là của những đối tượng thụ hưởng các chính sách có trong pháp luật” - ông Kim nhận xét.</p>
+<p>Vấn đề nữa được ông Kim đề cập, đó là ban soạn thảo các văn bản, chính sách pháp luật đôi khi được cơ cấu không đầy đủ thành phần, không mang tính phản biện. Họ lấy lý do muốn làm nhanh để tiết kiệm thời gian, tiền bạc cho dự án nào đó, nên lấy ý kiến một cách hình thức; tức là gửi văn bản tới và mong có chữ ký của Mặt trận để báo cáo với cấp trên và người phê duyệt dự án rằng tôi đã hoàn thành quy trình, nhưng quy trình, văn bản lấy ý kiến này lại chưa chất lượng.</p>
+<p>Cùng quan điểm, Thiếu tướng Nguyễn Mai Bộ, nguyên Ủy viên Thường trực Uỷ ban Quốc phòng và An ninh của QH nhận định, việc cài cắm “lợi ích nhóm” có thể diễn ra ở các công đoạn của hoạt động xây dựng pháp luật. Ví dụ ở công đoạn soạn thảo, các bộ, ngành được giao soạn thảo pháp luật có thể “gia tăng” vào cho bộ, ngành mình được nhiều quyền, có khi cả quyền đã được pháp luật giao cho các bộ, ngành khác. Để làm được điều đó, trong quá trình đánh giá chính sách cũng như tổ chức hội thảo để xây dựng dự án luật, cơ quan chủ trì soạn thảo thường mời những nhà khoa học, nhà phản biện “ủng hộ”, “đồng” quan điểm của họ tham dự, còn những người không đồng ý thì không được mời.</p>
+<figure class="wide reveal"><img src="img/k3-1.jpg" alt="Thiếu tướng Nguyễn Mai Bộ phát biểu tại Kỳ họp thứ 11, Quốc hội khóa XIV." loading="lazy"><figcaption>Thiếu tướng Nguyễn Mai Bộ phát biểu tại Kỳ họp thứ 11, Quốc hội khóa XIV.</figcaption></figure>
+<p>Cũng không loại trừ khả năng một số ít đại biểu QH bị “vận động hành lang” để phát biểu những nội dung mà các bộ, ngành đó chuẩn bị sẵn. “Bản thân tôi là đại biểu QH đã gặp chuyện được bộ, ngành vận động. Họ đã gửi cho tôi tài liệu theo đường Ủy ban, nhưng sau đó lại gửi tài liệu kẹp cả phong bì. Tôi đã trả lời ngay rằng: “Mình đã được phát tài liệu”. Luật đó về sau tôi phản biện thật lực vì tôi không phụ thuộc vào đồng tiền. Mình cầm đồng tiền đó của người ta rồi thì có dám nói không? Vì thế, đồng tiền có thể “xuyên thủng” sự công khai, minh bạch, liêm chính của một số cán bộ đảng viên nếu không đứng vững trước sự cám dỗ của lợi ích vật chất” - Thiếu tướng Nguyễn Mai Bộ trải lòng.</p>
+<p>Theo Luật sư (LS) Trần Hữu Huỳnh, nguyên Trưởng Ban Pháp chế VCCI, nguyên Chủ tịch Trung tâm Trọng tài Quốc tế Việt Nam, để tác động vào quá trình xây dựng chính sách, pháp luật, các nhóm đối tượng thường có rất nhiều kiểu. Điển hình là tại các cuộc họp, họ trình bày công khai và nói theo những lợi ích được suy diễn chung chung, cho rằng đó là vì lợi ích quốc gia, cộng đồng. “Tôi được dự nhiều hội thảo về xây dựng pháp luật thì nhận thấy, khi phát biểu, ai cũng đều dưới danh nghĩa là lợi ích chung, không ai nói tôi là “lợi ích nhóm”. Nhưng trong nhiều vụ việc, thường thì người ta “làm màu”, “làm phép” để dưới danh nghĩa lợi ích chung, còn thực chất, “đọc vị” ra là lợi ích nhóm” - LS Huỳnh cho biết.</p>
+<h2 class="sh reveal"><span>Móc ngoặc, bè cánh, lạm dụng chức quyền</span></h2>
+<p>Tại buổi tiếp xúc cử tri TP Hà Nội diễn ra ngày 15/10 vừa qua, Tổng Bí thư Nguyễn Phú Trọng yêu cầu phải quan tâm nhiều hơn tới việc kiểm soát quyền lực ở cấp dưới. Bởi, có quyền trong tay nhưng thiếu sự giám sát sẽ dẫn đến tự tung, tự tác, thậm chí bè cánh, móc ngoặc với nhau trở thành “lợi ích nhóm” là vô cùng nguy hiểm. Tổng Bí thư dẫn ví dụ, vừa qua vụ xử lý ở Hải Dương không phải một người, mà móc ngoặc với nhau, từ Bí thư Tỉnh ủy đến cán bộ các cấp và cả cán bộ Trung ương.</p>
+<p>Trước đó, ngày 17/9, Cơ quan Cảnh sát điều tra Bộ Công an đã ra các Quyết định khởi tố bị can, Lệnh khám xét đối với ông Phạm Xuân Thăng, cựu Bí thư Tỉnh ủy Hải Dương và ông Phạm Mạnh Cường, cựu Giám đốc Sở Y tế Hải Dương về tội “Lợi dụng chức vụ, quyền hạn trong khi thi hành công vụ”. Cơ quan điều tra xác định ông Thăng và ông Cường đã có hành vi lợi dụng chức vụ, quyền hạn chỉ đạo làm trái các quy định của pháp luật trong đấu thầu để Công ty Việt Á thu lợi bất chính số tiền đặc biệt lớn, gây thiệt hại đặc biệt nghiêm trọng tài sản Nhà nước. Liên quan đến vụ án này, tính đến đầu tháng 10/2022, Bộ Công an và công an các địa phương đã khởi tố, bắt tạm giam gần 100 người để làm rõ nhiều tội danh khác nhau. Trong đó, nhiều người từng là quan chức cấp cao như ông Nguyễn Thanh Long (cựu Bộ trưởng Bộ Y tế), ông Chu Ngọc Anh (cựu Bộ trưởng Bộ Khoa học và Công nghệ)…</p>
+<p>Nhiều ý kiến cho rằng, vụ việc Công ty Việt Á có những biểu hiện rõ ràng của “lợi ích nhóm”; điển hình về tham nhũng, tiêu cực có hệ thống, tổ chức. Bởi từ khi còn là đề tài khoa học quốc gia về kit xét nghiệm COVID-19 do Học viện Quân y đề xuất, đến khi được cấp kinh phí triển khai và đấu thầu đưa vào sử dụng đều diễn ra rất nhanh chóng. Nhưng đằng sau lý do phải khẩn trương để phục vụ công tác chống dịch, kết quả điều tra đến nay cho thấy hàng loạt cán bộ đã “nhúng chàm”. Họ gấp gáp cơ bản không phải vì lợi ích chung mà phần lớn đều trục lợi cá nhân.</p>
+<p>Bên cạnh đó, các vụ án “Vi phạm quy định về quản lý, sử dụng tài sản Nhà nước gây thất thoát lãng phí” bị khởi tố và xét xử gần đây cũng đặt ra những nghi vấn về sự cấu kết, bắt tay giữa các doanh nghiệp tư nhân và các quan chức có thẩm quyền, khiến ngân sách Nhà nước thiệt hại hàng nghìn tỷ đồng. Điển hình là vụ án liên quan đến sai phạm trong hoán đổi nhà đất số 57 Cao Thắng lấy đất vàng Nhà nước tại số 185 Hai Bà Trưng (TP Hồ Chí Minh), khiến Nhà nước mất tài sản là nhà đất số 185 Hai Bà Trưng, gây thiệt hại hơn 186 tỷ đồng. Ngày 7/10 vừa qua, TAND Cấp cao tại TP Hồ Chí Minh đã xử phúc thẩm, tuyên bị cáo Nguyễn Thành Tài, cựu Phó Chủ tịch UBND TP Hồ Chí Minh 5 năm tù…</p>
+<p>Trước đó, đầu tháng 12/2021, Tòa án này cũng đã tuyên phúc thẩm vụ án sai phạm trong việc giao “đất vàng” số 8-12 Lê Duẩn (quận 1); tuyên y án sơ thẩm 8 năm tù với bị cáo Nguyễn Thành Tài về tội “Vi phạm quy định về quản lý, sử dụng tài sản Nhà nước gây thất thoát, lãng phí”...</p>
+<p><em>(còn nữa) </em></p>
+<aside class="bx reveal"><h3>Đại biểu Quốc hội Vũ Trọng Kim, Ủy viên Đoàn Chủ tịch Ủy ban Trung ương MTTQ Việt Nam:</h3><h3>“Bản thân tôi còn vậy, không biết những người dân khác sẽ thế nào?”</h3><figure class="bx-ph"><img src="img/k3-2.jpg" alt="Ông Vũ Trọng Kim" loading="lazy"><figcaption>Ông Vũ Trọng Kim</figcaption></figure><p>Trong việc hướng dẫn thực thi pháp luật, một số cán bộ còn cố tình đưa ra lý do không phù hợp để người dân, tổ chức “không biết đâu mà lần”, nhằm gây khó khăn, phiền hà, buộc họ phải chạy chọt, đưa “phí bôi trơn” và những vấn đề dịch vụ khác… Văn bản thì đúng rồi, nhưng “anh” là người có trách nhiệm đưa pháp luật vào thực tế lại cố tình không hướng dẫn đầy đủ. Bởi vậy, “lợi ích nhóm” không chỉ có trong công tác xây dựng chính sách, pháp luật, mà còn tồn tại trong khâu thực hiện văn bản pháp luật, mà nhóm này làm rất thống nhất từ trưởng phòng cho tới nhân viên, nhằm gây phiền phức cho dân để trục lợi.</p><p>Tôi đã từng đi làm sổ đỏ, nhưng 7 - 8 tháng trời không làm xong; họ nói lý do mình không thể chấp nhận được, tức là không hướng dẫn đầy đủ, gây khó khăn cho công dân. Hay như việc tôi bị mất Giấy phép lái xe, chỉ cần thủ tục đơn giản là sao chép lại từ máy tính, nhưng hẹn năm lần bảy lượt vẫn chưa được. Tôi thử chờ đợi một thời gian dài xem họ đưa ra những lý do gì, nhưng toàn là những lý do thiếu thuyết phục. Bản thân tôi còn vậy, không biết với những người dân khác sẽ như thế nào. Cuối cùng, tôi buộc phải nói rằng: “Nếu không giải quyết, ngày mai tôi sẽ có đơn gửi thủ trưởng cấp trên trực tiếp, vụ việc của các anh sẽ được kiểm tra. Các anh có đồng ý không?”. Lúc đó, việc của tôi mới được thông suốt. Họ rất sợ cấp trên về kiểm tra, vì khi kiểm tra sẽ không chỉ ra sai phạm này mà còn ra các sai phạm tùm lum khác nữa.</p></aside>
+  </div>
+  <div class="src">
+    <span class="src-l">Bài viết đăng trên Báo Pháp luật Việt Nam ngày 26/10/2022</span>
+    <a class="src-btn" href="https://baophapluat.vn/chong-loi-ich-nhom-trong-xay-dung-va-ap-dung-phap-luat-ky-3-cai-cam-khi-xay-dung-van-ban-post456382.html" target="_blank" rel="noopener"><span class="src-k">Nguồn</span> Báo Pháp luật Việt Nam ↗</a>
+  </div>
+  <div class="pager"><a class="pg prev" href="#ky-2"><small>← Kỳ 2</small><b>Nhận diện những hành vi tiêu cực</b></a><a class="pg next" href="#ky-4"><small>Đọc tiếp Kỳ 4 →</small><b>Cần đổi mới mạnh mẽ quy trình xây dựng pháp luật</b></a></div>
+</article>
+
+<article class="ky" id="ky-4" data-k="4" aria-labelledby="t4">
+  <header class="ky-head">
+    <div class="ky-num" aria-hidden="true">04</div>
+    <div class="ky-kick">KỲ 4 / 5</div>
+    <h2 class="ky-title" id="t4">Cần đổi mới mạnh mẽ quy trình xây dựng pháp luật</h2>
+    <div class="ky-meta"><span>✍ Vân Anh - Hà Dung</span><span>27/10/2022 · 06:58</span></div>
+  </header>
+  <p class="sapo"><b>(PLVN) –</b> Để đảm bảo sự liêm chính trong xây dựng và thi hành pháp luật, nhiều ý kiến đề nghị cần tăng cường trách nhiệm của các cơ quan soạn thảo, thẩm tra; tăng cường hoạt động giám sát của các cơ quan dân cử; giáo dục đội ngũ cán bộ trọng liêm sỉ, giữ danh dự; đặc biệt, cần đổi mới mạnh mẽ hơn nữa quy trình xây dựng pháp luật.</p>
+  <div class="body">
+<h2 class="sh reveal"><span>Phải “nhốt” quyền lực trong “lồng” cơ chế</span></h2>
+<p class="lead-p">Một trong những nguyên nhân chính dẫn đến tình trạng cài cắm “lợi ích nhóm” trong công tác xây dựng, thực thi chính sách, pháp luật là do sự tha hóa về tư tưởng chính trị, đạo đức lối sống của một bộ phận cán bộ có chức, có quyền. Vì thế, Tổng Bí thư Nguyễn Phú Trọng từng nhiều lần nhấn mạnh: cán bộ, đảng viên, trước hết là người lãnh đạo phải biết trọng liêm sỉ, giữ danh dự, biết xấu hổ khi bản thân và người thân có hành vi tham nhũng, tiêu cực. Không chỉ đấu tranh phòng chống tham nhũng (PCTN) trong lĩnh vực kinh tế, mà quan trọng hơn phải chống tiêu cực trong cả lĩnh vực tư tưởng chính trị, đạo đức, lối sống. Sự suy thoái về tư tưởng chính trị, đạo đức, lối sống thì mới dẫn đến tham nhũng, đây mới là cái gốc, cái cơ bản cần phải chống.</p>
+<p>Phát biểu chỉ đạo tại Hội nghị toàn quốc tổng kết 10 năm công tác đấu tranh PCTN, tiêu cực giai đoạn 2012 - 2022 diễn ra vào tháng 6/2022, Tổng Bí thư yêu cầu người được giao chức vụ, quyền hạn phải thường xuyên tự soi, tự sửa; đồng thời phải tăng cường giám sát, kiểm soát có hiệu quả việc thực thi quyền lực của người có chức vụ, quyền hạn. Bất kể ai lạm dụng, lợi dụng quyền lực để trục lợi đều phải bị truy cứu trách nhiệm và xử lý vi phạm. Phải “nhốt” quyền lực vào “lồng” cơ chế.</p>
+<p>Đáng chú ý, một trong các yêu cầu được Bộ Chính trị nhấn mạnh tại Kết luận số 19-KL/TW, ban hành định hướng Chương trình xây dựng pháp luật nhiệm kỳ Quốc hội XV là “Phát huy vai trò của nhân dân, Mặt trận Tổ quốc (MTTQ) Việt Nam và các tổ chức thành viên trong việc nâng cao chất lượng công tác phản biện xã hội đối với quy trình lập pháp và giám sát việc thực hiện pháp luật; chú trọng bản lĩnh, ý thức chính trị, không bị chi phối, tác động bởi các hành vi không lành mạnh của bất cứ tổ chức, cá nhân nào trong quá trình giám sát, phản biện xã hội”.</p>
+<p>Theo đại biểu Quốc hội (QH) Phạm Văn Hòa, để phòng, chống “lợi ích nhóm” trong việc xây dựng chính sách, pháp luật, trước tiên, cơ quan, đơn vị được phân công chủ trì soạn thảo phải khách quan, công tâm, vô tư, đặt lợi ích của Tổ quốc, lợi ích của người dân lên trên hết. Cùng với đó, cần tăng cường trách nhiệm của cơ quan chủ trì và tham gia thẩm tra. Chất lượng của việc xem xét, cho ý kiến của Ủy ban Thường vụ Quốc hội (UBTVQH) đối với các dự án luật trước khi trình QH cũng cần phải được tiếp tục tăng cường. “Cơ quan soạn thảo có thể đề ra những nội dung như vậy nhưng UBTVQH, các Ủy ban của QH và Hội đồng Dân tộc, đặc biệt là đại biểu QH phải nhìn thấy rõ vấn đề đó có phải là “lợi ích nhóm”, có lợi cho cơ quan, đơn vị A, B hay không để phản biện”, Đại biểu Phạm Văn Hòa kiến nghị.</p>
+<p>Còn theo Luật sư (LS) Trần Hữu Huỳnh - nguyên Trưởng Ban Pháp chế VCCI, nguyên Chủ tịch Trung tâm Trọng tài Quốc tế Việt Nam - nếu chúng ta thực hiện đầy đủ phương châm “Dân biết, dân bàn, dân làm, dân kiểm tra, dân giám sát, dân thụ hưởng” mà Nghị quyết Đại hội XIII của Đảng đã đề ra thì không chỉ giám sát được “lợi ích nhóm” trong công tác xây dựng, thực thi pháp luật mà còn tăng được tính tích cực, chủ động của người dân và DN trong quá trình này, giảm được chi phí và rủi ro cho Nhà nước.</p>
+<h2 class="sh reveal"><span>Bảo đảm tuân thủ chặt chẽ quy trình, thủ tục</span></h2>
+<p>Tháng 8 vừa qua, phát biểu chỉ đạo tại Hội nghị đánh giá tình hình thực hiện Kế hoạch số 81/KH-UBTVQH15 và triển khai Chương trình xây dựng luật, pháp lệnh, Chủ tịch QH Vương Đình Huệ đề nghị, chúng ta phải tiếp tục cơ chế phối hợp từ sớm, từ xa và cộng đồng trách nhiệm, lắng nghe lẫn nhau, lắng nghe người dân, cộng đồng DN. Theo cách thức này thì các dự án luật dù khó mấy cũng làm được và đạt được sự đồng thuận cao. Ông cũng yêu cầu tiếp tục đổi mới quy trình xây dựng pháp luật; đổi mới cách thức lấy ý kiến nhân dân, ý kiến chuyên gia. Siết chặt kỷ luật, kỷ cương, bảo đảm tuân thủ chặt chẽ quy trình, thủ tục luật định, nhất là việc chuẩn bị hồ sơ đưa dự án luật, pháp lệnh vào chương trình hằng năm.</p>
+<figure class="wide reveal"><img src="img/k4-1.jpg" alt="Chủ tịch Quốc hội Vương Đình Huệ yêu cầu tiếp tục đổi mới quy trình xây dựng pháp luật, đổi mới cách thức lấy ý kiến nhân dân." loading="lazy"><figcaption>Chủ tịch Quốc hội Vương Đình Huệ yêu cầu tiếp tục đổi mới quy trình xây dựng pháp luật, đổi mới cách thức lấy ý kiến nhân dân.</figcaption></figure>
+<p>Đề xuất việc lấy ý kiến góp ý các dự thảo luật phải đa dạng, nhiều chiều, LS Trần Hữu Huỳnh cho biết: “Kinh nghiệm khi làm ở VCCI là chúng tôi luôn lấy ý kiến của các nhóm đối lập nhau cùng với các nhà khoa học, các chuyên gia. Ví dụ, trong kinh doanh xăng dầu, kinh doanh gas…, Bộ Công Thương muốn đặt tiêu chuẩn rất cao cho các tổ chức kinh doanh, mục đích là muốn bảo vệ sự an toàn, tránh gian lận, nhưng người tiêu dùng vẫn có quyền có tiếng nói; bởi vậy chúng tôi mời Hiệp hội Bảo vệ người tiêu dùng đến, xem các tiêu chí của ngành gas như thế có an toàn không, có bảo vệ lợi ích của người tiêu dùng không?… Ý kiến trong các diễn đàn rất đa dạng về lợi ích đối lập, Nhà nước muốn nghiêng về lợi ích nào cũng không được và cuối cùng là QH giám sát vấn đề này”.</p>
+<p>Giải pháp tiếp theo được LS Huỳnh đề cập là trong văn bản luật cần hạn chế đến mức tối đa việc giao Chính phủ quy định chi tiết các điều khoản thi hành Luật. Chỉ trong trường hợp thật cần thiết mới quy định điều này và làm có tính chất thí điểm; đồng thời, qua hướng dẫn của Chính phủ phải nhanh chóng tổng kết để bổ sung vào điều luật.</p>
+<p>Chia sẻ về chức năng giám sát, phản biện xã hội của MTTQ Việt Nam, đại biểu QH Vũ Trọng Kim, Ủy viên Đoàn Chủ tịch Ủy ban Trung ương MTTQ Việt Nam nhấn mạnh, Mặt trận với tư cách là đại diện cho tiếng nói của các tầng lớp nhân dân, phải đóng góp, phản biện thực chất. Ngoài ra, các cơ quan chức năng cũng không nên gửi văn bản xin ý kiến giống như để cho xong một thủ tục hành chính nào đó… “Tôi rất tán thành hoạt động mang tính chất trao đổi và tương tác giữa những người am hiểu về kỹ thuật xây dựng văn bản với những người có thực tế cuộc sống. Bởi nếu chúng ta nặng về kỹ thuật xây dựng văn bản mà xem nhẹ những đòi hỏi từ cuộc sống thì sẽ không có sự thống nhất, tác động cùng chiều giữa lý thuyết và thực tế. Mặt khác, cơ quan soạn thảo phải trực tiếp đến Mặt trận và những đối tượng thụ hưởng chính sách để trực tiếp đối thoại, giải thích và phải ghi lại ý kiến khác nhau, kể cả ý kiến bảo lưu - điều này rất quan trọng, vì đây là những nội dung có vấn đề, phòng ngừa cho việc dùng hệ thống pháp luật để trục lợi” - ông Kim đề xuất.</p>
+<p>Nhấn mạnh đến vai trò phản biện của các đại biểu QH trong quá trình xây dựng các văn bản quy phạm pháp luật (QPPL), đại biểu QH Phạm Văn Hòa cho rằng, từng đại biểu QH cần chịu khó đầu tư, nghiên cứu kỹ các dự thảo văn bản QPPL, lắng nghe thêm ý kiến của các chuyên gia, người dân để tham gia thảo luận, phản biện những nội dung mình cảm thấy chưa phù hợp với thực tiễn hay những vấn đề cuộc sống đang đòi hỏi, đang đặt ra mà dự thảo luật chưa đề cập đến, hoặc những nội dung được đề cập nhưng mang tính cục bộ. Các đại biểu QH cần hướng đến mục tiêu làm sao để các văn bản QPPL sau khi ban hành sẽ đi vào cuộc sống và có tuổi thọ lâu dài, mang lại quyền và lợi ích thiết thực cho người dân và các hoạt động hàng ngày.</p>
+<p><em>(còn nữa)</em></p>
+<aside class="bx reveal"><h3>Thiếu tướng Lê Văn Cương, nguyên Viện trưởng Viện nghiên cứu Chiến lược (Bộ Công an):</h3><h3>Không ai “ăn vụng” dưới ánh sáng mặt trời</h3><figure class="bx-ph"><img src="img/k4-2.jpg" alt="Thiếu tướng Lê Văn Cương." loading="lazy"><figcaption>Thiếu tướng Lê Văn Cương.</figcaption></figure><p>Để ngăn chặn, phòng ngừa nhóm lợi ích phi pháp, xâm phạm lợi ích quốc gia thì hoạt động của cơ quan công quyền phải công khai, minh bạch. Công khai, minh bạch có thể ví như “thuốc bách bệnh” để khắc phục tham nhũng, nhóm lợi ích phi pháp. Không ai “ăn vụng” dưới ánh sáng mặt trời; 100% các vụ tham nhũng lớn đều là khuất tất cả. Vụ án Việt Á cũng là không công khai, minh bạch, do một nhóm làm, chìm trong bóng tối. Nếu đưa ra công khai thì chắc chắn nhiều học giả am hiểu sẽ phản đối, có ý kiến khác ngay.</p><p>Ngoài ra, để ngăn chặn nhóm lợi ích phi pháp, dứt khoát phải xây dựng một đội ngũ cán bộ - trước hết là cán bộ chủ chốt các cấp gương mẫu. Đồng thời, phải phát huy tối đa sự tham gia và giám sát của người dân đối với các dự án. Phải tạo ra một cơ chế để người dân trực tiếp tham gia và giám sát việc hình thành, xây dựng đến triển khai các dự án phát triển kinh tế - xã hội.</p><p>Việc xây dựng hệ thống luật pháp, ban soạn thảo dự án luật phải chuẩn bị sớm. Trước khi đưa ra thảo luận tại QH phải lấy ý kiến nhân dân. Ví dụ, một dự án luật dự kiến trình ra QH cho ý kiến thì trước đó khoảng 5 - 6 tháng phải đưa ra lấy ý kiến nhân dân. Bởi QH do dân bầu ra, nhưng trong 100 triệu người dân, nhiều người có kiến thức, rất sáng suốt.</p></aside>
+  </div>
+  <div class="src">
+    <span class="src-l">Bài viết đăng trên Báo Pháp luật Việt Nam ngày 27/10/2022</span>
+    <a class="src-btn" href="https://baophapluat.vn/chong-loi-ich-nhom-trong-xay-dung-va-ap-dung-phap-luat-ky-4-can-doi-moi-manh-me-quy-trinh-xay-dung-phap-luat-post456512.html" target="_blank" rel="noopener"><span class="src-k">Nguồn</span> Báo Pháp luật Việt Nam ↗</a>
+  </div>
+  <div class="pager"><a class="pg prev" href="#ky-3"><small>← Kỳ 3</small><b>“Cài cắm” khi xây dựng văn bản</b></a><a class="pg next" href="#ky-5"><small>Đọc tiếp Kỳ 5 →</small><b>Cần sớm có văn bản nhận diện đầy đủ, chính xác các biểu hiện tiêu cực</b></a></div>
+</article>
+
+<article class="ky" id="ky-5" data-k="5" aria-labelledby="t5">
+  <header class="ky-head">
+    <div class="ky-num" aria-hidden="true">05</div>
+    <div class="ky-kick">KỲ 5 / 5</div>
+    <h2 class="ky-title" id="t5">Cần sớm có văn bản nhận diện đầy đủ, chính xác các biểu hiện tiêu cực</h2>
+    <div class="ky-meta"><span>✍ Minh Ngọc</span><span>28/10/2022 · 06:38</span></div>
+  </header>
+  <p class="sapo"><b>(PLVN) –</b> Ông Hồ Quang Huy, Cục trưởng Cục Kiểm tra văn bản quy phạm pháp luật (Bộ Tư pháp) cho rằng, để ngăn chặn, phát hiện, xử lý tiêu cực, cài cắm “lợi ích nhóm” trong xây dựng chính sách, pháp luật, trước tiên các cơ quan có thẩm quyền cần nghiên cứu, tham mưu để Bộ Chính trị xem xét, sớm ban hành văn bản của Đảng trực tiếp điều chỉnh toàn diện vấn đề này, làm cơ sở để các cơ quan Nhà nước có thẩm quyền thể chế hóa chính xác, kịp thời, đồng bộ và thống nhất.</p>
+  <div class="body">
+<figure class="wide reveal"><img src="img/k5-1.jpg" alt="Chống “lợi ích nhóm” trong xây dựng và áp dụng chính sách, pháp luật nhằm hướng đến một hệ thống pháp luật đồng bộ, ổn định, minh bạch, khả thi. Ảnh: Hội nghị của Chính phủ về công tác xây dựng và hoàn thiện thể chế, năm 2021." loading="lazy"><figcaption>Chống “lợi ích nhóm” trong xây dựng và áp dụng chính sách, pháp luật nhằm hướng đến một hệ thống pháp luật đồng bộ, ổn định, minh bạch, khả thi. Ảnh: Hội nghị của Chính phủ về công tác xây dựng và hoàn thiện thể chế, năm 2021.</figcaption></figure>
+<p class="lead-p">Theo ông Hồ Quang Huy, trong công tác xây dựng và áp dụng pháp luật, nếu những hành vi tiêu cực không được phát hiện và kiểm soát, phòng, chống kịp thời, hiệu quả thì có thể dẫn đến những hậu quả đặc biệt nghiêm trọng, tác động trực tiếp đến mọi mặt của đời sống xã hội. Chẳng hạn như việc cài cắm “lợi ích nhóm” có thể làm cản trở quá trình thực thi đường lối, chủ trương đúng đắn của Đảng, chính sách, pháp luật của Nhà nước, qua đó kìm hãm sự phát triển của đất nước; làm ảnh hưởng tiêu cực đến đội ngũ cán bộ, công chức, viên chức, người lao động trong các cơ quan, tổ chức; gây ra sự bức xúc, mất lòng tin của nhân dân vào Đảng, Nhà nước…</p>
+<h2 class="sh reveal"><span>Vẫn còn tồn tại văn bản trái pháp luật về nội dung, thẩm quyền</span></h2>
+<p><em>Ông có thể thông tin về kết quả kiểm tra văn bản quy phạm pháp luật (QPPL) của Bộ Tư pháp trong thời gian qua? Sự tồn tại của các văn bản có nội dung trái pháp luật đã được Cục Kiểm tra văn bản QPPL phát hiện, kết luận nói lên điều gì, thưa ông?</em></p>
+<p>- Thực hiện chức năng, nhiệm vụ được giao, trong 5 năm qua, Cục Kiểm tra văn bản QPPL đã tổ chức kiểm tra 25.670 văn bản (trong đó có 2.882 văn bản cấp bộ và 22.788 văn bản do chính quyền địa phương cấp tỉnh ban hành). Mặc dù đã có sự nỗ lực rất lớn của các ngành, các cấp trong công tác xây dựng, hoàn thiện thể chế, pháp luật, nhưng qua kiểm tra trong số đó vẫn phát hiện còn tồn tại văn bản trái pháp luật về nội dung, thẩm quyền (chiếm khoảng 2,15%) ở cả Trung ương và địa phương.</p>
+<p>Trong thời gian gần đây, công tác xử lý văn bản đã đạt được nhiều kết quả quan trọng, gần 100% văn bản trái pháp luật nêu trên đã được xử lý, cơ bản các cơ quan ban hành văn bản trái pháp luật có tinh thần nghiêm túc, cầu thị, khẩn trương tiếp nhận và xử lý nội dung trái pháp luật của văn bản. Nhưng chưa có đủ cơ sở để khẳng định văn bản cụ thể nào cài cắm “lợi ích nhóm”, vì vấn đề này phải được xác minh kỹ lưỡng, gắn với việc xem xét, đánh giá toàn diện, chính xác động cơ, mục đích, hậu quả, cách thức thực hiện... và phải do cơ quan, chủ thể có thẩm quyền chịu trách nhiệm về kết quả đánh giá, xác minh.</p>
+<p>Tuy nhiên, việc còn tồn tại văn bản trái pháp luật nêu trên cho thấy, chất lượng hệ thống văn bản QPPL vẫn cần tiếp tục được quan tâm, hoàn thiện hơn nữa. Việc kiểm soát chất lượng văn bản trước và sau khi ban hành vẫn chưa đáp ứng được tốt nhất yêu cầu. Bên cạnh đó, việc thực hiện quy định pháp luật, kỷ luật, kỷ cương trong ban hành văn bản còn chưa nghiêm. Việc xem xét, xử lý trách nhiệm đối với người, cơ quan ban hành văn bản trái pháp luật chưa kịp thời, cụ thể.</p>
+<p>Qua đó cho thấy, đội ngũ làm công tác xây dựng, kiểm tra, rà soát văn bản QPPL, cũng như việc bố trí kinh phí và các điều kiện bảo đảm để phục vụ công tác này cần tiếp tục được quan tâm đặc biệt; cơ chế, phạm vi văn bản được kiểm tra cần nghiên cứu để mở rộng, bao quát, hoàn thiện hơn nữa… Theo tôi, các cơ quan có thẩm quyền phải xác định rõ nguyên nhân, sớm có giải pháp hữu hiệu nhằm khắc phục những hạn chế nêu trên, góp phần nâng cao hơn nữa chất lượng xây dựng, ban hành văn bản QPPL.</p>
+<figure class="wide reveal"><img src="img/k5-2.jpg" alt="Ông Hồ Quang Huy." loading="lazy"><figcaption>Ông Hồ Quang Huy.</figcaption></figure>
+<p><em>Nhiều ý kiến cho rằng, rất khó để nhận diện được tình trạng cài cắm “lợi ích nhóm” trong xây dựng chính sách, pháp luật. Ông có thể gợi mở một số căn cứ để nhận diện hành vi này?</em></p>
+<p>- Đúng là rất khó để có thể nhận diện được tình trạng cài cắm “lợi ích nhóm” trong xây dựng chính sách, pháp luật do các biểu hiện của hành vi không “trực diện”, không dễ “lượng hóa”, lại được thực hiện rất tinh vi, có khi được “che giấu” dưới các thủ tục hợp pháp, mang danh nghĩa lợi ích tập thể để hưởng lợi không chính đáng. Tuy nhiên, trên cơ sở nội hàm của khái niệm “lợi ích nhóm” cũng như đối chiếu với thực tiễn được đúc rút từ công tác kiểm tra, xử lý văn bản QPPL, chúng tôi mạnh dạn nêu ra một số “biểu hiện”, qua đó có thể bị lợi dụng để cố ý cài cắm “lợi ích nhóm”, tiêu cực trong quá trình xây dựng chính sách, pháp luật.</p>
+<p>Ví dụ các “biểu hiện” cụ thể như ban hành văn bản hành chính nhưng có chứa QPPL, đồng thời, QPPL này trái pháp luật; ban hành văn bản không đúng thẩm quyền (đặt ra thủ tục hành chính; đặt ra điều kiện đầu tư kinh doanh hoặc ngành nghề kinh doanh có điều kiện; hạn chế quyền con người, quyền công dân…). Ban hành văn bản có nội dung trái với Hiến pháp, trái với văn bản QPPL có hiệu lực pháp lý cao hơn. Ban hành văn bản quy định thời điểm có hiệu lực trái với quy định của Luật Ban hành văn bản QPPL. Văn bản QPPL được ban hành vi phạm nghiêm trọng trình tự, thủ tục ban hành văn bản. Không xử lý hoặc chậm xử lý văn bản trái pháp luật do mình ban hành…</p>
+<p>Tôi xin nhấn mạnh, để khẳng định các biểu hiện nêu trên có chứa “lợi ích nhóm” hay không thì phải căn cứ toàn diện các yếu tố, bao gồm nội dung, tính chất, mức độ, hậu quả của hành vi; lỗi, động cơ, mục đích của chủ thể thực hiện hành vi… Ngoài ra, còn có một số yếu tố khác cũng cần được xem xét, đánh giá khi xác định biểu hiện có hay không “lợi ích nhóm” trong xây dựng thể chế, pháp luật như lấy danh nghĩa tập thể để áp đặt, hợp thức hóa quyết định sai trái, động cơ vụ lợi của cá nhân; cấu kết với các đối tượng khác để trục lợi; móc nối, câu kết với các thế lực thù địch, phản động và các phần tử cơ hội khi xây dựng, ban hành văn bản QPPL…</p>
+<h2 class="sh reveal"><span>Chú trọng đầu tư cho lĩnh vực xây dựng, hoàn thiện thể chế</span></h2>
+<p><em>Vậy, theo ông, cần làm gì để ngăn chặn khả năng có tiêu cực, cài cắm “lợi ích nhóm” trong xây dựng và áp dụng pháp luật?</em></p>
+<p>- Tôi nghĩ, giải pháp căn cơ, toàn diện là phải nhanh chóng hoàn thiện và sớm ban hành quy định của Đảng về kiểm soát quyền lực, phòng, chống tham nhũng, tiêu cực, “lợi ích nhóm” trong công tác xây dựng chính sách, pháp luật. Theo đó, các cơ quan có thẩm quyền nghiên cứu, tham mưu để Bộ Chính trị xem xét, ban hành văn bản nhằm nhận diện các biểu hiện cụ thể của tham nhũng, tiêu cực, “lợi ích nhóm” trong công tác xây dựng chính sách, pháp luật; động cơ, mục đích khi ban hành văn bản QPPL có lồng ghép “lợi ích nhóm”, tham nhũng, tiêu cực; quy trình, cách thức xác định và hình thức xử lý cán bộ, đảng viên tham mưu, ban hành văn bản QPPL có nội dung trái pháp luật, lồng ghép “lợi ích nhóm”, tham nhũng, tiêu cực.</p>
+<p>Mục đích hướng đến của quy định này suy cho cùng chính là nhằm mục tiêu xây dựng một hệ thống pháp luật đồng bộ, ổn định, thống nhất, minh bạch, khả thi, đồng thời không làm cản trở sự chủ động, sáng tạo, công khai, minh bạch, dân chủ trong công tác xây dựng pháp luật và bảo vệ hiệu quả cán bộ dám nghĩ, dám làm, dám đổi mới vì lợi ích chung, vì sự phát triển của đất nước. Trên cơ sở đó, các cơ quan Nhà nước có thẩm quyền sẽ tổ chức rà soát, sửa đổi, bổ sung hoặc ban hành mới văn bản QPPL có liên quan nhằm bảo đảm thể chế hóa chính xác, kịp thời, đầy đủ, đồng bộ và thống nhất với quy định của Đảng về vấn đề này.</p>
+<p>Tại thời điểm hiện nay, cần tiếp tục thực hiện đồng bộ, hiệu quả các giải pháp như bảo đảm sự lãnh đạo thống nhất, toàn diện của Đảng trong công tác xây dựng chính sách, pháp luật; tổ chức quán triệt, thực hiện nghiêm các quy định của Đảng và pháp luật của Nhà nước trong công tác xây dựng pháp luật. Bên cạnh đó, cần tăng cường hiệu quả cơ chế phối hợp, kiểm soát quyền lực giữa các cơ quan Nhà nước trong việc thực hiện các quyền lập pháp, hành pháp và tư pháp; tăng cường các hoạt động giám sát, kiểm tra văn bản QPPL theo quy định. Nâng cao chất lượng tham gia ý kiến, góp ý, giám sát, phản biện xã hội của Mặt trận Tổ quốc Việt Nam, các tổ chức thành viên của Mặt trận và nhân dân trong công tác xây dựng, hoàn thiện pháp luật; tăng cường số lượng, nâng cao chất lượng đội ngũ làm công tác xây dựng pháp luật.</p>
+<p>Cùng với đó, cần chú trọng đầu tư cho lĩnh vực xây dựng, hoàn thiện thể chế, xem đây chính là đầu tư dành cho phát triển theo đúng như chỉ đạo của Chính phủ, Thủ tướng Chính phủ... Đồng thời, phải tuân thủ nghiêm quy định về thẩm quyền, trình tự, thủ tục, bảo đảm tiến độ, thời hạn, chất lượng trong từng văn bản; nâng cao ý thức trách nhiệm của người đứng đầu cấp ủy, cơ quan, tổ chức, cá nhân trong công tác xây dựng pháp luật và tùy theo tính chất, mức độ lỗi, nội dung trái pháp luật của văn bản, các chủ thể có liên quan phải chịu trách nhiệm theo quy định của pháp luật.</p>
+<p><em>Trân trọng cảm ơn ông!</em></p>
+  </div>
+  <div class="src">
+    <span class="src-l">Bài viết đăng trên Báo Pháp luật Việt Nam ngày 28/10/2022</span>
+    <a class="src-btn" href="https://baophapluat.vn/chong-loi-ich-nhom-trong-xay-dung-va-ap-dung-phap-luat-ky-5-can-som-co-van-ban-nhan-dien-day-du-chinh-xac-cac-bieu-hien-tieu-cuc-post456631.html" target="_blank" rel="noopener"><span class="src-k">Nguồn</span> Báo Pháp luật Việt Nam ↗</a>
+  </div>
+  <div class="pager"><a class="pg prev" href="#ky-4"><small>← Kỳ 4</small><b>Cần đổi mới mạnh mẽ quy trình xây dựng pháp luật</b></a><a class="pg next" href="../index.html#vinh-danh"><small>Hết loạt bài →</small><b>Về trang Siêu toà soạn</b></a></div>
+</article>
+</main>
+
+<footer class="foot">
+  <p>Nội dung loạt bài thuộc bản quyền <a href="https://baophapluat.vn/" target="_blank" rel="noopener">Báo Pháp luật Việt Nam</a> — trình bày lại dưới dạng longform.</p>
+  <p style="margin-top:8px"><a href="../index.html#vinh-danh">← Quay lại trang Siêu toà soạn</a></p>
+</footer>
+
+<script>
+(()=>{
+const arts=[...document.querySelectorAll('.ky')],btns=[...document.querySelectorAll('.kb')],top=document.getElementById('top'),prog=document.getElementById('prog'),nav=document.querySelector('.knav');
+let io;
+function observe(root){io&&io.disconnect();io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  root.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));document.querySelectorAll('body>.reveal:not(.in)').forEach(el=>io.observe(el))}
+function show(k,scroll){k=Math.min(5,Math.max(1,k|0||1));arts.forEach(a=>a.classList.toggle('on',+a.dataset.k===k));btns.forEach(b=>b.classList.toggle('on',+b.dataset.k===k));
+  const on=btns[k-1],wrap=document.getElementById('knav');if(on&&wrap.scrollWidth>wrap.clientWidth)wrap.scrollTo({left:on.offsetLeft-(wrap.clientWidth-on.offsetWidth)/2,behavior:'smooth'});observe(arts[k-1]);
+  if(scroll){const y=nav.getBoundingClientRect().top+scrollY-50;scrollTo({top:y,behavior:'smooth'})}}
+const fromHash=()=>{const m=location.hash.match(/ky-(\d)/);return m?+m[1]:0};
+addEventListener('hashchange',()=>show(fromHash(),true));
+show(fromHash()||1,!!fromHash());
+addEventListener('scroll',()=>{top.classList.toggle('s',scrollY>40);const a=arts.find(x=>x.classList.contains('on'));if(!a)return;
+  const r=a.getBoundingClientRect(),p=Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)));prog.style.width=(p*100)+'%'},{passive:true});
+})();
+</script>
+</body>
+</html>
