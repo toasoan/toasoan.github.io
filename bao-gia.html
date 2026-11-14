@@ -217,6 +217,53 @@ footer{padding:40px clamp(16px,6vw,96px);display:flex;justify-content:space-betw
 footer img{height:34px;mix-blend-mode:multiply}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
+<style id="gate-css">
+html.locked body>*:not(#gate){display:none!important}
+#gate{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;font-family:"Be Vietnam Pro",system-ui,sans-serif;
+  background:radial-gradient(120% 80% at 50% 20%,#e8372f 0%,#9e1712 55%,#4a0906 100%);color:#fff;overflow:hidden;transition:opacity .6s,visibility .6s}
+#gate::before{content:"";position:absolute;inset:-50%;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,231,163,.08) 0 5deg,transparent 5deg 18deg);animation:gspin 80s linear infinite}
+@keyframes gspin{to{transform:rotate(360deg)}}
+#gate.out{opacity:0;visibility:hidden}
+#gate .gbox{position:relative;width:min(100%,420px);text-align:center;padding:40px 30px 34px;border-radius:28px;background:rgba(255,255,255,.1);border:1px solid rgba(255,231,163,.3);backdrop-filter:blur(14px);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+#gate .glogo{display:inline-block;background:#fff;border-radius:16px;padding:10px 18px;margin-bottom:22px}
+#gate .glogo img{height:52px;display:block;mix-blend-mode:multiply}
+#gate h1{font-family:"Playfair Display",serif;font-weight:800;font-size:30px;line-height:1.15;margin:0 0 6px}
+#gate h1 em{color:#ffe7a3}
+#gate p{margin:0 0 24px;font-size:14px;color:rgba(255,255,255,.8)}
+#gate label{display:block;text-align:left;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;color:#ffe7a3;margin-bottom:8px}
+#gate .grow{display:flex;flex-direction:column;gap:12px}
+#gate input{width:100%;height:52px;text-align:center;border-radius:14px;border:2px solid rgba(255,255,255,.35);background:#fff;color:#1d1413;padding:0 16px;font-size:17px;font-family:inherit;outline:none;transition:border-color .2s}
+#gate input::placeholder{color:#9a8f8c}
+#gate input:focus{border-color:#f2c14e}
+#gate button{height:52px;padding:0 20px;border:0;border-radius:14px;background:#f2c14e;color:#5a0c09;font-weight:700;font-size:15px;font-family:inherit;cursor:pointer;transition:transform .2s}
+#gate button:hover{transform:translateY(-2px)}
+#gate .gerr{min-height:20px;margin-top:12px;font-size:13.5px;color:#ffe7a3}
+#gate .shake{animation:gshake .45s}
+@keyframes gshake{20%{transform:translateX(-10px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
+@media (prefers-reduced-motion:reduce){#gate::before{animation:none}}
+</style>
+<script>
+(function(){var ok=false;try{ok=sessionStorage.getItem('bplvn-ok')==='1'}catch(e){}
+if(ok)return;document.documentElement.classList.add('locked');
+var H='fd58c47bd292266e32d22cc6e8eb36d3590ad151629acabb60ff736ec1540d9f';
+document.addEventListener('DOMContentLoaded',function(){
+  var lg=document.querySelector('img[src^="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAj8AAACb"]');
+  var g=document.createElement('div');g.id='gate';
+  g.innerHTML='<form class="gbox" autocomplete="off">'+(lg?'<div class="glogo"><img alt="Báo Pháp luật Việt Nam" src="'+lg.src+'"></div>':'')+
+   '<h1>Siêu toà soạn<br><em>công nghệ số</em></h1><p>Vui lòng nhập mật khẩu để vào trang</p>'+
+   '<label for="gpw">MẬT KHẨU</label><div class="grow"><input id="gpw" type="password" inputmode="numeric" placeholder="Gợi ý: ngày thành lập Báo" required><button type="submit">Vào trang</button></div>'+
+   '<div class="gerr" id="gerr" role="alert"></div></form>';
+  document.body.appendChild(g);
+  var f=g.querySelector('form'),i=g.querySelector('input'),er=g.querySelector('#gerr');setTimeout(function(){i.focus()},50);
+  function hex(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return('0'+x.toString(16)).slice(-2)}).join('')}
+  f.addEventListener('submit',function(e){e.preventDefault();var v=i.value.replace(/\D/g,'');
+    crypto.subtle.digest('SHA-256',new TextEncoder().encode(v)).then(function(d){
+      if(hex(d)===H){try{sessionStorage.setItem('bplvn-ok','1')}catch(e){}
+        document.documentElement.classList.remove('locked');g.classList.add('out');window.scrollTo(0,0);
+        window.dispatchEvent(new Event('resize'));setTimeout(function(){g.remove()},700)}
+      else{er.textContent='Mật khẩu chưa đúng, vui lòng thử lại.';f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake');i.select()}})});
+});})();
+</script>
 </head>
 <body>
 <div id="progress"></div>
