@@ -281,8 +281,19 @@ a.hm,a.aw{color:inherit;text-decoration:none;cursor:pointer}
 @keyframes mbox2{50%{box-shadow:0 0 0 14px rgba(255,231,163,.06),0 0 0 15px rgba(242,193,78,.2),0 40px 80px -30px rgba(0,0,0,.6),0 0 110px rgba(242,193,78,.6)}}
 .hl .mc-txt{color:#fff}
 .hl .mc-txt em{background:linear-gradient(100deg,#ffe7a3,#f2c14e 40%,#fff3c4 55%,#f2c14e 70%,#ffe7a3);background-size:200% auto;-webkit-background-clip:text;background-clip:text}
+
+.hl-r{grid-template-columns:repeat(4,1fr)}
+.hm{display:flex;flex-direction:column;align-items:center}
+.hm.gold{border-color:rgba(242,193,78,.7);background:linear-gradient(180deg,rgba(242,193,78,.16),rgba(255,255,255,.06))}
+.hm p{flex:1}
+.hm-go{display:flex;flex-direction:column;gap:8px;width:100%;margin-top:14px}
+.hm-go a{display:block;text-align:center;font-size:12.5px;font-weight:700;padding:8px 10px;border-radius:99px;background:var(--gold);color:#5a0c09;text-decoration:none;transition:transform .25s,background .25s}
+.hm-go a.alt{background:transparent;color:var(--gold2);border:1px solid rgba(255,231,163,.55)}
+.hm-go a:hover{transform:translateY(-2px)}.hm-go a.alt:hover{background:rgba(255,231,163,.12)}
+.hl.in .hm:nth-child(4) .medal{animation-delay:.45s}
+@media(max-width:1100px){.hl-r{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:1000px){.hl{grid-template-columns:1fr}.aws{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.hl-r{grid-template-columns:1fr}.hm{display:grid;grid-template-columns:auto 1fr;column-gap:16px;text-align:left;align-items:center}.hm .medal{grid-row:span 5;margin:0;--m:64px}.hm .go{grid-column:2;justify-self:start}.aws{grid-template-columns:1fr}}
+@media(max-width:640px){.hl-r{grid-template-columns:1fr}.hm{display:grid;grid-template-columns:auto 1fr;column-gap:16px;text-align:left;align-items:center}.hm .medal{grid-row:span 5;margin:0;--m:64px}.hm .hm-go{grid-column:2}.aws{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.hl::after{animation:none}.hl.in .medal{animation:none}}
 @media (prefers-reduced-motion:reduce){.mono::before,.board .ed::after{animation:none}}
 
@@ -780,13 +791,14 @@ document.addEventListener('DOMContentLoaded',function(){
         <figcaption><span class="hl-k">TÁC GIẢ ĐƯỢC VINH DANH</span><b>Nhà báo Lương Thị Vân Anh</b><small>Báo Pháp luật Việt Nam · Giải A Búa liềm vàng</small></figcaption></figure>
       <div class="hl-l">
         <span class="hl-k">GIẢI BÁO CHÍ TOÀN QUỐC VỀ XÂY DỰNG ĐẢNG</span>
-        <h3><b>3</b>năm liên tiếp<br><em>Giải A Búa liềm vàng</em></h3>
-        <p>Ba mùa giải liền 2022 – 2023 – 2024, Báo Pháp luật Việt Nam đều có tác phẩm đoạt Giải A.</p>
+        <h3><b>4</b>năm liên tiếp<br><em>đoạt Giải Búa liềm vàng</em></h3>
+        <p>Bốn mùa giải liền 2022 – 2025, Báo Pháp luật Việt Nam đều có tác phẩm đoạt giải, trong đó có 2 Giải A (2023, 2024).</p>
       </div>
       <div class="hl-r">
-        <a class="hm" href="https://baophapluat.vn/chong-loi-ich-nhom-trong-xay-dung-va-ap-dung-phap-luat-ky-1-quyet-tam-nhat-quan-cua-dang-post456114.html" target="_blank" rel="noopener"><div class="medal lg"><span>A</span></div><b>2022</b><small>Lần thứ VII</small><p>“Chống lợi ích nhóm trong xây dựng và áp dụng pháp luật”</p><i>Vân Anh · Hà Dung · Minh Ngọc</i><em class="go">Đọc tác phẩm ↗</em></a>
-        <a class="hm" href="https://baophapluat.vn/bao-phap-luat-viet-nam-duoc-trao-giai-a-bua-liem-vang-nam-2023-post503394.html" target="_blank" rel="noopener"><div class="medal lg"><span>A</span></div><b>2023</b><small>Lần thứ VIII</small><p>Loạt 5 kỳ “Kiểm soát quyền lực trong các cơ quan phòng, chống tham nhũng, tiêu cực”</p><i>Lương Thị Vân Anh</i><em class="go">Xem tin vinh danh ↗</em></a>
-        <a class="hm" href="https://baophapluat.vn/bao-phap-luat-viet-nam-dat-giai-a-giai-bua-liem-vang-2024-post538198.html" target="_blank" rel="noopener"><div class="medal lg"><span>A</span></div><b>2024</b><small>Lần thứ IX</small><p>“Chặn hiểm họa từ doanh nghiệp sân sau” (loạt 5 kỳ)</p><i>Lương Thị Vân Anh</i><em class="go">Xem tin vinh danh ↗</em></a>
+        <div class="hm"><div class="medal lg"><span>C</span></div><b>2022</b><small>Lần thứ VII · Giải C</small><p>“Chống lợi ích nhóm trong xây dựng và áp dụng pháp luật” (loạt 5 kỳ)</p><i>Vân Anh · Hà Dung · Minh Ngọc</i><div class="hm-go"><a href="https://baophapluat.vn/chong-loi-ich-nhom-trong-xay-dung-va-ap-dung-phap-luat-ky-1-quyet-tam-nhat-quan-cua-dang-post456114.html" target="_blank" rel="noopener">Đọc tác phẩm ↗</a><a href="http://bualiemvang.org.vn/tac-pham-doat-giai/chong-loi-ich-nhom-trong-xay-dung-va-ap-dung-phap-luat-122" target="_blank" rel="noopener" class="alt">Đọc tin vinh danh ↗</a></div></div>
+        <div class="hm gold"><div class="medal lg"><span>A</span></div><b>2023</b><small>Lần thứ VIII · Giải A</small><p>“Kiểm soát quyền lực trong các cơ quan phòng, chống tham nhũng, tiêu cực” (loạt 5 kỳ)</p><i>Lương Thị Vân Anh</i><div class="hm-go"><a href="https://baophapluat.vn/kiem-soat-quyen-luc-trong-cac-co-quan-phong-chong-tham-nhung-tieu-cuc-ky-2-lua-chon-can-bo-dung-vai-thuoc-bai-post490315.html" target="_blank" rel="noopener">Đọc tác phẩm ↗</a><a href="https://baophapluat.vn/bao-phap-luat-viet-nam-duoc-trao-giai-a-bua-liem-vang-nam-2023-post503394.html" target="_blank" rel="noopener" class="alt">Đọc tin vinh danh ↗</a></div></div>
+        <div class="hm gold"><div class="medal lg"><span>A</span></div><b>2024</b><small>Lần thứ IX · Giải A</small><p>“Chặn hiểm họa từ doanh nghiệp ‘sân sau’” (loạt 5 kỳ)</p><i>Lương Thị Vân Anh</i><div class="hm-go"><a href="https://baophapluat.vn/chan-hiem-hoa-tu-doanh-nghiep-san-sau-ky-1-lien-minh-truc-loi-post524672.html" target="_blank" rel="noopener">Đọc tác phẩm ↗</a><a href="https://baophapluat.vn/bao-phap-luat-viet-nam-dat-giai-a-giai-bua-liem-vang-2024-post538198.html" target="_blank" rel="noopener" class="alt">Đọc tin vinh danh ↗</a></div></div>
+        <div class="hm"><div class="medal lg"><span>C</span></div><b>2025</b><small>Lần thứ X · Giải C</small><p>“Sức mạnh lòng dân – Nền tảng vững chắc của mọi thắng lợi” (loạt 5 kỳ)</p><i>Hà Ánh Bình · Lương Thị Vân Anh</i><div class="hm-go"><a href="https://baophapluat.vn/suc-manh-long-dan-nen-tang-vung-chac-cua-moi-thang-loi-ky-1-khi-y-dang-hoa-nhip-cung-long-dan.html" target="_blank" rel="noopener">Đọc tác phẩm ↗</a><a href="https://baophapluat.vn/bao-phap-luat-viet-nam-dat-giai-c-giai-bua-liem-vang-lan-thu-x-nam-2025.html" target="_blank" rel="noopener" class="alt">Đọc tin vinh danh ↗</a></div></div>
       </div>
       <div class="mcloud" id="mcloud" aria-label="Cùng nhiều Giải Báo chí khác">
         <div class="mc-field" id="mcField" aria-hidden="true"></div>
