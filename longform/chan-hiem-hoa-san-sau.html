@@ -29,25 +29,21 @@ img{max-width:100%;display:block}
 
 /* hero */
 .hero{position:relative;min-height:100svh;display:grid;align-items:end;color:#fff;overflow:hidden;isolation:isolate;padding:120px clamp(16px,6vw,80px) clamp(48px,8vh,90px)}
-.hero-bg{position:absolute;inset:0;z-index:-2;overflow:hidden;background:radial-gradient(90% 80% at 75% 35%,#b3221b 0%,#7a110c 45%,#3a0806 100%)}
-.hb-grid{position:absolute;inset:-10%;background-image:linear-gradient(rgba(255,231,163,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,231,163,.06) 1px,transparent 1px);background-size:56px 56px;transform:perspective(900px) rotateX(55deg) translateY(18%);transform-origin:50% 100%;animation:gridmove 14s linear infinite}
-@keyframes gridmove{to{background-position:0 56px,0 0}}
-.hb-scale{position:absolute;right:clamp(-60px,4vw,80px);top:50%;width:clamp(300px,42vw,620px);transform:translateY(-55%);color:rgba(242,193,78,.22);filter:drop-shadow(0 0 30px rgba(242,193,78,.25));animation:sway 7s ease-in-out infinite alternate;transform-origin:50% 10%}
-@keyframes sway{from{transform:translateY(-55%) rotate(-2.5deg)}to{transform:translateY(-55%) rotate(2.5deg)}}
-.hb-words{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-around;padding:8vh 0;pointer-events:none}
-.hb-words span{font-family:"Playfair Display";font-weight:800;font-size:clamp(40px,7vw,110px);line-height:1;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(255,231,163,.10);animation:slide 40s linear infinite}
-.hb-words span:nth-child(even){animation-direction:reverse;padding-left:30vw}
-@keyframes slide{from{transform:translateX(-10%)}to{transform:translateX(-40%)}}
-.hb-docs{position:absolute;right:8%;bottom:10%;width:clamp(160px,18vw,260px);display:grid;gap:10px;opacity:.25}
-.hb-docs i{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--gold),transparent);animation:docl 3.5s ease-in-out infinite}
-.hb-docs i:nth-child(2){width:80%;animation-delay:.3s}.hb-docs i:nth-child(3){width:92%;animation-delay:.6s}.hb-docs i:nth-child(4){width:60%;animation-delay:.9s}.hb-docs i:nth-child(5){width:75%;animation-delay:1.2s}
-@keyframes docl{50%{opacity:.35}}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(40,5,4,.55),transparent 70%)}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 40%,rgba(30,4,3,.7))}
+.hero{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,64px);align-items:center}
+.hero>div:not(.hero-bg){grid-column:1;grid-row:1}
+.hero-bg{position:absolute;inset:-40px;z-index:-2;background:#2a0705}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:blur(26px) saturate(1.2) brightness(.55);transform:scale(1.1)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(58,8,6,.92) 0%,rgba(90,12,9,.72) 45%,rgba(90,12,9,.35) 100%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(30,4,3,.35),transparent 30%,transparent 70%,rgba(30,4,3,.7))}
+.hero-ph{grid-column:2;grid-row:1;margin:0;position:relative;justify-self:end;width:100%;max-width:720px;opacity:0;transform:translateY(30px) scale(.97);animation:up 1.1s .35s cubic-bezier(.2,.8,.2,1) forwards}
+.hero-ph img{width:100%;height:auto;max-height:68vh;object-fit:contain;border-radius:22px;border:3px solid rgba(242,193,78,.75);box-shadow:0 0 0 10px rgba(255,231,163,.08),0 40px 80px -30px rgba(0,0,0,.8);background:#1a0403}
+.hero-ph::before{content:"";position:absolute;left:-18px;top:-18px;width:90px;height:90px;border-left:3px solid var(--gold);border-top:3px solid var(--gold);border-radius:22px 0 0 0;opacity:.8}
+.hero-ph::after{content:"";position:absolute;right:-18px;bottom:30px;width:90px;height:90px;border-right:3px solid var(--gold);border-bottom:3px solid var(--gold);border-radius:0 0 22px 0;opacity:.8}
+.hero-ph figcaption{margin-top:12px;font-size:12.5px;color:rgba(255,231,163,.85);text-align:right;font-style:normal;font-family:"JetBrains Mono";letter-spacing:.08em}
 .badge{display:inline-flex;align-items:center;gap:12px;padding:8px 16px 8px 8px;border-radius:99px;background:rgba(255,255,255,.1);border:1px solid rgba(255,231,163,.45);backdrop-filter:blur(8px);font-size:13px;font-weight:600;color:var(--gold2);opacity:0;transform:translateY(20px);animation:up .9s .2s forwards}
 .badge i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-family:"Playfair Display";font-weight:800;color:var(--ink);background:radial-gradient(circle at 35% 30%,#fff3c4,#f2c14e 60%,#c8921a)}
 .kicker{font-family:"JetBrains Mono";font-size:12px;letter-spacing:.3em;color:var(--gold2);margin:28px 0 14px;opacity:0;animation:up .9s .35s forwards}
-.hero h1{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(38px,6vw,84px);line-height:1.04;letter-spacing:-.01em;max-width:18ch}
+.hero h1{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(36px,4.8vw,72px);line-height:1.04;letter-spacing:-.01em;max-width:18ch}
 .hero h1 .ln{display:block;overflow:hidden}
 .hero h1 .ln span{display:inline-block;transform:translateY(105%);animation:rise 1.1s cubic-bezier(.2,.8,.2,1) forwards}
 .hero h1 .ln:nth-child(2) span{animation-delay:.12s}.hero h1 .ln:nth-child(3) span{animation-delay:.24s}
@@ -137,6 +133,7 @@ figcaption{font-family:"Be Vietnam Pro";font-size:14px;color:var(--muted);text-a
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
 
+@media(max-width:960px){.hero{grid-template-columns:1fr;align-items:end;padding-top:90px}.hero-ph{grid-column:1;grid-row:1;justify-self:center;max-width:560px}.hero>div:not(.hero-bg){grid-row:2}.hero-ph figcaption{text-align:center}.hero-ph img{max-height:42vh}.hero-ph::before,.hero-ph::after{width:60px;height:60px;left:-10px;top:-10px}.hero-ph::after{left:auto;top:auto;right:-10px;bottom:30px}}
 @media(max-width:860px){
   .knav{top:54px;padding:8px 10px}
   .knav-in{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
@@ -153,7 +150,6 @@ figcaption{font-family:"Be Vietnam Pro";font-size:14px;color:var(--muted);text-a
   .pager{grid-template-columns:1fr}
   .sapo{padding:20px 20px}
   .cue{display:none}
-  .hb-scale{opacity:.6;right:-80px}.hb-docs{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.hero h1 .ln span,.badge,.kicker,.hero .by{opacity:1;transform:none}}
 </style>
@@ -214,24 +210,15 @@ document.addEventListener('DOMContentLoaded',function(){
 </div>
 
 <header class="hero">
-  <div class="hero-bg" aria-hidden="true">
-    <div class="hb-grid"></div>
-    <svg class="hb-scale" viewBox="0 0 400 400" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M200 40v300M120 340h160M200 70l-120 30M200 70l120 30"/>
-      <path d="M80 100l-40 110h80zM40 210a40 22 0 0 0 80 0"/>
-      <path d="M320 100l-40 110h80zM280 210a40 22 0 0 0 80 0"/>
-      <circle cx="200" cy="58" r="12"/>
-    </svg>
-    <div class="hb-words"><span>SÂN SAU</span><span>LỢI ÍCH NHÓM</span><span>MINH BẠCH</span><span>CÔNG TÁC CÁN BỘ</span><span>QUÂN PHÁP BẤT VỊ THÂN</span><span>LIÊM CHÍNH</span></div>
-    <div class="hb-docs"><i></i><i></i><i></i><i></i><i></i></div>
-  </div>
+  <div class="hero-bg" aria-hidden="true"><img src="img/cover-kchs-1.jpg" alt=""></div>
+  <figure class="hero-ph"><img src="img/cover-kchs-1.jpg" alt="Liên minh trục lợi"><figcaption>Ảnh đại diện · Kỳ 1</figcaption></figure>
   <div>
     <div class="badge"><i>A</i>Giải A · Búa liềm vàng lần thứ IX · 2024</div>
     <div class="kicker">LOẠT BÀI 5 KỲ · BÁO PHÁP LUẬT VIỆT NAM</div>
     <h1><span class="ln"><span>Chặn hiểm họa</span></span><span class="ln"><span>từ doanh nghiệp</span></span><span class="ln"><span><em>“sân sau”</em></span></span></h1>
     <div class="by"><span>Nhóm tác giả <b>Vân Anh · Vân Thanh</b></span><span>10 – 14/09/2024</span></div>
   </div>
-  <a class="cue" href="#ky-1">CUỘN ĐỂ ĐỌC</a>
+  <a class="cue" style="display:none" href="#ky-1">CUỘN ĐỂ ĐỌC</a>
 </header>
 
 <section class="intro reveal">
@@ -252,6 +239,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </header>
   <p class="sapo"><b>(PLVN) –</b> Những hiểm họa mà các doanh nghiệp “sân sau” gây ra không chỉ làm tha hóa một bộ phận cán bộ, đảng viên, méo mó chính sách, lũng đoạn nền kinh tế, mà nghiêm trọng hơn là suy giảm niềm tin của Nhân dân đối với Đảng, Nhà nước. Trong bối cảnh Đảng ta đang đẩy mạnh đấu tranh phòng, chống tham nhũng, tiêu cực, việc chặn đứng hiểm họa từ các doanh nghiệp “sân sau” càng trở nên hệ trọng và cấp thiết.</p>
   <div class="body">
+<figure class="wide cover reveal"><img src="img/cover-kchs-1.jpg" alt="Liên minh trục lợi" loading="lazy"><figcaption>Ảnh đại diện Kỳ 1</figcaption></figure>
 <p class="lead-p">Điểm chung của hiện tượng doanh nghiệp “sân sau” là sự câu kết giữa những quan chức thoái hóa, biến chất với các doanh nhân “khát tiền, khát quan hệ”, từ đó tạo thành “nhóm lợi ích” vừa có quyền, vừa có tiền. Thực trạng này diễn ra khá phổ biến, đến mức báo động.</p>
 <h2 class="sh reveal"><span>Thông đồng, móc ngoặc lũng đoạn thị trường</span></h2>
 <p>Thời gian qua, rất nhiều quan chức cấp cao của các Bộ, ngành, địa phương bị khởi tố, đưa ra xét xử vì liên quan tới hành vi trục lợi từ các doanh nghiệp (DN) “sân sau”, dư luận không khỏi bàng hoàng bởi mức độ nghiêm trọng và hậu quả khủng khiếp hơn cả tưởng tượng. Thực tế này chỉ ra rằng, mối đe doạ lớn nhất đối với sự phát triển của nền kinh tế, đến môi trường cạnh tranh bình đẳng không phải ở quy định pháp luật còn nhiều kẽ hở, mà chính là hiện tượng “chủ nghĩa thân hữu”, sự thông đồng, móc ngoặc của một bộ phận quan chức thoái hóa, biến chất với các DN “sân sau” để lũng đoạn thị trường.</p>
@@ -284,6 +272,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </header>
   <p class="sapo"><b>(PLVN) –</b> Trong quá trình liên minh để trục lợi, nhiều quan chức và doanh nhân gần như thỏa thuận ngầm trong việc ăn chia, từ đó hình thành “luật chơi” riêng và có những quy ước bất thành văn rất tinh vi.</p>
   <div class="body">
+<figure class="wide cover reveal"><img src="img/cover-kchs-2.jpg" alt="&#x27;Luật làm ăn&#x27; bất thành văn" loading="lazy"><figcaption>Ảnh đại diện Kỳ 2</figcaption></figure>
 <h2 class="sh reveal"><span>Cài thầu quen, chèn thầu lạ</span></h2>
 <p class="lead-p">Một đặc trưng cơ bản của nền kinh tế Việt Nam là đầu tư Nhà nước còn lớn, nhất là về kết cấu hạ tầng và đây thường là những dự án có số vốn khổng lồ. Vì thế, những hành vi trục lợi luôn có nguy cơ hiện hữu từ lĩnh vực này với thủ đoạn vô cùng tinh vi.</p>
 <p>Phân tích về thủ đoạn của nhóm tội phạm này, GS. Lê Hồng Hạnh, Chủ tịch Trung tâm Trọng tài Quốc tế Việt Nam (VIAC), Tổng Biên tập Tạp chí Pháp luật và Phát triển thừa nhận “cách thức rất đa dạng”. Thậm chí, có những cách mà mới nhìn vào, ai cũng nghĩ rất khách quan, đó là đấu thầu. Pháp luật đã có những quy định khá chặt chẽ về đấu thầu, nhằm bảo đảm sự bình đẳng, minh bạch, thế nhưng, đấu thầu có sự tham gia của các DN “sân sau” của các quan chức thì gần như trở thành bình phong. Thông thường, các quan chức này tìm mọi cách để tiết lộ hoặc cung cấp những thông tin có lợi nhất cho nhà thầu “sân sau”. Cũng có thể họ bảo kê cho DN “sân sau” của mình có đầy đủ những điều kiện phù hợp với công trình được đưa ra đấu thầu, nhưng trong thực tế thì các điều kiện đó không tồn tại.</p>
@@ -316,6 +305,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </header>
   <p class="sapo"><b>(PLVN) –</b> Khi người dân và doanh nghiệp giảm niềm tin vào môi trường kinh doanh bình đẳng, họ sẽ giảm đầu tư, giảm tiếp cận công nghệ mới, giảm khả năng cạnh tranh… Thay vào đó, sẽ tăng tần suất sử dụng phong bì và “đánh quả” là chính, từ đó gây lũng đoạn nền kinh tế, tàn phá đất nước.</p>
   <div class="body">
+<figure class="wide cover reveal"><img src="img/cover-kchs-3.jpg" alt="Nguyên nhân và những hệ lụy" loading="lazy"><figcaption>Ảnh đại diện Kỳ 3</figcaption></figure>
 <h2 class="sh reveal"><span>“Bẻ lái” pháp luật</span></h2>
 <p class="lead-p">Nhìn vào thực tế, có rất nhiều nguyên nhân dẫn tới tình trạng lũng đoạn từ DN “sân sau”, như việc giám sát, kiểm tra, thanh tra rất kém; do đạo đức công vụ, thực thi pháp luật của cán bộ, công chức còn nhiều vấn đề; do môi trường kinh doanh không ít rủi ro… Những vấn đề đó dễ khiến cho bất kỳ DN nào cũng có thể vi phạm, mà khi đã vi phạm thì một bộ phận cán bộ, công chức thường lạm dụng việc này để “bẻ lái” pháp luật nhằm trục lợi; từ trục lợi họ đã biến DN đó thành “sân sau”. Các vụ án lớn về kinh tế, tham nhũng vừa qua cho thấy, công tác kiểm soát quyền lực và thực thi pháp luật chưa đem lại hiệu quả như kỳ vọng.</p>
 <p>Trong ba nhiệm kỳ gần đây, Trung ương đã ban hành khá nhiều nghị quyết, quy định liên quan đến vấn đề nêu gương, nâng cao đạo đức cách mạng của cán bộ, đảng viên. Để chống chủ nghĩa cá nhân, cùng với Nghị quyết Trung ương 4 khóa XII về xây dựng, chỉnh đốn Đảng và Kết luận 21-KL/TW của Hội nghị Trung ương 4 khóa XIII, Đảng ta có thêm Quy định 37/QĐ/TW về những điều đảng viên không được làm. Quy định 37/QĐ/TW đã tập trung vào hai nhóm vấn đề, trong đó quy định về những việc làm sai trái trong công tác cán bộ, như: lợi dụng chức vụ, quyền hạn, vị trí công tác để vụ lợi, tham ô, hối lộ, tiêu cực; tặng, nhận quà dưới mọi hình thức để tác động đến tổ chức, người có trách nhiệm dẫn đến việc quyết định sai, có lợi riêng cho bản thân hoặc cá nhân, tổ chức, cơ quan, DN... “Đây là những quy định được ví như những “biệt dược” giúp chúng ta phòng, chống, ngăn ngừa và đặc trị các loại bệnh tật phát sinh trong cơ thể của Đảng và hệ thống chính trị, giúp cho cán bộ, đảng viên tăng cường sức đề kháng, không bị tha hóa, biến chất về tư tưởng chính trị, phẩm chất đạo đức, tư cách, lối sống...” - cố Tổng Bí thư Nguyễn Phú Trọng nêu rõ khi phát biểu tại Hội nghị cán bộ toàn quốc quán triệt, triển khai kết luận và quy định của Ban Chấp hành Trung ương Đảng về công tác xây dựng, chỉnh đốn Đảng (tháng 12/2021).</p>
@@ -350,6 +340,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </header>
   <p class="sapo"><b>(PLVN) –</b> Sinh thời, Chủ tịch Hồ Chí Minh nhiều lần căn dặn cán bộ, đảng viên không được dính líu với vòng danh lợi, bởi vì cán bộ dù to hay nhỏ, “có quyền mà thiếu lương tâm là có dịp đục khoét, có dịp ăn của đút”. Vì thế, để thi hành một nền chính trị liêm khiết, Bác yêu cầu “phải thẳng tay trừng trị những kẻ bất liêm, bất kỳ kẻ ấy ở địa vị nào, làm nghề nghiệp gì”.</p>
   <div class="body">
+<figure class="wide cover reveal"><img src="img/cover-kchs-4.jpg" alt="Quân pháp bất vị thân" loading="lazy"><figcaption>Ảnh đại diện Kỳ 4</figcaption></figure>
 <h2 class="sh reveal"><span>Kịp thời, minh bạch trong xử lý</span></h2>
 <p class="lead-p">Nhằm bảo vệ chế độ, lấy lại niềm tin yêu, quý trọng của Nhân dân, không có cách nào khác là sự cương quyết, kịp thời, minh bạch trong việc xử lý các hành vi vi phạm Điều lệ Đảng, vi phạm pháp luật của Nhà nước. Và thời gian gần đây, công cuộc “đốt lò” của Đảng và Nhà nước tiếp tục “nóng lên” trên tinh thần “không dừng, không nghỉ”.</p>
 <p>Ngày 21/6/2024, Ban Chấp hành (BCH) Trung ương Đảng khóa XIII đã họp xem xét, cho ý kiến về công tác cán bộ, trong đó đồng ý để ông Đinh Tiến Dũng thôi giữ chức vụ Ủy viên Bộ Chính trị, Ủy viên BCH Trung ương Đảng khóa XIII. BCH Trung ương Đảng nêu rõ, theo báo cáo của Ủy ban Kiểm tra Trung ương, trong thời gian làm Bí thư Ban Cán sự Đảng, Bộ trưởng Bộ Tài chính nhiệm kỳ 2016 - 2021, ông Đinh Tiến Dũng đã vi phạm Quy định về những điều đảng viên không được làm, Quy định về trách nhiệm nêu gương, Quy chế làm việc; thiếu trách nhiệm trong lãnh đạo, chỉ đạo để Ban Cán sự Đảng, Bộ Tài chính và một số tổ chức, cá nhân có nhiều vi phạm, khuyết điểm, gây hậu quả nghiêm trọng, dư luận xấu, làm giảm uy tín của tổ chức đảng, cơ quan quản lý nhà nước.</p>
