@@ -509,6 +509,82 @@ footer{background:linear-gradient(160deg,var(--red-deep),#5a0c09);color:#fff;pad
 .axis{display:flex;justify-content:space-between;font-family:"JetBrains Mono";font-size:11px;color:var(--muted);margin-bottom:70px;padding:0 2px}
 .axis span{position:relative}.axis span::before{content:"";position:absolute;left:50%;top:-10px;width:1px;height:6px;background:var(--muted)}
 
+
+/* ===== hiệu ứng nền theo từng mục ===== */
+#tone{position:fixed;inset:0;z-index:-1;background:var(--bg);transition:background 1.2s ease}
+main>section{position:relative;isolation:isolate}
+.fx{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.fx:has(.fx-stick){overflow:visible;-webkit-mask:linear-gradient(transparent,#000 120px,#000 calc(100% - 120px),transparent);mask:linear-gradient(transparent,#000 120px,#000 calc(100% - 120px),transparent)}
+.fx-stick{position:sticky;top:0;height:100vh;overflow:hidden}
+.fx-abs{position:absolute;inset:0;overflow:hidden}
+.fx>div{opacity:0;transition:opacity 1.2s ease}
+.fx.on>div{opacity:1}
+.fx:not(.on) *{animation-play-state:paused!important}
+/* 01 sứ mệnh */
+.fx-mission .rays{position:absolute;right:-30%;top:-60%;width:140%;aspect-ratio:1;background:repeating-conic-gradient(from 0deg,rgba(255,231,163,.13) 0 5deg,transparent 5deg 16deg);-webkit-mask:radial-gradient(circle,#000,transparent 62%);mask:radial-gradient(circle,#000,transparent 62%);animation:spin 70s linear infinite}
+.fx-mission .beams{position:absolute;left:clamp(16px,6vw,96px);right:clamp(16px,6vw,96px);top:0;bottom:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.fx-mission .beams i{background:linear-gradient(0deg,rgba(255,231,163,.32),rgba(255,231,163,.05) 60%,transparent);-webkit-mask:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);mask:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);animation:beamup 4.5s ease-in-out infinite}
+.fx-mission .beams i:nth-child(2){animation-delay:-1.5s}.fx-mission .beams i:nth-child(3){animation-delay:-3s}
+@keyframes beamup{0%,100%{opacity:.35;transform:scaleY(.85);transform-origin:bottom}50%{opacity:1;transform:scaleY(1)}}
+.fx-mission .sparks i{position:absolute;bottom:-10px;width:var(--s);height:var(--s);border-radius:50%;background:#ffe7a3;box-shadow:0 0 10px #f2c14e;animation:rise2 var(--t) linear var(--d) infinite;opacity:0}
+@keyframes rise2{0%{transform:translateY(0);opacity:0}10%{opacity:.9}100%{transform:translateY(-110vh) translateX(30px);opacity:0}}
+@media(max-width:900px){.fx-mission .beams{grid-template-columns:1fr}.fx-mission .beams i:nth-child(n+2){display:none}}
+/* 03 ban biên tập */
+.fx-board .spot{position:absolute;left:50%;top:-10%;width:min(90vw,900px);height:110%;transform:translateX(-50%);background:conic-gradient(from 160deg at 50% 0%,transparent 0deg,rgba(242,193,78,.22) 14deg,rgba(255,231,163,.1) 26deg,rgba(242,193,78,.22) 38deg,transparent 52deg);filter:blur(6px);animation:spotsw 9s ease-in-out infinite alternate}
+@keyframes spotsw{from{transform:translateX(-52%) rotate(-3deg)}to{transform:translateX(-48%) rotate(3deg)}}
+.fx-board .proof{position:absolute;width:min(22vw,280px);transform:rotate(var(--r));opacity:.55;filter:drop-shadow(0 20px 30px rgba(158,23,18,.18))}
+.fx-board .proof rect{fill:#fffdf8;stroke:rgba(158,23,18,.15)}
+.fx-board .proof .ln line{stroke:rgba(60,30,25,.2);stroke-width:6;stroke-linecap:round}
+.fx-board .proof .mk{fill:none;stroke:#e8372f;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:420;stroke-dashoffset:420;animation:pen 7s ease-in-out var(--d) infinite}
+@keyframes pen{0%,8%{stroke-dashoffset:420}30%,85%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+.fx-board .stamp{position:absolute;left:8%;bottom:12%;padding:10px 22px;border:4px double rgba(212,48,41,.55);border-radius:10px;color:rgba(212,48,41,.6);text-align:center;font-family:"JetBrains Mono";transform:rotate(-12deg) scale(2);opacity:0;animation:stamp 6s ease-in infinite}
+.fx-board .stamp b{display:block;font-size:22px;letter-spacing:.2em}.fx-board .stamp small{font-size:10px;letter-spacing:.3em}
+@keyframes stamp{0%,40%{opacity:0;transform:rotate(-12deg) scale(2.2)}46%{opacity:1;transform:rotate(-12deg) scale(1)}49%{transform:rotate(-12deg) scale(1.06)}52%,88%{opacity:1;transform:rotate(-12deg) scale(1)}100%{opacity:0;transform:rotate(-12deg) scale(1)}}
+.fx-board .redpen{position:absolute;right:12%;top:30%;width:10px;height:160px;border-radius:5px;background:linear-gradient(#e8372f,#9e1712 85%,#333 85%);transform:rotate(35deg);opacity:.35;animation:penmv 7s ease-in-out infinite}
+@keyframes penmv{50%{transform:rotate(28deg) translate(-30px,20px)}}
+@media(max-width:860px){.fx-board .proof{width:44vw;opacity:.3}.fx-board .redpen{display:none}}
+/* 04 giải thưởng */
+.fx-honors .spl{position:absolute;top:-20%;width:70vw;height:140%;filter:blur(4px)}
+.fx-honors .spl.l{left:-20%;background:conic-gradient(from 150deg at 0% 0%,transparent,rgba(242,193,78,.26) 8deg,transparent 18deg);transform-origin:0 0;animation:swl 7s ease-in-out infinite alternate}
+.fx-honors .spl.r{right:-20%;background:conic-gradient(from 192deg at 100% 0%,transparent,rgba(242,193,78,.26) 8deg,transparent 18deg);transform-origin:100% 0;animation:swr 8s ease-in-out infinite alternate}
+@keyframes swl{from{transform:rotate(-12deg)}to{transform:rotate(14deg)}}
+@keyframes swr{from{transform:rotate(12deg)}to{transform:rotate(-14deg)}}
+.fx-honors .laurel{position:absolute;left:50%;top:50%;width:min(80vw,760px);transform:translate(-50%,-50%);fill:none;stroke:rgba(200,146,26,.22);stroke-width:2;animation:breath 6s ease-in-out infinite}
+.fx-honors .confetti i{position:absolute;top:-20px;width:7px;height:12px;border-radius:2px;background:var(--c);opacity:.7;animation:fall var(--t) linear var(--d) infinite}
+@keyframes fall{0%{transform:translate(0,-20px) rotate(0)}100%{transform:translate(var(--x),110vh) rotate(720deg)}}
+/* 05 hệ sinh thái */
+.fx-eco svg{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+.fx-eco .el{stroke:rgba(212,48,41,.22);stroke-width:1.5;fill:none;stroke-dasharray:4 6;animation:dash 3s linear infinite}
+.fx-eco .el.ring{stroke:rgba(242,193,78,.35);stroke-dasharray:none}
+@keyframes dash{to{stroke-dashoffset:-20}}
+.fx-eco .en{fill:#fff;stroke:var(--red);stroke-width:3}
+.fx-eco .pk{fill:#f2c14e;filter:drop-shadow(0 0 6px #f2c14e)}
+.fx-eco .core{fill:rgba(212,48,41,.15);stroke:rgba(212,48,41,.4);stroke-width:2;transform-origin:500px 300px;animation:breath 3s ease-in-out infinite}
+/* 06 quy trình */
+.fx-flow .rails{position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 calc(18vh - 1px),rgba(212,48,41,.1) calc(18vh - 1px) 18vh);background-position:0 12vh}
+.fx-flow .lane{position:absolute;left:0;right:0;height:30px}
+.fx-flow .lane i{position:absolute;left:-160px;top:0;font-style:normal;font-family:"JetBrains Mono";font-size:11px;letter-spacing:.12em;color:#9e1712;background:rgba(255,255,255,.75);border:1px solid rgba(212,48,41,.25);border-radius:8px;padding:5px 10px;white-space:nowrap;box-shadow:0 8px 16px -10px rgba(158,23,18,.5);animation:convey var(--t) linear var(--d) infinite;opacity:.7}
+@keyframes convey{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 320px))}}
+/* 07 công nghệ */
+.fx-tech svg{position:absolute;inset:0;width:100%;height:100%}
+.fx-tech .tr{fill:none;stroke:rgba(212,48,41,.12);stroke-width:2}
+.fx-tech .pl{fill:none;stroke:#e8372f;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:6 94;animation:pulse2 3.5s linear var(--d) infinite;filter:drop-shadow(0 0 4px #e8372f)}
+@keyframes pulse2{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+.fx-tech .chip{fill:rgba(255,255,255,.6);stroke:rgba(212,48,41,.2);stroke-width:2}
+.fx-tech .bits i{position:absolute;top:100%;font-style:normal;font-family:"JetBrains Mono";font-size:12px;color:rgba(158,23,18,.28);animation:bitup 9s linear var(--d) infinite}
+@keyframes bitup{to{transform:translateY(-120vh)}}
+/* 08 tuyên ngôn */
+.fx-manif{-webkit-mask:linear-gradient(transparent,#000 30%,#000 70%,transparent);mask:linear-gradient(transparent,#000 30%,#000 70%,transparent)}
+.fx-manif .ink{position:absolute;width:60vw;aspect-ratio:1;border-radius:42% 58% 63% 37%/45% 41% 59% 55%;filter:blur(60px);opacity:.2;animation:blob 18s ease-in-out infinite alternate}
+.fx-manif .i1{left:-10%;top:-10%;background:#f2c14e}.fx-manif .i2{right:-15%;top:0;background:#e8372f;animation-delay:-6s}.fx-manif .i3{left:25%;bottom:-30%;background:#ffb4a8;animation-delay:-12s}
+@keyframes blob{to{transform:translate(8vw,6vh) rotate(60deg) scale(1.1);border-radius:60% 40% 35% 65%/55% 60% 40% 45%}}
+/* 09 đồng hành */
+.fx-dh .dhnet{position:absolute;inset:0;width:100%;height:100%}
+.fx-dh .dhglow{position:absolute;left:50%;top:50%;width:60%;aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(242,193,78,.25),transparent 60%);animation:breath 4s ease-in-out infinite}
+.dh>*{position:relative}
+.dh>.fx{position:absolute}
+@media(max-width:820px){.fx-flow .lane i{opacity:.28}.fx-tech .bits{display:none}}
+@media (prefers-reduced-motion:reduce){.fx *{animation:none!important}}
 /* ===== journey scenes: lịch sử -> tương lai ===== */
 .journey{isolation:isolate;transition:color .8s}
 .jbg{position:absolute;inset:0;z-index:-1;pointer-events:none;-webkit-mask:linear-gradient(transparent,#000 140px,#000 calc(100% - 140px),transparent);mask:linear-gradient(transparent,#000 140px,#000 calc(100% - 140px),transparent)}
@@ -787,6 +863,7 @@ document.addEventListener('DOMContentLoaded',function(){
   <span>Đảng tin</span><span>Dân yêu</span><span>Doanh nghiệp đồng hành</span><span>Đảng tin</span><span>Dân yêu</span><span>Doanh nghiệp đồng hành</span><span>Đảng tin</span><span>Dân yêu</span><span>Doanh nghiệp đồng hành</span>
 </div></div>
 
+<div id="tone" aria-hidden="true"></div>
 <main>
   <section class="ops-wrap">
     <div class="ops reveal">
@@ -836,6 +913,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </section>
 
   <section class="slogan" id="slogan">
+    <div class="fx fx-mission" aria-hidden="true"><div class="fx-abs"><div class="rays"></div><div class="beams"><i></i><i></i><i></i></div><div class="sparks"><i style="left:45.4%;--d:5.0s;--t:12.5s;--s:3.4px"></i><i style="left:50.8%;--d:5.3s;--t:8.1s;--s:3.5px"></i><i style="left:62.5%;--d:7.1s;--t:7.6s;--s:2.9px"></i><i style="left:10.7%;--d:7.3s;--t:11.2s;--s:2.1px"></i><i style="left:96.3%;--d:8.7s;--t:10.9s;--s:3.8px"></i><i style="left:17.1%;--d:0.1s;--t:10.2s;--s:2.2px"></i><i style="left:20.3%;--d:2.2s;--t:7.2s;--s:3.4px"></i><i style="left:44.3%;--d:7.6s;--t:10.1s;--s:3.9px"></i><i style="left:50.0%;--d:6.0s;--t:9.7s;--s:2.8px"></i><i style="left:97.8%;--d:9.0s;--t:12.0s;--s:4.1px"></i><i style="left:32.3%;--d:2.1s;--t:8.7s;--s:2.2px"></i><i style="left:75.6%;--d:3.6s;--t:12.1s;--s:3.2px"></i><i style="left:94.0%;--d:7.6s;--t:7.0s;--s:2.6px"></i><i style="left:89.4%;--d:4.2s;--t:12.9s;--s:3.2px"></i><i style="left:9.0%;--d:5.7s;--t:11.7s;--s:2.8px"></i><i style="left:10.4%;--d:3.0s;--t:12.8s;--s:4.3px"></i><i style="left:13.3%;--d:2.2s;--t:7.6s;--s:2.2px"></i><i style="left:78.5%;--d:1.6s;--t:10.4s;--s:3.3px"></i><i style="left:20.3%;--d:6.6s;--t:7.8s;--s:3.9px"></i><i style="left:13.2%;--d:3.8s;--t:8.3s;--s:2.8px"></i><i style="left:95.2%;--d:7.2s;--t:8.8s;--s:4.7px"></i><i style="left:22.2%;--d:3.5s;--t:12.1s;--s:3.9px"></i><i style="left:11.6%;--d:8.9s;--t:8.3s;--s:2.8px"></i><i style="left:76.2%;--d:3.0s;--t:8.8s;--s:2.2px"></i><i style="left:10.7%;--d:5.2s;--t:8.5s;--s:3.8px"></i><i style="left:37.7%;--d:4.1s;--t:12.8s;--s:3.5px"></i><i style="left:57.2%;--d:7.8s;--t:8.1s;--s:2.5px"></i><i style="left:89.2%;--d:7.4s;--t:8.5s;--s:2.6px"></i><i style="left:73.0%;--d:8.5s;--t:8.2s;--s:4.9px"></i><i style="left:86.7%;--d:5.4s;--t:9.5s;--s:2.3px"></i><i style="left:5.7%;--d:8.7s;--t:8.4s;--s:4.1px"></i><i style="left:26.7%;--d:7.4s;--t:10.6s;--s:2.9px"></i><i style="left:18.8%;--d:6.5s;--t:7.4s;--s:2.7px"></i><i style="left:55.7%;--d:7.7s;--t:10.7s;--s:2.8px"></i></div></div></div>
     <svg class="star" viewBox="0 0 100 100" fill="#fff"><polygon points="50,2 61,38 98,38 68,60 79,96 50,74 21,96 32,60 2,38 39,38"/></svg>
     <span class="num reveal">01 — SỨ MỆNH</span>
     <h2 class="reveal">Ba lời cam kết, một <em>kim chỉ nam</em> cho mọi dòng tin.</h2>
@@ -908,6 +986,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </section>
 
   <section id="ban-bien-tap" class="board">
+    <div class="fx fx-board" aria-hidden="true"><div class="fx-stick"><div class="spot"></div><svg class="proof" style="left:3%;top:14%;--r:-8deg" viewBox="0 0 290 360"><rect x="1" y="1" width="288" height="358" rx="6"/><g class="ln"><line x1="20" y1="40" x2="196" y2="40"/><line x1="20" y1="62" x2="172" y2="62"/><line x1="20" y1="84" x2="178" y2="84"/><line x1="20" y1="106" x2="204" y2="106"/><line x1="20" y1="128" x2="222" y2="128"/><line x1="20" y1="150" x2="227" y2="150"/><line x1="20" y1="172" x2="201" y2="172"/><line x1="20" y1="194" x2="177" y2="194"/><line x1="20" y1="216" x2="175" y2="216"/><line x1="20" y1="238" x2="192" y2="238"/><line x1="20" y1="260" x2="206" y2="260"/><line x1="20" y1="282" x2="217" y2="282"/><line x1="20" y1="304" x2="237" y2="304"/></g><g class="mks"><path class="mk" style="--d:0s" d="M28 84 L210 84"/><path class="mk" style="--d:1.2s" d="M150 150 c30 -22 70 -18 92 4 c18 20 -6 40 -46 36 c-38 -4 -60 -22 -46 -40"/><path class="mk" style="--d:2.4s" d="M30 240 q20 -16 40 0 t40 0 t40 0"/><path class="mk" style="--d:3.4s" d="M232 196 l14 14 l26 -30"/></g></svg><svg class="proof" style="left:74%;top:8%;--r:7deg" viewBox="0 0 290 360"><rect x="1" y="1" width="288" height="358" rx="6"/><g class="ln"><line x1="20" y1="40" x2="243" y2="40"/><line x1="20" y1="62" x2="186" y2="62"/><line x1="20" y1="84" x2="181" y2="84"/><line x1="20" y1="106" x2="216" y2="106"/><line x1="20" y1="128" x2="187" y2="128"/><line x1="20" y1="150" x2="227" y2="150"/><line x1="20" y1="172" x2="212" y2="172"/><line x1="20" y1="194" x2="254" y2="194"/><line x1="20" y1="216" x2="258" y2="216"/><line x1="20" y1="238" x2="236" y2="238"/><line x1="20" y1="260" x2="244" y2="260"/><line x1="20" y1="282" x2="187" y2="282"/><line x1="20" y1="304" x2="245" y2="304"/></g><g class="mks"><path class="mk" style="--d:1.5s" d="M28 84 L210 84"/><path class="mk" style="--d:2.7s" d="M150 150 c30 -22 70 -18 92 4 c18 20 -6 40 -46 36 c-38 -4 -60 -22 -46 -40"/><path class="mk" style="--d:3.9s" d="M30 240 q20 -16 40 0 t40 0 t40 0"/><path class="mk" style="--d:4.9s" d="M232 196 l14 14 l26 -30"/></g></svg><svg class="proof" style="left:80%;top:58%;--r:-5deg" viewBox="0 0 290 360"><rect x="1" y="1" width="288" height="358" rx="6"/><g class="ln"><line x1="20" y1="40" x2="174" y2="40"/><line x1="20" y1="62" x2="172" y2="62"/><line x1="20" y1="84" x2="230" y2="84"/><line x1="20" y1="106" x2="215" y2="106"/><line x1="20" y1="128" x2="259" y2="128"/><line x1="20" y1="150" x2="209" y2="150"/><line x1="20" y1="172" x2="174" y2="172"/><line x1="20" y1="194" x2="172" y2="194"/><line x1="20" y1="216" x2="246" y2="216"/><line x1="20" y1="238" x2="251" y2="238"/><line x1="20" y1="260" x2="179" y2="260"/><line x1="20" y1="282" x2="231" y2="282"/><line x1="20" y1="304" x2="178" y2="304"/></g><g class="mks"><path class="mk" style="--d:3s" d="M28 84 L210 84"/><path class="mk" style="--d:4.2s" d="M150 150 c30 -22 70 -18 92 4 c18 20 -6 40 -46 36 c-38 -4 -60 -22 -46 -40"/><path class="mk" style="--d:5.4s" d="M30 240 q20 -16 40 0 t40 0 t40 0"/><path class="mk" style="--d:6.4s" d="M232 196 l14 14 l26 -30"/></g></svg><div class="stamp"><b>ĐÃ DUYỆT</b><small>BAN BIÊN TẬP</small></div><div class="redpen"></div></div></div>
     <div class="sec-head reveal">
       <div><span class="num">03 — BAN BIÊN TẬP</span><h2>Những người <em>cầm lái</em> siêu toà soạn.</h2></div>
     </div>
@@ -926,6 +1005,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </section>
 
   <section id="vinh-danh" class="honors">
+    <div class="fx fx-honors" aria-hidden="true"><div class="fx-stick"><div class="spl l"></div><div class="spl r"></div><svg class="laurel" viewBox="0 0 400 400"><ellipse cx="59" cy="159" rx="12" ry="28" transform="rotate(290 59 159)"/><ellipse cx="79" cy="122" rx="12" ry="28" transform="rotate(306 79 122)"/><ellipse cx="108" cy="92" rx="12" ry="28" transform="rotate(322 108 92)"/><ellipse cx="144" cy="71" rx="12" ry="28" transform="rotate(338 144 71)"/><ellipse cx="184" cy="61" rx="12" ry="28" transform="rotate(354 184 61)"/><ellipse cx="226" cy="62" rx="12" ry="28" transform="rotate(370 226 62)"/><ellipse cx="266" cy="75" rx="12" ry="28" transform="rotate(386 266 75)"/><ellipse cx="300" cy="99" rx="12" ry="28" transform="rotate(402 300 99)"/><ellipse cx="327" cy="131" rx="12" ry="28" transform="rotate(418 327 131)"/><ellipse cx="341" cy="159" rx="12" ry="28" transform="rotate(-110 341 159)"/><ellipse cx="321" cy="122" rx="12" ry="28" transform="rotate(-126 321 122)"/><ellipse cx="292" cy="92" rx="12" ry="28" transform="rotate(-142 292 92)"/><ellipse cx="256" cy="71" rx="12" ry="28" transform="rotate(-158 256 71)"/><ellipse cx="216" cy="61" rx="12" ry="28" transform="rotate(-174 216 61)"/><ellipse cx="174" cy="62" rx="12" ry="28" transform="rotate(-190 174 62)"/><ellipse cx="134" cy="75" rx="12" ry="28" transform="rotate(-206 134 75)"/><ellipse cx="100" cy="99" rx="12" ry="28" transform="rotate(-222 100 99)"/><ellipse cx="73" cy="131" rx="12" ry="28" transform="rotate(-238 73 131)"/></svg><div class="confetti"><i style="left:73.0%;--d:3.2s;--t:15.0s;--x:-51px;--c:#e8372f"></i><i style="left:73.7%;--d:9.0s;--t:13.2s;--x:24px;--c:#e8372f"></i><i style="left:35.2%;--d:6.9s;--t:14.3s;--x:45px;--c:#d4a017"></i><i style="left:94.4%;--d:0.3s;--t:11.5s;--x:-58px;--c:#d4a017"></i><i style="left:37.9%;--d:0.1s;--t:8.5s;--x:-49px;--c:#f2c14e"></i><i style="left:99.3%;--d:8.8s;--t:13.1s;--x:-13px;--c:#d4a017"></i><i style="left:44.1%;--d:8.4s;--t:8.6s;--x:30px;--c:#f2c14e"></i><i style="left:31.0%;--d:0.9s;--t:8.2s;--x:55px;--c:#f2c14e"></i><i style="left:49.7%;--d:6.1s;--t:14.4s;--x:-29px;--c:#f2c14e"></i><i style="left:36.8%;--d:1.4s;--t:12.3s;--x:2px;--c:#e8372f"></i><i style="left:66.0%;--d:4.4s;--t:14.2s;--x:-21px;--c:#e8372f"></i><i style="left:19.9%;--d:4.3s;--t:13.6s;--x:50px;--c:#ffe7a3"></i><i style="left:38.4%;--d:5.8s;--t:10.2s;--x:-44px;--c:#d4a017"></i><i style="left:35.1%;--d:9.0s;--t:8.3s;--x:-52px;--c:#e8372f"></i><i style="left:82.2%;--d:1.1s;--t:11.3s;--x:51px;--c:#d4a017"></i><i style="left:38.3%;--d:5.2s;--t:12.7s;--x:26px;--c:#d4a017"></i><i style="left:32.0%;--d:8.3s;--t:9.9s;--x:13px;--c:#e8372f"></i><i style="left:57.1%;--d:3.1s;--t:13.5s;--x:-58px;--c:#ffe7a3"></i><i style="left:40.5%;--d:1.9s;--t:13.4s;--x:-28px;--c:#ffe7a3"></i><i style="left:79.7%;--d:9.8s;--t:8.8s;--x:-47px;--c:#e8372f"></i><i style="left:95.8%;--d:6.8s;--t:9.4s;--x:-3px;--c:#ffe7a3"></i><i style="left:71.4%;--d:7.6s;--t:11.7s;--x:-56px;--c:#ffe7a3"></i><i style="left:27.2%;--d:3.5s;--t:12.9s;--x:2px;--c:#ffe7a3"></i><i style="left:39.4%;--d:7.9s;--t:14.3s;--x:-50px;--c:#d4a017"></i><i style="left:13.0%;--d:4.5s;--t:12.4s;--x:49px;--c:#d4a017"></i><i style="left:55.0%;--d:6.5s;--t:11.5s;--x:38px;--c:#e8372f"></i><i style="left:46.4%;--d:6.5s;--t:9.4s;--x:27px;--c:#f2c14e"></i><i style="left:21.3%;--d:9.0s;--t:14.9s;--x:57px;--c:#e8372f"></i><i style="left:26.2%;--d:7.2s;--t:8.1s;--x:1px;--c:#f2c14e"></i><i style="left:44.1%;--d:5.5s;--t:13.4s;--x:-2px;--c:#f2c14e"></i><i style="left:21.8%;--d:8.7s;--t:11.0s;--x:-56px;--c:#e8372f"></i><i style="left:68.7%;--d:9.2s;--t:11.3s;--x:60px;--c:#d4a017"></i><i style="left:94.6%;--d:4.9s;--t:14.6s;--x:-50px;--c:#ffe7a3"></i><i style="left:43.9%;--d:5.6s;--t:13.8s;--x:7px;--c:#ffe7a3"></i><i style="left:52.3%;--d:8.4s;--t:11.9s;--x:-23px;--c:#d4a017"></i><i style="left:95.5%;--d:8.7s;--t:12.3s;--x:-23px;--c:#ffe7a3"></i><i style="left:96.8%;--d:5.2s;--t:12.0s;--x:-36px;--c:#f2c14e"></i><i style="left:50.3%;--d:6.1s;--t:8.2s;--x:56px;--c:#d4a017"></i><i style="left:54.4%;--d:9.9s;--t:8.9s;--x:-49px;--c:#ffe7a3"></i><i style="left:6.6%;--d:5.4s;--t:10.9s;--x:55px;--c:#d4a017"></i></div></div></div>
     <div class="sec-head reveal">
       <div><span class="num">04 — VINH DANH</span><h2>Những trang viết được <em>vinh danh</em>.</h2></div>
       <p>Các giải báo chí tiêu biểu Báo Pháp luật Việt Nam đã đạt được từ năm 2020 đến nay — ghi nhận cho ngòi bút dấn thân vì pháp quyền.</p>
@@ -952,6 +1032,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </section>
 
   <section id="he-sinh-thai">
+    <div class="fx fx-eco" aria-hidden="true"><div class="fx-stick"><svg viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice"><path id="ec0" class="el" d="M500 300 L500 70"/><path class="el ring" d="M500 70 L733 137"/><path id="ec1" class="el" d="M500 300 L733 137"/><path class="el ring" d="M733 137 L830 300"/><path id="ec2" class="el" d="M500 300 L830 300"/><path class="el ring" d="M830 300 L733 463"/><path id="ec3" class="el" d="M500 300 L733 463"/><path class="el ring" d="M733 463 L500 530"/><path id="ec4" class="el" d="M500 300 L500 530"/><path class="el ring" d="M500 530 L267 463"/><path id="ec5" class="el" d="M500 300 L267 463"/><path class="el ring" d="M267 463 L170 300"/><path id="ec6" class="el" d="M500 300 L170 300"/><path class="el ring" d="M170 300 L267 137"/><path id="ec7" class="el" d="M500 300 L267 137"/><path class="el ring" d="M267 137 L500 70"/><circle class="en" cx="500" cy="70" r="9"/><circle class="pk" r="4"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0.0s"><mpath href="#ec0"/></animateMotion></circle><circle class="en" cx="733" cy="137" r="9"/><circle class="pk" r="4"><animateMotion dur="2.9s" repeatCount="indefinite" begin="0.4s"><mpath href="#ec1"/></animateMotion></circle><circle class="en" cx="830" cy="300" r="9"/><circle class="pk" r="4"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0.8s"><mpath href="#ec2"/></animateMotion></circle><circle class="en" cx="733" cy="463" r="9"/><circle class="pk" r="4"><animateMotion dur="3.5s" repeatCount="indefinite" begin="1.2s"><mpath href="#ec3"/></animateMotion></circle><circle class="en" cx="500" cy="530" r="9"/><circle class="pk" r="4"><animateMotion dur="3.8s" repeatCount="indefinite" begin="1.6s"><mpath href="#ec4"/></animateMotion></circle><circle class="en" cx="267" cy="463" r="9"/><circle class="pk" r="4"><animateMotion dur="4.1s" repeatCount="indefinite" begin="2.0s"><mpath href="#ec5"/></animateMotion></circle><circle class="en" cx="170" cy="300" r="9"/><circle class="pk" r="4"><animateMotion dur="4.4s" repeatCount="indefinite" begin="2.4s"><mpath href="#ec6"/></animateMotion></circle><circle class="en" cx="267" cy="137" r="9"/><circle class="pk" r="4"><animateMotion dur="4.7s" repeatCount="indefinite" begin="2.8s"><mpath href="#ec7"/></animateMotion></circle><circle class="core" cx="500" cy="300" r="26"/></svg></div></div>
     <div class="sec-head reveal">
       <div><span class="num">05 — HỆ SINH THÁI</span><h2>Một toà soạn, <em>tám cửa ngõ</em> đến với độc giả.</h2></div>
       <p>Mỗi nền tảng một định dạng, một nhịp kể chuyện riêng — cùng chung một chuẩn mực: thông tin pháp luật chính xác, khách quan, có trách nhiệm.</p>
@@ -1019,6 +1100,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </section>
 
   <section id="quy-trinh" style="background:linear-gradient(180deg,transparent,var(--bg2) 30%,var(--bg2) 70%,transparent)">
+    <div class="fx fx-flow" aria-hidden="true"><div class="fx-stick"><div class="rails"></div><div class="lane" style="top:12%;--t:15s"><i style="--d:-0.0s">INFOGRAPHIC</i><i style="--d:-3.1s">PODCAST</i><i style="--d:-6.2s">LIVE</i><i style="--d:-9.3s">LIVE</i><i style="--d:-12.4s">VIDEO</i></div><div class="lane" style="top:30%;--t:17s"><i style="--d:-1.3s">CLIP DỌC</i><i style="--d:-4.4s">EMAGAZINE</i><i style="--d:-7.5s">LIVE</i><i style="--d:-10.6s">CLIP DỌC</i><i style="--d:-13.7s">ẢNH</i></div><div class="lane" style="top:48%;--t:19s"><i style="--d:-2.6s">PODCAST</i><i style="--d:-5.7s">EMAGAZINE</i><i style="--d:-8.8s">TIN</i><i style="--d:-11.9s">INFOGRAPHIC</i><i style="--d:-15.0s">VIDEO</i></div><div class="lane" style="top:66%;--t:21s"><i style="--d:-3.9s">TIN</i><i style="--d:-7.0s">TIN</i><i style="--d:-10.1s">PODCAST</i><i style="--d:-13.2s">VIDEO</i><i style="--d:-16.3s">PODCAST</i></div><div class="lane" style="top:84%;--t:23s"><i style="--d:-5.2s">TIN</i><i style="--d:-8.3s">INFOGRAPHIC</i><i style="--d:-11.4s">CLIP DỌC</i><i style="--d:-14.5s">CLIP DỌC</i><i style="--d:-17.6s">PODCAST</i></div></div></div>
     <div class="sec-head reveal">
       <div><span class="num">06 — QUY TRÌNH HỘI TỤ</span><h2>Từ một sự kiện đến <em>mọi màn hình</em>.</h2></div>
       <p>Một dòng chảy nội dung xuyên suốt, chuyển hoá thành chữ, ảnh, video, đồ hoạ và clip dọc cho từng nền tảng.</p>
@@ -1034,6 +1116,7 @@ document.addEventListener('DOMContentLoaded',function(){
   </section>
 
   <section id="cong-nghe">
+    <div class="fx fx-tech" aria-hidden="true"><div class="fx-stick"><svg viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice"><path class="tr" d="M634 510 L444 510 L444 381 L444 423 L639 423"/><path class="pl" style="--d:0.0s" d="M634 510 L444 510 L444 381 L444 423 L639 423" pathLength="100"/><path class="tr" d="M630 163 L630 56 L511 56 L511 119 L620 119"/><path class="pl" style="--d:-0.7s" d="M630 163 L630 56 L511 56 L511 119 L620 119" pathLength="100"/><path class="tr" d="M223 199 L223 129 L97 129 L264 129 L264 64"/><path class="pl" style="--d:-1.4s" d="M223 199 L223 129 L97 129 L264 129 L264 64" pathLength="100"/><path class="tr" d="M412 18 L564 18 L752 18 L752 -31 L683 -31"/><path class="pl" style="--d:-2.1s" d="M412 18 L564 18 L752 18 L752 -31 L683 -31" pathLength="100"/><path class="tr" d="M780 564 L780 622 L668 622 L536 622 L536 508"/><path class="pl" style="--d:-2.8s" d="M780 564 L780 622 L668 622 L536 622 L536 508" pathLength="100"/><path class="tr" d="M63 137 L63 186 L63 276 L233 276 L296 276"/><path class="pl" style="--d:-3.5s" d="M63 137 L63 186 L63 276 L233 276 L296 276" pathLength="100"/><path class="tr" d="M649 41 L649 -51 L812 -51 L812 -103 L812 -184"/><path class="pl" style="--d:-4.2s" d="M649 41 L649 -51 L812 -51 L812 -103 L812 -184" pathLength="100"/><path class="tr" d="M914 86 L914 198 L914 335 L814 335 L814 392"/><path class="pl" style="--d:-4.9s" d="M914 86 L914 198 L914 335 L814 335 L814 392" pathLength="100"/><path class="tr" d="M918 337 L918 475 L755 475 L677 475 L677 575"/><path class="pl" style="--d:-5.6s" d="M918 337 L918 475 L755 475 L677 475 L677 575" pathLength="100"/><path class="tr" d="M103 10 L103 -59 L249 -59 L355 -59 L355 46"/><path class="pl" style="--d:-6.3s" d="M103 10 L103 -59 L249 -59 L355 -59 L355 46" pathLength="100"/><path class="tr" d="M509 218 L509 331 L389 331 L578 331 L422 331"/><path class="pl" style="--d:-7.0s" d="M509 218 L509 331 L389 331 L578 331 L422 331" pathLength="100"/><path class="tr" d="M11 100 L158 100 L158 206 L158 85 L-42 85"/><path class="pl" style="--d:-7.7s" d="M11 100 L158 100 L158 206 L158 85 L-42 85" pathLength="100"/><path class="tr" d="M611 46 L453 46 L267 46 L267 -48 L267 28"/><path class="pl" style="--d:-8.4s" d="M611 46 L453 46 L267 46 L267 -48 L267 28" pathLength="100"/><path class="tr" d="M539 408 L539 515 L671 515 L671 558 L601 558"/><path class="pl" style="--d:-9.1s" d="M539 408 L539 515 L671 515 L671 558 L601 558" pathLength="100"/><rect class="chip" x="688" y="120" width="66" height="54" rx="6"/><rect class="chip" x="740" y="239" width="43" height="58" rx="6"/><rect class="chip" x="362" y="423" width="65" height="31" rx="6"/><rect class="chip" x="635" y="410" width="60" height="32" rx="6"/><rect class="chip" x="856" y="503" width="54" height="43" rx="6"/><rect class="chip" x="776" y="284" width="56" height="54" rx="6"/></svg><div class="bits"><i style="left:24%;--d:4.2s">AI</i><i style="left:14%;--d:7.7s">API</i><i style="left:60%;--d:0.9s">SQL</i><i style="left:46%;--d:1.6s">0101</i><i style="left:36%;--d:1.2s"></></i><i style="left:44%;--d:5.3s">AI</i><i style="left:60%;--d:5.1s">SQL</i><i style="left:36%;--d:6.0s">0x1F</i><i style="left:95%;--d:5.9s">API</i><i style="left:48%;--d:4.0s">{ }</i><i style="left:78%;--d:5.0s"></></i><i style="left:27%;--d:4.9s">API</i><i style="left:63%;--d:6.0s">API</i><i style="left:95%;--d:4.0s">API</i><i style="left:88%;--d:0.3s">0101</i><i style="left:1%;--d:2.1s">0101</i><i style="left:62%;--d:0.8s">{ }</i><i style="left:7%;--d:0.7s">0x1F</i></div></div></div>
     <div class="sec-head reveal">
       <div><span class="num">07 — NỀN TẢNG CÔNG NGHỆ</span><h2>Báo chí được <em>tăng lực</em> bởi dữ liệu.</h2></div>
     </div>
@@ -1049,10 +1132,12 @@ document.addEventListener('DOMContentLoaded',function(){
   </section>
 
   <section class="manifest">
+    <div class="fx fx-manif" aria-hidden="true"><div class="fx-abs"><div class="ink i1"></div><div class="ink i2"></div><div class="ink i3"></div></div></div>
     <span class="num reveal">08 — TUYÊN NGÔN</span>
     <p id="manifest">Để <span class="g">Đảng tin</span>, để <span class="g">Dân yêu</span>, để <span class="g">Doanh nghiệp đồng hành</span> — chúng tôi đưa pháp luật đến từng người bằng ngôn ngữ của thời đại số.</p>
   </section>
   <section class="dh" id="dong-hanh">
+    <div class="fx fx-dh" aria-hidden="true"><div class="fx-abs"><canvas class="dhnet"></canvas><div class="dhglow"></div><div class="dhdots"><i style="left:84.3%;top:60.5%;--d:1.5s"></i><i style="left:16.4%;top:26.9%;--d:1.4s"></i><i style="left:89.4%;top:77.1%;--d:0.3s"></i><i style="left:7.1%;top:74.7%;--d:2.5s"></i><i style="left:90.0%;top:27.1%;--d:1.7s"></i><i style="left:10.7%;top:74.8%;--d:1.5s"></i><i style="left:87.0%;top:89.1%;--d:1.3s"></i><i style="left:18.3%;top:69.7%;--d:3.7s"></i><i style="left:81.1%;top:39.5%;--d:0.4s"></i><i style="left:26.8%;top:16.3%;--d:0.3s"></i><i style="left:84.7%;top:48.8%;--d:2.7s"></i><i style="left:11.8%;top:72.0%;--d:0.3s"></i><i style="left:75.5%;top:63.0%;--d:0.3s"></i><i style="left:11.9%;top:68.0%;--d:2.8s"></i><i style="left:77.4%;top:21.4%;--d:1.4s"></i><i style="left:22.9%;top:39.3%;--d:0.5s"></i><i style="left:88.4%;top:55.5%;--d:3.7s"></i><i style="left:28.4%;top:83.1%;--d:1.8s"></i><i style="left:90.9%;top:34.4%;--d:1.3s"></i><i style="left:14.4%;top:84.8%;--d:3.6s"></i><i style="left:76.5%;top:38.9%;--d:1.5s"></i><i style="left:13.4%;top:41.6%;--d:1.6s"></i><i style="left:75.1%;top:55.1%;--d:3.2s"></i><i style="left:18.1%;top:76.9%;--d:2.3s"></i><i style="left:74.6%;top:70.7%;--d:3.5s"></i><i style="left:11.3%;top:11.8%;--d:2.1s"></i></div></div></div>
     <div>
       <span class="num">09 — ĐỒNG HÀNH</span>
       <h2>Doanh nghiệp <em>đồng hành</em><br>cùng Báo Pháp luật Việt Nam.</h2>
@@ -1150,6 +1235,28 @@ const b=document.getElementById('burger'),mn=document.getElementById('mnav');
 const tog=o=>{mn.classList.toggle('open',o);b.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''};
 b.addEventListener('click',()=>tog(!mn.classList.contains('open')));mn.addEventListener('click',e=>{if(e.target.closest('a')||e.target===mn)tog(false)});
 mn.querySelectorAll('a').forEach((a,i)=>a.style.transitionDelay=(i*.04)+'s');
+})();
+
+
+/* hiệu ứng nền từng mục + tông màu nối liền */
+(()=>{const fxs=[...document.querySelectorAll('.fx')];
+const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('on',e.isIntersecting)),{rootMargin:'-10% 0px -10% 0px'});
+fxs.forEach(f=>io.observe(f));
+const tone=document.getElementById('tone');
+const T=[['top','#fffaf7'],['slogan','#fff1ec'],['hanh-trinh','#fbf2e6'],['ban-bien-tap','#fff8f1'],['vinh-danh','#fff6e8'],['he-sinh-thai','#fff4f1'],['quy-trinh','#fff1ec'],['cong-nghe','#fbf3f2'],['dong-hanh','#fff1ec']];
+const els=T.map(([id,c])=>[document.getElementById(id),c]).filter(x=>x[0]);let last='';
+function tn(){const m=innerHeight*.5;let c=T[0][1];els.forEach(([e,col])=>{if(e.getBoundingClientRect().top<m)c=col});if(c!==last){last=c;tone.style.background=c}}
+addEventListener('scroll',tn,{passive:true});tn();
+/* mạng kết nối ở mục Đồng hành */
+const cv=document.querySelector('.dhnet');if(cv){const x=cv.getContext('2d');let W,H,P=[];
+ function rs(){W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight;P=Array.from({length:46},(_,i)=>({x:(i%2?Math.random()*.3:.7+Math.random()*.3)*W,y:Math.random()*H,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3}))}
+ rs();addEventListener('resize',rs);
+ (function fr(){if(cv.closest('.fx').classList.contains('on')){x.clearRect(0,0,W,H);
+  P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.y<0||p.y>H)p.vy*=-1;if(p.x<0||p.x>W)p.vx*=-1});
+  for(let i=0;i<P.length;i++){const a=P[i];x.fillStyle='rgba(255,231,163,.8)';x.beginPath();x.arc(a.x,a.y,1.8,0,7);x.fill();
+   for(let j=i+1;j<P.length;j++){const b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);const lim=(i%2)!==(j%2)?W*.55:120;
+    if(d<lim){x.strokeStyle=`rgba(242,193,78,${(i%2)!==(j%2)?.08*(1-d/lim):.3*(1-d/lim)})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}}}
+  requestAnimationFrame(fr)})()}
 })();
 
 /* reveal + counters */
