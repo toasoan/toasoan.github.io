@@ -1,0 +1,56 @@
+{
+  "tieu_de": "Những trang viết được *vinh danh*.",
+  "mo_ta": "Các giải báo chí tiêu biểu Báo Pháp luật Việt Nam đã đạt được từ năm 2020 đến nay — ghi nhận cho ngòi bút dấn thân vì pháp quyền.",
+  "anh_tac_gia": {
+    "anh": "/assets/img/van-anh-bua-liem-vang.jpg",
+    "mo_ta_anh": "Nhà báo Lương Thị Vân Anh (giữa, áo dài hồng) nâng cúp Giải A Búa liềm vàng trên sân khấu lễ trao giải",
+    "nhan": "TÁC GIẢ ĐƯỢC VINH DANH",
+    "ten": "Nhà báo Lương Thị Vân Anh",
+    "dong_phu": "Báo Pháp luật Việt Nam · Giải A Búa liềm vàng"
+  },
+  "khung": {
+    "nhan": "GIẢI BÁO CHÍ TOÀN QUỐC VỀ XÂY DỰNG ĐẢNG",
+    "so": "4",
+    "dong_1": "năm liên tiếp",
+    "dong_2": "đoạt Giải Búa liềm vàng",
+    "mo_ta": "Bốn mùa giải liền 2022 – 2025, Báo Pháp luật Việt Nam đều có tác phẩm đoạt giải, trong đó có 2 Giải A (2023, 2024)."
+  },
+  "cac_nam": [
+    {
+      "nam": "2022",
+      "hang_giai": "C",
+      "lan": "VII",
+      "tac_pham": "“Chống lợi ích nhóm trong xây dựng và áp dụng pháp luật” (loạt 5 kỳ)",
+      "tac_gia": "Vân Anh · Hà Dung · Minh Ngọc",
+      "link_tac_pham": "longform/chong-loi-ich-nhom.html#ky-1",
+      "link_tin": "longform/vinh-danh-2022.html"
+    },
+    {
+      "nam": "2023",
+      "hang_giai": "A",
+      "lan": "VIII",
+      "tac_pham": "“Kiểm soát quyền lực trong các cơ quan phòng, chống tham nhũng, tiêu cực” (loạt 5 kỳ)",
+      "tac_gia": "Lương Thị Vân Anh",
+      "link_tac_pham": "longform/kiem-soat-quyen-luc.html#ky-1",
+      "link_tin": "longform/vinh-danh-2023.html"
+    },
+    {
+      "nam": "2024",
+      "hang_giai": "A",
+      "lan": "IX",
+      "tac_pham": "“Chặn hiểm họa từ doanh nghiệp ‘sân sau’” (loạt 5 kỳ)",
+      "tac_gia": "Lương Thị Vân Anh",
+      "link_tac_pham": "longform/chan-hiem-hoa-san-sau.html#ky-1",
+      "link_tin": "longform/vinh-danh-2024.html"
+    },
+    {
+      "nam": "2025",
+      "hang_giai": "C",
+      "lan": "X",
+      "tac_pham": "“Sức mạnh lòng dân – Nền tảng vững chắc của mọi thắng lợi” (loạt 5 kỳ)",
+      "tac_gia": "Hà Ánh Bình · Lương Thị Vân Anh",
+      "link_tac_pham": "longform/suc-manh-long-dan.html#ky-1",
+      "link_tin": "longform/vinh-danh-2025.html"
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "tieu_de": "Từ toà soạn *7 người* đến siêu toà soạn số.",
+  "mo_ta": "Từ tờ *Pháp luật thường thức* in chữ chì năm 1985 đến hệ sinh thái đa nền tảng hôm nay, bốn giai đoạn với một mạch xuyên suốt: đưa pháp luật đến gần hơn với Nhân dân.",
+  "giai_doan": [
+    {
+      "ma": "I",
+      "tu_nam": 1985,
+      "den_nam": 1990,
+      "ten": "Khởi nghiệp"
+    },
+    {
+      "ma": "II",
+      "tu_nam": 1990,
+      "den_nam": 2002,
+      "ten": "Chuyên nghiệp hoá"
+    },
+    {
+      "ma": "III",
+      "tu_nam": 2002,
+      "den_nam": 2020,
+      "ten": "Khẳng định thương hiệu"
+    },
+    {
+      "ma": "IV",
+      "tu_nam": 2020,
+      "den_nam": 2026,
+      "ten": "Chuyển đổi số"
+    }
+  ],
+  "moc": [
+    {
+      "giai_doan": "I",
+      "nam": "1981",
+      "thoi_gian": "Tiền đề",
+      "nhan_noi_bat": "",
+      "tieu_de": "Bộ Tư pháp được thành lập lại",
+      "noi_dung": "Sau thời gian dài mang tên Uỷ ban Pháp chế Chính phủ, Bộ Tư pháp được thành lập lại, tạo tiền đề cho một tờ báo chuyên về pháp luật.",
+      "thong_tin": [
+        {
+          "nhan": "Bối cảnh",
+          "gia_tri": "Báo ngành pháp luật còn rất hiếm"
+        }
+      ]
+    },
+    {
+      "giai_doan": "I",
+      "nam": "1985",
+      "thoi_gian": "03/04/1985",
+      "nhan_noi_bat": "",
+      "tieu_de": "Quyết định số 57/QĐTC",
+      "noi_dung": "Bộ trưởng Bộ Tư pháp ký quyết định xuất bản tờ Pháp luật thường thức: tuyên truyền, phổ biến pháp luật bằng lối viết giản dị, dễ hiểu, gần gũi với Nhân dân.",
+      "thong_tin": [
+        {
+          "nhan": "Ấn phẩm",
+          "gia_tri": "Pháp luật thường thức"
+        },
+        {
+          "nhan": "Nhịp",
+          "gia_tri": "2 kỳ / tháng"
+        }
+      ]
+    },
+    {
+      "giai_doan": "I",
+      "nam": "1985",
+      "thoi_gian": "10/07/1985",
+      "nhan_noi_bat": "NGÀY TRUYỀN THỐNG",
+      "tieu_de": "Số báo đầu tiên ra đời",
+      "noi_dung": "Tờ Pháp luật thường thức in chữ chì đến tay bạn đọc. Cả toà soạn 7 người tự viết, biên tập, đánh máy và chở báo bằng xe đạp đến các sạp khắp Hà Nội.",
+      "thong_tin": [
+        {
+          "nhan": "Công nghệ",
+          "gia_tri": "In chữ chì · máy chữ"
+        },
+        {
+          "nhan": "Quy mô",
+          "gia_tri": "Toà soạn 7 người"
+        }
+      ]
+    },
+    {
+      "giai_doan": "II",
+      "nam": "1990",
+      "thoi_gian": "Đầu năm 1990",
+      "nhan_noi_bat": "",
+      "tieu_de": "Tự chủ & đổi tên Báo Pháp luật",
+      "noi_dung": "Từ 2 kỳ mỗi tháng, báo đã trở thành tuần báo. Bắt đầu cơ chế tự chủ tài chính, báo thay măng séc và đổi tên thành Báo Pháp luật.",
+      "thong_tin": [
+        {
+          "nhan": "Mô hình",
+          "gia_tri": "Tự chủ tài chính"
+        },
+        {
+          "nhan": "Nhịp",
+          "gia_tri": "Tuần báo"
+        }
+      ]
+    },
+    {
+      "giai_doan": "II",
+      "nam": "90s",
+      "thoi_gian": "Giữa thập niên 1990",
+      "nhan_noi_bat": "",
+      "tieu_de": "Cuộc chuyển giao công nghệ đầu tiên",
+      "noi_dung": "Thành lập các ban biên tập, ban thư ký, phòng vi tính. Từ máy chữ thủ công chuyển sang in laser, tự học dàn trang, trình bày; mạng lưới cộng tác viên phủ khắp cả nước.",
+      "thong_tin": [
+        {
+          "nhan": "Công nghệ",
+          "gia_tri": "Máy chữ → In laser"
+        },
+        {
+          "nhan": "Hạ tầng",
+          "gia_tri": "Phòng vi tính"
+        }
+      ]
+    },
+    {
+      "giai_doan": "II",
+      "nam": "1997",
+      "thoi_gian": "1997",
+      "nhan_noi_bat": "",
+      "tieu_de": "Pháp luật cuối tuần ra đời",
+      "noi_dung": "Lớp phóng viên mới được tuyển dụng, kỳ xuất bản liên tục tăng: thời kỳ phát triển nhanh nhất. Từ 2 số mỗi tháng, báo tiệm cận nhật báo.",
+      "thong_tin": [
+        {
+          "nhan": "Ấn phẩm",
+          "gia_tri": "+ Pháp luật cuối tuần"
+        },
+        {
+          "nhan": "Nhịp",
+          "gia_tri": "Tiệm cận nhật báo"
+        }
+      ]
+    },
+    {
+      "giai_doan": "III",
+      "nam": "2002",
+      "thoi_gian": "2002",
+      "nhan_noi_bat": "THƯƠNG HIỆU",
+      "tieu_de": "Tên gọi Báo Pháp luật Việt Nam",
+      "noi_dung": "Tên gọi Báo Pháp luật Việt Nam chính thức ra đời. Báo mở rộng quy mô, đặt văn phòng đại diện tại nhiều địa phương; số chủ nhật, thứ tư, cuối tuần lần lượt ra đời.",
+      "thong_tin": [
+        {
+          "nhan": "Mạng lưới",
+          "gia_tri": "Văn phòng đại diện địa phương"
+        },
+        {
+          "nhan": "Ấn phẩm",
+          "gia_tri": "Hệ sinh thái báo in"
+        }
+      ]
+    },
+    {
+      "giai_doan": "III",
+      "nam": "2008",
+      "thoi_gian": "2008 – 2015",
+      "nhan_noi_bat": "",
+      "tieu_de": "Đề án đổi mới tổ chức & hoạt động",
+      "noi_dung": "Bộ Tư pháp ban hành khung biên chế và Đề án đổi mới giai đoạn 2008 – 2015 với slogan “Vì Nhà nước pháp quyền xã hội chủ nghĩa Việt Nam”. Báo tăng trưởng trở lại, bước vào thời kỳ sôi động.",
+      "thong_tin": [
+        {
+          "nhan": "Thể chế",
+          "gia_tri": "Tự chủ mạnh mẽ"
+        }
+      ]
+    },
+    {
+      "giai_doan": "III",
+      "nam": "2018",
+      "thoi_gian": "23/05/2018",
+      "nhan_noi_bat": "",
+      "tieu_de": "Cơ quan ngôn luận của Bộ Tư pháp",
+      "noi_dung": "Quyết định 1158/QĐ-BTP quy định chức năng, nhiệm vụ, cơ cấu tổ chức, khẳng định Báo Pháp luật Việt Nam là cơ quan ngôn luận của Bộ Tư pháp.",
+      "thong_tin": [
+        {
+          "nhan": "Pháp lý",
+          "gia_tri": "QĐ 1158/QĐ-BTP"
+        }
+      ]
+    },
+    {
+      "giai_doan": "IV",
+      "nam": "2020",
+      "thoi_gian": "Thập niên 2020",
+      "nhan_noi_bat": "",
+      "tieu_de": "Chuyển đổi số toàn diện",
+      "noi_dung": "Các ấn phẩm điện tử ra đời; đội ngũ phóng viên trẻ làm chủ công nghệ, tiếp cận mạng xã hội, video, podcast; tổ chức diễn đàn pháp lý và truyền thông đa nền tảng.",
+      "thong_tin": [
+        {
+          "nhan": "Công nghệ",
+          "gia_tri": "Báo điện tử · Video · Podcast"
+        },
+        {
+          "nhan": "Kênh",
+          "gia_tri": "Mạng xã hội"
+        }
+      ]
+    },
+    {
+      "giai_doan": "IV",
+      "nam": "2025",
+      "thoi_gian": "10/07/2025",
+      "nhan_noi_bat": "40 NĂM",
+      "tieu_de": "Siêu toà soạn đa nền tảng",
+      "noi_dung": "Kỷ niệm 40 năm số báo đầu tiên. Từ toà soạn 7 người đến hệ sinh thái 8 nền tảng: báo điện tử, 4 chuyên trang cùng YouTube, TikTok, Facebook.",
+      "thong_tin": [
+        {
+          "nhan": "Quy mô",
+          "gia_tri": "8 nền tảng"
+        },
+        {
+          "nhan": "Nhịp",
+          "gia_tri": "24/7"
+        }
+      ]
+    }
+  ],
+  "so_sanh": {
+    "cot_xua": "1985",
+    "cot_nay": "Hôm nay",
+    "dong": [
+      {
+        "nhan": "Toà soạn",
+        "xua": "7 người",
+        "nay": "Siêu toà soạn hội tụ"
+      },
+      {
+        "nhan": "Nhịp xuất bản",
+        "xua": "2 kỳ / tháng",
+        "nay": "24/7 thời gian thực"
+      },
+      {
+        "nhan": "Công nghệ",
+        "xua": "In chữ chì, máy chữ",
+        "nay": "Số hoá đa phương tiện"
+      },
+      {
+        "nhan": "Phát hành",
+        "xua": "Xe đạp đến sạp báo",
+        "nay": "Tức thời trên mọi màn hình"
+      },
+      {
+        "nhan": "Ấn phẩm",
+        "xua": "1 tờ báo",
+        "nay": "8 nền tảng"
+      }
+    ]
+  }
+}

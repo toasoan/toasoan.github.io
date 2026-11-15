@@ -1,0 +1,321 @@
+# Cấu hình trang quản trị nội dung (Sveltia CMS) cho https://toasoan.github.io/
+backend:
+  name: github
+  repo: toasoan/toasoan.github.io
+  branch: main
+  auth_methods: [token]
+  commit_messages:
+    update: "CMS: cập nhật {{collection}} – {{slug}}"
+    uploadMedia: "CMS: tải lên ảnh {{path}}"
+    deleteMedia: "CMS: xoá ảnh {{path}}"
+
+app_title: Quản trị · Siêu toà soạn Pháp luật
+site_url: https://toasoan.github.io/
+display_url: https://toasoan.github.io/
+logo:
+  src: /assets/img/logo-phap-luat.png
+media_folder: assets/uploads
+public_folder: /assets/uploads
+editor:
+  preview: false
+
+collections:
+  - name: trang_chu
+    label: Trang chủ
+    label_singular: Mục
+    icon: home
+    description: "Mỗi mục bên dưới tương ứng một phần trên trang chủ. Mẹo: đặt chữ trong *dấu sao* để in nghiêng màu nổi bật, **hai dấu sao** để in đậm."
+    format: json
+    files:
+      # ------------------------------------------------------------------
+      - name: dau-trang
+        label: "00 · Phần mở đầu, đồng hồ 24/7, logo"
+        file: content/dau-trang.json
+        fields:
+          - { name: tieu_de_dong_1, label: "Tiêu đề lớn – dòng 1", widget: string }
+          - { name: tieu_de_dong_2, label: "Tiêu đề lớn – dòng 2 (chữ đỏ có hiệu ứng)", widget: string }
+          - { name: khau_hieu, label: "Ba khẩu hiệu dưới tiêu đề", widget: list, field: { name: chu, label: Khẩu hiệu, widget: string } }
+          - { name: gioi_thieu, label: "Đoạn giới thiệu", widget: text, hint: "Câu cuối sẽ nối tiếp bằng chữ chạy bên dưới. **chữ** để in đậm." }
+          - { name: chu_chay, label: "Chữ tự gõ ở cuối đoạn giới thiệu", widget: list, field: { name: chu, label: Cụm chữ, widget: string } }
+          - name: nut_1
+            label: "Nút thứ nhất"
+            widget: object
+            fields:
+              - { name: chu, label: Chữ trên nút, widget: string }
+              - { name: link, label: Đường dẫn, widget: string }
+          - name: nut_2
+            label: "Nút thứ hai"
+            widget: object
+            fields:
+              - { name: chu, label: Chữ trên nút, widget: string }
+              - { name: link, label: Đường dẫn, widget: string }
+          - { name: dai_chu_chay, label: "Dải chữ chạy màu đỏ", widget: list, field: { name: chu, label: Cụm chữ, widget: string } }
+          - name: trung_tam
+            label: "Khối Trung tâm điều hành 24/7"
+            widget: object
+            fields:
+              - { name: tieu_de, label: Tiêu đề thanh trên, widget: string }
+              - { name: dong_ho_chu, label: Chữ dưới đồng hồ, widget: string }
+              - name: chi_so
+                label: Các ô số liệu
+                widget: list
+                fields:
+                  - { name: so, label: "Con số", widget: number, value_type: int }
+                  - { name: ten, label: Tên, widget: string }
+                  - { name: mo_ta, label: Mô tả, widget: string }
+              - { name: trang_thai, label: "Dải trạng thái (đèn xanh)", widget: list, field: { name: chu, label: Tên nền tảng, widget: string } }
+          - name: logo_thuong_hieu
+            label: "Dải logo thương hiệu"
+            widget: list
+            fields:
+              - { name: anh, label: Logo, widget: image }
+              - { name: ten, label: Tên (mô tả ảnh), widget: string }
+              - { name: link, label: Đường dẫn, widget: string }
+              - name: nen
+                label: Kiểu nền ô
+                widget: select
+                options: [{ label: "Nền sáng", value: sang }, { label: "Nền đỏ", value: do }, { label: "Thường", value: thuong }]
+
+      # ------------------------------------------------------------------
+      - name: su-menh
+        label: "01 · Sứ mệnh"
+        file: content/su-menh.json
+        fields:
+          - { name: tieu_de, label: Tiêu đề, widget: string }
+          - name: cam_ket
+            label: Các cam kết
+            widget: list
+            fields:
+              - { name: nhan, label: "Nhãn nhỏ (VD: CAM KẾT 01)", widget: string }
+              - { name: ten, label: Tên cam kết, widget: string }
+              - { name: mo_ta, label: Mô tả, widget: text }
+              - { name: nut_chu, label: "Chữ nút (để trống nếu không cần)", widget: string, required: false }
+              - { name: nut_link, label: "Đường dẫn nút", widget: string, required: false }
+
+      # ------------------------------------------------------------------
+      - name: hanh-trinh
+        label: "02 · Hành trình 40 năm"
+        file: content/hanh-trinh.json
+        fields:
+          - { name: tieu_de, label: Tiêu đề, widget: string }
+          - { name: mo_ta, label: Mô tả, widget: text }
+          - name: giai_doan
+            label: Các giai đoạn
+            widget: list
+            hint: "Mã giai đoạn (I, II, III, IV) phải khớp với ô “Thuộc giai đoạn” của từng mốc. Hiệu ứng nền đổi theo 4 giai đoạn đầu."
+            fields:
+              - { name: ma, label: "Mã (I, II, III…)", widget: string }
+              - { name: tu_nam, label: Từ năm, widget: number, value_type: int }
+              - { name: den_nam, label: Đến năm, widget: number, value_type: int }
+              - { name: ten, label: Tên giai đoạn, widget: string }
+          - name: moc
+            label: Các mốc thời gian
+            widget: list
+            summary: "{{nam}} · {{tieu_de}}"
+            fields:
+              - { name: giai_doan, label: "Thuộc giai đoạn (mã)", widget: string }
+              - { name: nam, label: "Năm hiển thị lớn", widget: string }
+              - { name: thoi_gian, label: "Ngày / thời gian", widget: string, required: false }
+              - { name: nhan_noi_bat, label: "Nhãn vàng nổi bật (để trống nếu không)", widget: string, required: false }
+              - { name: tieu_de, label: Tiêu đề, widget: string }
+              - { name: noi_dung, label: Nội dung, widget: text }
+              - name: thong_tin
+                label: Thông tin bên cạnh
+                widget: list
+                required: false
+                fields:
+                  - { name: nhan, label: Nhãn, widget: string }
+                  - { name: gia_tri, label: Giá trị, widget: string }
+          - name: so_sanh
+            label: "Bảng so sánh Xưa – Nay"
+            widget: object
+            fields:
+              - { name: cot_xua, label: Tiêu đề cột xưa, widget: string }
+              - { name: cot_nay, label: Tiêu đề cột nay, widget: string }
+              - name: dong
+                label: Các dòng
+                widget: list
+                fields:
+                  - { name: nhan, label: Nhãn, widget: string }
+                  - { name: xua, label: Xưa, widget: string }
+                  - { name: nay, label: Nay, widget: string }
+
+      # ------------------------------------------------------------------
+      - name: ban-bien-tap
+        label: "03 · Ban Biên tập"
+        file: content/ban-bien-tap.json
+        fields:
+          - { name: tieu_de, label: Tiêu đề, widget: string }
+          - name: tong_bien_tap
+            label: Tổng Biên tập
+            widget: object
+            fields:
+              - { name: anh, label: "Ảnh chân dung (nên vuông)", widget: image }
+              - { name: chuc_vu, label: Chức vụ, widget: string }
+              - { name: danh_xung, label: "Danh xưng (Tiến sĩ, Ông, Bà…)", widget: string, required: false }
+              - { name: ho_ten, label: Họ tên, widget: string }
+          - name: pho_tong_bien_tap
+            label: Phó Tổng Biên tập
+            widget: list
+            summary: "{{ho_ten}}"
+            fields:
+              - { name: anh, label: "Ảnh chân dung (nên vuông)", widget: image }
+              - { name: chuc_vu, label: Chức vụ, widget: string }
+              - { name: danh_xung, label: "Danh xưng (Ông, Bà…)", widget: string, required: false }
+              - { name: ho_ten, label: Họ tên, widget: string }
+
+      # ------------------------------------------------------------------
+      - name: giai-thuong
+        label: "04 · Vinh danh – Giải thưởng"
+        file: content/giai-thuong.json
+        fields:
+          - { name: tieu_de, label: Tiêu đề, widget: string }
+          - { name: mo_ta, label: Mô tả, widget: text }
+          - name: khung
+            label: Khung đỏ – dòng tiêu đề
+            widget: object
+            fields:
+              - { name: nhan, label: Nhãn nhỏ, widget: string }
+              - { name: so, label: "Con số lớn", widget: string }
+              - { name: dong_1, label: Dòng 1, widget: string }
+              - { name: dong_2, label: "Dòng 2 (chữ vàng nghiêng)", widget: string }
+              - { name: mo_ta, label: Mô tả, widget: text }
+          - name: anh_tac_gia
+            label: Ảnh vinh danh tác giả
+            widget: object
+            fields:
+              - { name: anh, label: Ảnh, widget: image }
+              - { name: mo_ta_anh, label: "Mô tả ảnh (cho người khiếm thị)", widget: string }
+              - { name: nhan, label: Nhãn nhỏ, widget: string }
+              - { name: ten, label: Tên, widget: string }
+              - { name: dong_phu, label: Dòng phụ, widget: string }
+          - name: cac_nam
+            label: Các năm đoạt giải
+            widget: list
+            summary: "{{nam}} · Giải {{hang_giai}}"
+            fields:
+              - { name: nam, label: Năm, widget: string }
+              - { name: hang_giai, label: "Hạng giải (A, B, C, KK…)", widget: string }
+              - { name: lan, label: "Lần thứ (VII, VIII…)", widget: string }
+              - { name: tac_pham, label: Tên tác phẩm, widget: string }
+              - { name: tac_gia, label: Tác giả, widget: string }
+              - { name: link_tac_pham, label: "Link “Đọc tác phẩm”", widget: string, required: false }
+              - { name: link_tin, label: "Link “Đọc tin vinh danh”", widget: string, required: false }
+
+      # ------------------------------------------------------------------
+      - name: he-sinh-thai
+        label: "05 · Hệ sinh thái"
+        file: content/he-sinh-thai.json
+        fields:
+          - { name: tieu_de, label: Tiêu đề, widget: string }
+          - { name: mo_ta, label: Mô tả, widget: text }
+          - name: the
+            label: Các thẻ nền tảng
+            widget: list
+            summary: "{{nhan_2}}"
+            fields:
+              - name: kieu
+                label: Kiểu thẻ (quyết định kích thước, màu, biểu tượng)
+                widget: select
+                options:
+                  - { label: "Báo điện tử (thẻ rộng, nổi bật)", value: bao-dien-tu }
+                  - { label: "Doanh nhân (nền đỏ)", value: doanh-nhan }
+                  - { label: "Chuyên trang (thẻ nhỏ)", value: chuyen-trang }
+                  - { label: "Media (thẻ rộng)", value: media }
+                  - { label: "Video / Truyền hình (nửa hàng)", value: video }
+                  - { label: "Hội tụ (nền vàng, nửa hàng)", value: hoi-tu }
+                  - { label: "YouTube", value: youtube }
+                  - { label: "TikTok", value: tiktok }
+                  - { label: "Facebook", value: facebook }
+              - { name: nhan_1, label: Nhãn trái, widget: string }
+              - { name: nhan_2, label: Nhãn phải, widget: string }
+              - { name: logo, label: "Logo (để trống nếu dùng tiêu đề chữ)", widget: image, required: false }
+              - { name: tieu_de, label: "Tiêu đề chữ (khi không có logo)", widget: string, required: false }
+              - { name: mo_ta, label: Mô tả, widget: text }
+              - { name: link, label: Đường dẫn, widget: string }
+              - { name: nut, label: Chữ nút, widget: string }
+
+      # ------------------------------------------------------------------
+      - name: quy-trinh
+        label: "06 · Quy trình hội tụ"
+        file: content/quy-trinh.json
+        fields:
+          - { name: tieu_de, label: Tiêu đề, widget: string }
+          - { name: mo_ta, label: Mô tả, widget: text }
+          - name: buoc
+            label: Các bước
+            widget: list
+            fields:
+              - { name: ten, label: Tên bước, widget: string }
+              - { name: mo_ta, label: Mô tả, widget: text }
+
+      # ------------------------------------------------------------------
+      - name: cong-nghe
+        label: "07 · Nền tảng công nghệ"
+        file: content/cong-nghe.json
+        fields:
+          - { name: tieu_de, label: Tiêu đề, widget: string }
+          - name: man_hinh_lenh
+            label: Các dòng chạy trên màn hình lệnh
+            widget: list
+            hint: "Dòng bắt đầu bằng $ ✔ → sẽ được tô màu tự động."
+            field: { name: dong, label: Dòng, widget: string }
+          - name: tinh_nang
+            label: Các tính năng
+            widget: list
+            fields:
+              - { name: ten, label: Tên, widget: string }
+              - { name: mo_ta, label: Mô tả, widget: text }
+
+      # ------------------------------------------------------------------
+      - name: tuyen-ngon
+        label: "08 · Tuyên ngôn"
+        file: content/tuyen-ngon.json
+        fields:
+          - { name: noi_dung, label: Câu tuyên ngôn, widget: text, hint: "Đặt chữ trong *dấu sao* để tô đỏ." }
+
+      # ------------------------------------------------------------------
+      - name: dong-hanh
+        label: "09 · Đồng hành"
+        file: content/dong-hanh.json
+        fields:
+          - { name: tieu_de, label: Tiêu đề, widget: text, hint: "Xuống dòng để ngắt dòng tiêu đề." }
+          - { name: mo_ta, label: Mô tả, widget: text }
+          - { name: nut_chu, label: Chữ nút, widget: string }
+          - { name: nut_link, label: Đường dẫn nút, widget: string }
+          - { name: the_nho, label: Các thẻ nhỏ dưới nút, widget: list, field: { name: chu, label: Chữ, widget: string } }
+
+      # ------------------------------------------------------------------
+      - name: chan-trang
+        label: "10 · Chân trang"
+        file: content/chan-trang.json
+        fields:
+          - { name: khau_hieu, label: Khẩu hiệu lớn, widget: text, hint: "Xuống dòng để ngắt dòng. *chữ* để tô vàng." }
+          - name: cot_bao
+            label: Cột Báo & chuyên trang
+            widget: object
+            fields:
+              - { name: tieu_de, label: Tiêu đề cột, widget: string }
+              - name: lien_ket
+                label: Các liên kết
+                widget: list
+                fields: [{ name: chu, label: Chữ, widget: string }, { name: link, label: Đường dẫn, widget: string }]
+          - name: cot_mxh
+            label: Cột Mạng xã hội
+            widget: object
+            fields:
+              - { name: tieu_de, label: Tiêu đề cột, widget: string }
+              - name: lien_ket
+                label: Các liên kết
+                widget: list
+                fields: [{ name: chu, label: Chữ, widget: string }, { name: link, label: Đường dẫn, widget: string }]
+          - name: ve_chung_toi
+            label: Về chúng tôi
+            widget: object
+            fields:
+              - { name: ten, label: Tên cơ quan, widget: string }
+              - { name: mo_ta, label: Mô tả, widget: string }
+              - { name: nhan_dia_chi, label: "Nhãn địa chỉ (VD: Tòa soạn)", widget: string }
+              - { name: dia_chi, label: Các địa chỉ, widget: list, field: { name: dc, label: Địa chỉ, widget: string } }
+          - { name: ban_quyen, label: Dòng bản quyền, widget: string }
+          - { name: dong_cuoi, label: Dòng cuối bên phải, widget: string }

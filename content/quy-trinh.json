@@ -1,0 +1,26 @@
+{
+  "tieu_de": "Từ một sự kiện đến *mọi màn hình*.",
+  "mo_ta": "Một dòng chảy nội dung xuyên suốt, chuyển hoá thành chữ, ảnh, video, đồ hoạ và clip dọc cho từng nền tảng.",
+  "buoc": [
+    {
+      "ten": "Thu thập",
+      "mo_ta": "Phóng viên hiện trường, nguồn tin chính thống, văn bản pháp luật."
+    },
+    {
+      "ten": "Thẩm định",
+      "mo_ta": "Kiểm chứng thông tin, góc nhìn pháp lý từ chuyên gia, luật sư."
+    },
+    {
+      "ten": "Sản xuất đa dạng",
+      "mo_ta": "Bài viết, Emagazine, Infographic, video, podcast, clip dọc."
+    },
+    {
+      "ten": "Phân phối",
+      "mo_ta": "Báo điện tử, chuyên trang, YouTube, TikTok, Facebook."
+    },
+    {
+      "ten": "Đo lường",
+      "mo_ta": "Phân tích dữ liệu độc giả để tối ưu nội dung tiếp theo."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "tieu_de": "Báo chí được *tăng lực* bởi dữ liệu.",
+  "man_hinh_lenh": [
+    "$ newsroom start --mode=hoi-tu",
+    "✔ Nhận tin: \"Văn bản pháp luật mới có hiệu lực\"",
+    "✔ Kiểm chứng nguồn · chuyên gia pháp lý xác nhận",
+    "→ Sản xuất: bài viết · infographic · video 60s",
+    "→ Xuất bản: baophapluat · doanhnhan · plus · media · video",
+    "→ Đẩy lên: YouTube · TikTok · Facebook",
+    "✔ Đo lường tương tác độc giả · cập nhật xu hướng",
+    "$ chờ sự kiện tiếp theo…"
+  ],
+  "tinh_nang": [
+    {
+      "ten": "Quản trị nội dung hội tụ",
+      "mo_ta": "Một bàn biên tập chung điều phối tin bài cho toàn bộ chuyên trang và kênh số."
+    },
+    {
+      "ten": "Phân tích dữ liệu thời gian thực",
+      "mo_ta": "Nắm bắt xu hướng quan tâm của độc giả để đưa tin đúng lúc, đúng nhu cầu."
+    },
+    {
+      "ten": "Nội dung số đa phương tiện",
+      "mo_ta": "Emagazine, Infographic, Longform, video dọc — kể chuyện pháp luật bằng ngôn ngữ thị giác."
+    },
+    {
+      "ten": "Ứng dụng AI có kiểm soát",
+      "mo_ta": "Hỗ trợ tóm tắt, gợi ý, chuyển đổi định dạng — luôn qua thẩm định của biên tập viên."
+    }
+  ]
+}

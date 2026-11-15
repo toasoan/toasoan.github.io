@@ -1,0 +1,92 @@
+{
+  "tieu_de_dong_1": "Siêu toà soạn",
+  "tieu_de_dong_2": "công nghệ số",
+  "khau_hieu": [
+    "Đảng tin",
+    "Dân yêu",
+    "Doanh nghiệp đồng hành"
+  ],
+  "gioi_thieu": "Một hệ sinh thái nội dung hội tụ — báo điện tử, Doanh nhân, Pháp luật Plus, Pháp luật Media, Video Pháp luật cùng các kênh mạng xã hội — **sản xuất một lần, phân phối đa nền tảng**, đưa thông tin pháp luật chuẩn xác đến",
+  "chu_chay": [
+    "từng người dân.",
+    "cộng đồng doanh nghiệp.",
+    "mọi màn hình.",
+    "thế hệ số."
+  ],
+  "nut_1": {
+    "chu": "Đọc Báo Pháp luật ↗",
+    "link": "https://baophapluat.vn/"
+  },
+  "nut_2": {
+    "chu": "Đồng hành cùng Báo",
+    "link": "bao-gia.html"
+  },
+  "dai_chu_chay": [
+    "Đảng tin",
+    "Dân yêu",
+    "Doanh nghiệp đồng hành"
+  ],
+  "trung_tam": {
+    "tieu_de": "Trung tâm điều hành nội dung số",
+    "dong_ho_chu": "Vận hành tin tức liên tục",
+    "chi_so": [
+      {
+        "so": 8,
+        "ten": "Điểm chạm nội dung",
+        "mo_ta": "Một lần sản xuất — tám cửa ngõ phân phối"
+      },
+      {
+        "so": 5,
+        "ten": "Báo điện tử & chuyên trang",
+        "mo_ta": "Báo điện tử · Doanh nhân · Pháp luật Plus · Pháp luật Media · Video Pháp luật"
+      },
+      {
+        "so": 3,
+        "ten": "Kênh mạng xã hội chính thức",
+        "mo_ta": "YouTube · TikTok · Facebook"
+      }
+    ],
+    "trang_thai": [
+      "Báo điện tử",
+      "Doanh nhân",
+      "Pháp luật Plus",
+      "Pháp luật Media",
+      "Video Pháp luật",
+      "YouTube",
+      "TikTok",
+      "Facebook"
+    ]
+  },
+  "logo_thuong_hieu": [
+    {
+      "anh": "/assets/img/logo-phap-luat.png",
+      "ten": "Báo Pháp luật Việt Nam",
+      "link": "https://baophapluat.vn/",
+      "nen": "sang"
+    },
+    {
+      "anh": "/assets/img/logo-doanh-nhan.webp",
+      "ten": "Doanh nhân & Pháp luật",
+      "link": "https://doanhnhan.baophapluat.vn/",
+      "nen": "do"
+    },
+    {
+      "anh": "/assets/img/logo-phap-luat-plus.png",
+      "ten": "Pháp luật Plus",
+      "link": "https://phapluatplus.baophapluat.vn/",
+      "nen": "thuong"
+    },
+    {
+      "anh": "/assets/img/logo-phap-luat-media.png",
+      "ten": "Pháp luật Media",
+      "link": "https://phapluatmedia.vn/",
+      "nen": "thuong"
+    },
+    {
+      "anh": "/assets/img/logo-phap-luat-tv.png",
+      "ten": "Pháp luật TV — Chuyên trang Video Pháp luật",
+      "link": "https://videophapluat.baophapluat.vn/",
+      "nen": "thuong"
+    }
+  ]
+}

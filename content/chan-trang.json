@@ -1,0 +1,56 @@
+{
+  "khau_hieu": "Đảng tin · Dân yêu ·\n*Doanh nghiệp đồng hành*",
+  "cot_bao": {
+    "tieu_de": "BÁO & CHUYÊN TRANG",
+    "lien_ket": [
+      {
+        "chu": "Báo Pháp luật Việt Nam điện tử",
+        "link": "https://baophapluat.vn/"
+      },
+      {
+        "chu": "Doanh nhân",
+        "link": "https://doanhnhan.baophapluat.vn/"
+      },
+      {
+        "chu": "Pháp luật Plus",
+        "link": "https://phapluatplus.baophapluat.vn/"
+      },
+      {
+        "chu": "Pháp luật Media",
+        "link": "https://phapluatmedia.vn/"
+      },
+      {
+        "chu": "Video Pháp luật",
+        "link": "https://videophapluat.baophapluat.vn/"
+      }
+    ]
+  },
+  "cot_mxh": {
+    "tieu_de": "MẠNG XÃ HỘI",
+    "lien_ket": [
+      {
+        "chu": "YouTube",
+        "link": "https://www.youtube.com/@baophapluatvietnam01"
+      },
+      {
+        "chu": "TikTok",
+        "link": "https://www.tiktok.com/@baophapluatvietnam"
+      },
+      {
+        "chu": "Facebook",
+        "link": "https://web.facebook.com/baophapluatvietnam"
+      }
+    ]
+  },
+  "ve_chung_toi": {
+    "ten": "Báo Pháp luật Việt Nam",
+    "mo_ta": "Cơ quan ngôn luận của Bộ Tư pháp",
+    "nhan_dia_chi": "Tòa soạn",
+    "dia_chi": [
+      "Số 42/29 Nguyễn Chí Thanh, phường Giảng Võ, TP Hà Nội",
+      "Số 142 Trần Phú, phường Hà Đông, TP Hà Nội"
+    ]
+  },
+  "ban_quyen": "© Báo Pháp luật Việt Nam",
+  "dong_cuoi": "Trang giới thiệu hệ sinh thái nội dung số"
+}

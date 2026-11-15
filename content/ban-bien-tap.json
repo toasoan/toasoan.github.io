@@ -1,0 +1,29 @@
+{
+  "tieu_de": "Những người *cầm lái* siêu toà soạn.",
+  "tong_bien_tap": {
+    "anh": "/assets/img/vu-hoai-nam.jpg",
+    "chuc_vu": "Tổng Biên tập",
+    "danh_xung": "Tiến sĩ",
+    "ho_ten": "Vũ Hoài Nam"
+  },
+  "pho_tong_bien_tap": [
+    {
+      "anh": "/assets/img/ha-anh-binh.jpg",
+      "chuc_vu": "Phó Tổng Biên tập",
+      "danh_xung": "Ông",
+      "ho_ten": "Hà Ánh Bình"
+    },
+    {
+      "anh": "/assets/img/tran-ngoc-ha.jpg",
+      "chuc_vu": "Phó Tổng Biên tập",
+      "danh_xung": "Ông",
+      "ho_ten": "Trần Ngọc Hà"
+    },
+    {
+      "anh": "/assets/img/vu-hong-thuy.jpg",
+      "chuc_vu": "Phó Tổng Biên tập",
+      "danh_xung": "Bà",
+      "ho_ten": "Vũ Hồng Thúy"
+    }
+  ]
+}

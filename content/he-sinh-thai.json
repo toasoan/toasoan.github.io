@@ -1,0 +1,96 @@
+{
+  "tieu_de": "Một toà soạn, *tám cửa ngõ* đến với độc giả.",
+  "mo_ta": "Mỗi nền tảng một định dạng, một nhịp kể chuyện riêng — cùng chung một chuẩn mực: thông tin pháp luật chính xác, khách quan, có trách nhiệm.",
+  "the": [
+    {
+      "kieu": "bao-dien-tu",
+      "nhan_1": "Báo điện tử",
+      "nhan_2": "baophapluat.vn",
+      "logo": "/assets/img/logo-phap-luat.png",
+      "tieu_de": "",
+      "mo_ta": "Trang chủ của hệ sinh thái: thời sự, tư pháp, pháp luật, kinh tế, xã hội, văn hoá, bạn đọc… Nơi phân tích pháp lý chuyên sâu gặp tốc độ của báo chí số.",
+      "link": "https://baophapluat.vn/",
+      "nut": "Truy cập"
+    },
+    {
+      "kieu": "doanh-nhan",
+      "nhan_1": "Chuyên trang",
+      "nhan_2": "Doanh nhân",
+      "logo": "/assets/img/logo-doanh-nhan.webp",
+      "tieu_de": "",
+      "mo_ta": "Kinh tế, doanh nghiệp, thị trường — góc nhìn pháp lý đồng hành cùng cộng đồng doanh nhân.",
+      "link": "https://doanhnhan.baophapluat.vn/",
+      "nut": "Truy cập"
+    },
+    {
+      "kieu": "chuyen-trang",
+      "nhan_1": "Chuyên trang",
+      "nhan_2": "Plus",
+      "logo": "/assets/img/logo-phap-luat-plus.png",
+      "tieu_de": "",
+      "mo_ta": "Nội dung mở rộng, đa sắc — đời sống, xã hội, giải trí dưới lăng kính pháp luật, gần gũi độc giả trẻ.",
+      "link": "https://phapluatplus.baophapluat.vn/",
+      "nut": "Truy cập"
+    },
+    {
+      "kieu": "media",
+      "nhan_1": "Chuyên trang",
+      "nhan_2": "phapluatmedia.vn",
+      "logo": "/assets/img/logo-phap-luat-media.png",
+      "tieu_de": "",
+      "mo_ta": "Đa phương tiện, nhịp nhanh: Nội chính – Tư pháp, Kinh tế – Xã hội, Pháp luật – Bạn đọc, Văn hoá – Giải trí và chuyên mục Hot Video — tin tức pháp luật bằng hình ảnh sống động.",
+      "link": "https://phapluatmedia.vn/",
+      "nut": "Truy cập"
+    },
+    {
+      "kieu": "video",
+      "nhan_1": "Truyền hình số",
+      "nhan_2": "Pháp luật TV",
+      "logo": "/assets/img/logo-phap-luat-tv.png",
+      "tieu_de": "",
+      "mo_ta": "Phóng sự, bản tin, talkshow, giải đáp pháp luật bằng hình ảnh — biến điều luật thành câu chuyện dễ hiểu.",
+      "link": "https://videophapluat.baophapluat.vn/",
+      "nut": "Xem ngay"
+    },
+    {
+      "kieu": "hoi-tu",
+      "nhan_1": "Hội tụ",
+      "nhan_2": "Một dòng chảy",
+      "logo": "",
+      "tieu_de": "Toà soạn hội tụ",
+      "mo_ta": "Tất cả chuyên trang và kênh số dùng chung một dòng chảy nội dung, điều phối từ một bàn biên tập trung tâm.",
+      "link": "#cong-nghe",
+      "nut": "Xem công nghệ"
+    },
+    {
+      "kieu": "youtube",
+      "nhan_1": "YouTube",
+      "nhan_2": "@baophapluatvietnam01",
+      "logo": "",
+      "tieu_de": "Kênh YouTube",
+      "mo_ta": "Video dài, phóng sự điều tra, livestream sự kiện.",
+      "link": "https://www.youtube.com/@baophapluatvietnam01",
+      "nut": "Đăng ký kênh ↗"
+    },
+    {
+      "kieu": "tiktok",
+      "nhan_1": "TikTok",
+      "nhan_2": "@baophapluatvietnam",
+      "logo": "",
+      "tieu_de": "Video ngắn",
+      "mo_ta": "Tin nhanh, kiến thức pháp luật trong 60 giây.",
+      "link": "https://www.tiktok.com/@baophapluatvietnam",
+      "nut": "Theo dõi ↗"
+    },
+    {
+      "kieu": "facebook",
+      "nhan_1": "Facebook",
+      "nhan_2": "/baophapluatvietnam",
+      "logo": "",
+      "tieu_de": "Cộng đồng",
+      "mo_ta": "Tương tác, thảo luận, lắng nghe tiếng nói bạn đọc.",
+      "link": "https://web.facebook.com/baophapluatvietnam",
+      "nut": "Tham gia ↗"
+    }
+  ]
+}
