@@ -4,19 +4,23 @@
     {
       "nhan": "CAM KẾT 01",
       "ten": "Đảng tin",
-      "mo_ta": "Kênh thông tin tin cậy của Bộ Tư pháp: tuyên truyền đường lối, chủ trương của Đảng, chính sách, pháp luật của Nhà nước một cách chính xác, kịp thời."
+      "mo_ta": "Kênh thông tin tin cậy của Bộ Tư pháp: tuyên truyền đường lối, chủ trương của Đảng, chính sách, pháp luật của Nhà nước một cách chính xác, kịp thời.",
+      "nut_chu": "",
+      "nut_link": ""
     },
     {
       "nhan": "CAM KẾT 02",
       "ten": "Dân yêu",
-      "mo_ta": "Lắng nghe tiếng nói bạn đọc, giải đáp pháp luật gần gũi, bảo vệ quyền và lợi ích hợp pháp của người dân."
+      "mo_ta": "Lắng nghe tiếng nói bạn đọc, giải đáp pháp luật gần gũi, bảo vệ quyền và lợi ích hợp pháp của người dân.",
+      "nut_chu": "",
+      "nut_link": ""
     },
     {
       "nhan": "CAM KẾT 03",
       "ten": "Doanh nghiệp đồng hành",
       "mo_ta": "Góc nhìn pháp lý cho kinh tế, cầu nối chính sách với cộng đồng doanh nhân, cùng doanh nghiệp phát triển bền vững.",
-      "nut_chu": "Đồng hành cùng Báo →",
-      "nut_link": "bao-gia.html"
+      "nut_chu": "",
+      "nut_link": ""
     }
   ]
 }
