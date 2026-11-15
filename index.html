@@ -508,6 +508,101 @@ footer{background:linear-gradient(160deg,var(--red-deep),#5a0c09);color:#fff;pad
 @keyframes scanx{0%{left:-90px}70%,100%{left:100%}}
 .axis{display:flex;justify-content:space-between;font-family:"JetBrains Mono";font-size:11px;color:var(--muted);margin-bottom:70px;padding:0 2px}
 .axis span{position:relative}.axis span::before{content:"";position:absolute;left:50%;top:-10px;width:1px;height:6px;background:var(--muted)}
+
+/* ===== journey scenes: lịch sử -> tương lai ===== */
+.journey{isolation:isolate;transition:color .8s}
+.jbg{position:absolute;inset:0;z-index:-1;pointer-events:none;-webkit-mask:linear-gradient(transparent,#000 140px,#000 calc(100% - 140px),transparent);mask:linear-gradient(transparent,#000 140px,#000 calc(100% - 140px),transparent)}
+.jbg-stick{position:sticky;top:0;height:100vh;overflow:hidden}
+.jsc{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease;overflow:hidden}
+.jsc.on{opacity:1}
+.jsc:not(.on) *{animation-play-state:paused!important}
+/* I — báo in chữ chì */
+.s1{background:radial-gradient(120% 90% at 50% 40%,#f4e7c8 0%,#e8d4a8 70%,#d9bf8c 100%)}
+.s1 .paper{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(90,60,20,.035) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(90,60,20,.025) 0 1px,transparent 1px 4px)}
+.s1 .np-mast{position:absolute;left:50%;top:9%;transform:translateX(-50%) rotate(-2deg);font-family:"Playfair Display",Georgia,serif;font-weight:800;font-size:clamp(34px,7vw,110px);color:rgba(70,40,15,.13);white-space:nowrap;text-align:center;letter-spacing:.02em;border-top:4px double rgba(70,40,15,.15);border-bottom:4px double rgba(70,40,15,.15);padding:6px 20px}
+.s1 .np-mast small{display:block;font-family:"JetBrains Mono";font-size:clamp(10px,1vw,14px);letter-spacing:.4em;font-weight:600}
+.s1 .np-cols{position:absolute;left:6%;right:6%;top:34%;bottom:6%;display:grid;grid-template-columns:repeat(6,1fr);gap:22px;opacity:.5;transform:rotate(-2deg)}
+.s1 .np-cols i{background:repeating-linear-gradient(180deg,rgba(70,40,15,.16) 0 3px,transparent 3px 11px);border-top:2px solid rgba(70,40,15,.2)}
+.s1 .np-cols i:nth-child(2){margin-top:60px}.s1 .np-cols i:nth-child(4){background:rgba(70,40,15,.07);margin:20px 0 40%}
+.s1 .leadtype i{position:absolute;font-style:normal;font-family:"Playfair Display",serif;font-weight:800;font-size:28px;width:38px;height:44px;display:grid;place-items:center;color:#5b4a3a;
+  background:linear-gradient(145deg,#a9a29a,#6f6861);border-radius:3px;box-shadow:inset 0 2px 0 rgba(255,255,255,.35),0 6px 12px -4px rgba(40,25,10,.45);transform:scaleX(-1) rotate(var(--r));opacity:.35;animation:leadf 9s ease-in-out var(--d) infinite alternate}
+@keyframes leadf{to{transform:scaleX(-1) rotate(calc(var(--r) * -1)) translateY(-18px)}}
+.s1 .typew{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;bottom:4%;font-family:"Courier New",monospace;font-size:clamp(14px,1.4vw,19px);color:rgba(60,35,12,.6);letter-spacing:.05em}
+.s1 .typew b{animation:blink 1s steps(1) infinite;font-weight:400}
+.s1 .halftone{position:absolute;inset:0;background-image:radial-gradient(rgba(70,40,15,.14) 1px,transparent 1.4px);background-size:7px 7px;-webkit-mask:radial-gradient(70% 60% at 85% 80%,#000,transparent);mask:radial-gradient(70% 60% at 85% 80%,#000,transparent)}
+/* II — nhà in, in laser */
+.s2{background:linear-gradient(160deg,#f6ece3 0%,#efdcd3 60%,#e6c9bf 100%)}
+.s2 .press{position:absolute;left:-5%;right:-5%;top:12%;display:grid;gap:26px;opacity:.55}
+.s2 .press i{height:46px;border-radius:30px;background:repeating-linear-gradient(90deg,#9b8a84 0 18px,#c8b8b1 18px 36px);box-shadow:inset 0 10px 14px -8px #fff,inset 0 -12px 16px -8px rgba(60,20,15,.5);animation:roll 2.2s linear infinite}
+.s2 .press i:nth-child(2){animation-direction:reverse;margin:0 12%}.s2 .press i:nth-child(3){margin:0 4%}
+@keyframes roll{to{background-position:72px 0}}
+.s2 .sheets i{position:absolute;top:44%;width:180px;height:240px;background:#fffdf8;border:1px solid rgba(90,40,30,.15);box-shadow:0 18px 30px -18px rgba(90,30,20,.5);
+  background-image:linear-gradient(rgba(90,40,30,.5),rgba(90,40,30,.5)),repeating-linear-gradient(180deg,rgba(90,40,30,.18) 0 3px,transparent 3px 9px);background-size:70% 14px,84% 70%;background-position:10px 14px,14px 46px;background-repeat:no-repeat;
+  animation:sheet 11s linear infinite;left:-220px;opacity:.75}
+.s2 .sheets i:nth-child(2){animation-delay:-2.7s;top:52%}.s2 .sheets i:nth-child(3){animation-delay:-5.5s;top:47%}.s2 .sheets i:nth-child(4){animation-delay:-8.2s;top:55%}
+@keyframes sheet{0%{transform:translateX(0) rotate(-4deg)}100%{transform:translateX(calc(100vw + 440px)) rotate(6deg)}}
+.s2 .laserpage{position:absolute;right:7%;top:16%;width:min(28vw,340px);aspect-ratio:3/4;background:#fff;border-radius:6px;box-shadow:0 30px 60px -30px rgba(90,30,20,.6);overflow:hidden;opacity:.85}
+.s2 .lp-lines{padding:26px 22px;display:grid;gap:12px}
+.s2 .lp-lines i{height:8px;border-radius:2px;background:rgba(60,30,25,.55);transform-origin:left;animation:lprint 6s linear infinite}
+.s2 .lp-lines i:nth-child(1){height:20px;width:80%;background:var(--red)}
+.s2 .lp-lines i:nth-child(odd){width:92%}.s2 .lp-lines i:nth-child(3n){width:70%}
+.s2 .lp-lines i:nth-child(2){animation-delay:.4s}.s2 .lp-lines i:nth-child(3){animation-delay:.8s}.s2 .lp-lines i:nth-child(4){animation-delay:1.2s}.s2 .lp-lines i:nth-child(5){animation-delay:1.6s}.s2 .lp-lines i:nth-child(6){animation-delay:2s}.s2 .lp-lines i:nth-child(7){animation-delay:2.4s}.s2 .lp-lines i:nth-child(8){animation-delay:2.8s}
+@keyframes lprint{0%,8%{transform:scaleX(0)}20%,90%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:0}}
+.s2 .beam{position:absolute;left:0;right:0;height:3px;top:0;background:#ff3b30;box-shadow:0 0 18px 4px rgba(255,59,48,.7);animation:beam 6s linear infinite}
+@keyframes beam{0%{top:4%}75%{top:96%}100%{top:96%;opacity:0}}
+.s2 .dotm{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;bottom:4%;font-family:"JetBrains Mono";font-size:12px;letter-spacing:.35em;color:rgba(120,40,30,.45)}
+/* III — báo điện tử */
+.s3{background:radial-gradient(90% 80% at 30% 20%,#fff 0%,#fdeeea 55%,#f6d9d2 100%)}
+.s3::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(212,48,41,.18) 1.2px,transparent 1.6px);background-size:26px 26px;-webkit-mask:radial-gradient(70% 70% at 70% 50%,#000,transparent);mask:radial-gradient(70% 70% at 70% 50%,#000,transparent)}
+.s3 .win{position:absolute;background:#fff;border-radius:12px;border:1px solid rgba(158,23,18,.15);box-shadow:0 30px 60px -30px rgba(158,23,18,.45);overflow:hidden;animation:winf 10s ease-in-out infinite alternate}
+.s3 .w1{right:6%;top:12%;width:min(34vw,420px)}.s3 .w2{left:4%;top:56%;width:min(26vw,320px);animation-delay:-3s}.s3 .w3{right:16%;bottom:7%;width:min(22vw,260px);animation-delay:-6s}
+@keyframes winf{to{transform:translateY(-22px)}}
+.s3 .wb{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#f6ecea;border-bottom:1px solid rgba(158,23,18,.1)}
+.s3 .wb i{width:8px;height:8px;border-radius:50%;background:#e8b4ad}.s3 .wb i:first-child{background:var(--red)}
+.s3 .wb span{margin-left:8px;flex:1;font-family:"JetBrains Mono";font-size:10px;color:var(--muted);background:#fff;border-radius:6px;padding:3px 8px}
+.s3 .wc{padding:14px;display:grid;gap:8px}
+.s3 .wc b{display:block;height:14px;width:70%;border-radius:3px;background:var(--red);opacity:.8}
+.s3 .wc p{height:7px;border-radius:3px;background:rgba(60,30,25,.15)}
+.s3 .wc p:nth-child(odd){width:85%}
+.s3 .wc .th{height:70px;border-radius:6px;background:linear-gradient(135deg,#f2c14e55,#d4302955)}
+.s3 .tags i{position:absolute;font-style:normal;font-family:"JetBrains Mono";font-size:13px;color:rgba(158,23,18,.35);animation:tagf 8s ease-in-out var(--d) infinite}
+@keyframes tagf{0%,100%{opacity:.2;transform:translateY(0)}50%{opacity:.8;transform:translateY(-16px)}}
+/* IV — siêu toà soạn số */
+.s4{background:radial-gradient(80% 70% at 70% 30%,#5a0c09 0%,#2a0605 45%,#0f0303 100%)}
+.s4 canvas{position:absolute;inset:0;width:100%;height:100%}
+.s4 .floor{position:absolute;left:-20%;right:-20%;bottom:-10%;height:55%;background-image:linear-gradient(rgba(242,193,78,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(242,193,78,.18) 1px,transparent 1px);background-size:60px 60px;transform:perspective(500px) rotateX(62deg);transform-origin:50% 100%;animation:floor 4s linear infinite;-webkit-mask:linear-gradient(transparent,#000 60%);mask:linear-gradient(transparent,#000 60%)}
+@keyframes floor{to{background-position:0 60px,0 0}}
+.s4 .rings{position:absolute;right:12%;top:50%;width:min(40vw,520px);aspect-ratio:1;transform:translateY(-55%)}
+.s4 .rings i{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(242,193,78,.3);animation:spin 26s linear infinite}
+.s4 .rings i:nth-child(2){inset:14%;border-style:dashed;border-color:rgba(255,120,100,.35);animation-direction:reverse;animation-duration:18s}
+.s4 .rings i:nth-child(3){inset:32%;border:0;background:radial-gradient(circle,rgba(232,55,47,.55),rgba(232,55,47,.08) 60%,transparent 70%);animation:breath 3.5s ease-in-out infinite}
+@keyframes breath{50%{transform:scale(1.12);opacity:.7}}
+.s4 .chips{position:absolute;right:12%;top:50%;width:min(40vw,520px);aspect-ratio:1;transform:translateY(-55%);animation:spin 40s linear infinite}
+.s4 .chips i{position:absolute;left:50%;top:50%;font-style:normal;font-family:"JetBrains Mono";font-size:11px;letter-spacing:.1em;color:#ffe7a3;padding:5px 10px;border-radius:99px;border:1px solid rgba(255,231,163,.4);background:rgba(90,12,9,.55);
+  transform:rotate(var(--a)) translate(min(20vw,260px)) rotate(calc(var(--a) * -1));white-space:nowrap}
+.s4 .scanl{position:absolute;left:0;right:0;height:140px;top:-140px;background:linear-gradient(180deg,transparent,rgba(232,55,47,.14),transparent);animation:scanY 5s linear infinite}
+/* lớp năm + giai đoạn */
+.jyear{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(140px,26vw,380px);line-height:1;color:transparent;-webkit-text-stroke:2px rgba(158,23,18,.12);transition:-webkit-text-stroke-color .8s,filter .5s,opacity .5s;white-space:nowrap}
+.jyear.flip{filter:blur(10px);opacity:0}
+.jera{position:absolute;right:clamp(16px,4vw,48px);top:96px;text-align:right;font-family:"JetBrains Mono";color:rgba(158,23,18,.7);transition:color .8s}
+.jera b{display:block;font-size:11px;letter-spacing:.3em}
+.jera span{font-size:12px;letter-spacing:.08em}
+/* chuyển màu theo giai đoạn */
+.journey[data-era="I"] .jyear{-webkit-text-stroke-color:rgba(90,55,20,.16);font-family:Georgia,serif}
+.journey[data-era="I"] .jera{color:rgba(90,55,20,.7)}
+.journey.jdark .jyear{-webkit-text-stroke-color:rgba(255,231,163,.14)}
+.journey.jdark .jera{color:#ffe7a3}
+.journey.jdark .ms .side{color:rgba(255,230,222,.75)}
+.journey.jdark .ms .side em{color:#fff}
+.journey.jdark .ms .side i{color:#ffb4a8}
+.journey.jdark .era-row span{background:rgba(26,6,5,.7);border-color:#ffb4a8;color:#ffd9d2}
+.journey.jdark .era-row.lit span{background:var(--red);color:#fff;border-color:var(--red)}
+.journey.jdark .tl .spine{background:rgba(255,231,163,.15)}
+.journey.jdark .ms .node{border-color:#5a2a26;background:#2a0605}
+.journey.jdark .ms.lit .node{border-color:var(--red);background:var(--red)}
+.journey[data-era="I"] .ms.lit .box{box-shadow:0 30px 60px -38px rgba(90,55,20,.6);border-color:rgba(90,55,20,.25)}
+@media(max-width:860px){.s1 .typew,.s2 .dotm{display:none}.s2 .laserpage,.s3 .w1,.s3 .w3{opacity:.35}.s4 .rings,.s4 .chips{right:-30%;opacity:.6}.jera{display:none}.s1 .np-cols{grid-template-columns:repeat(3,1fr)}}
+@media (prefers-reduced-motion:reduce){.jbg *{animation:none!important}}
 @media(max-width:760px){.era span{display:none}.era{padding:12px 8px}.era b{font-size:9px;letter-spacing:.05em}}
 
 .tl{position:relative;max-width:1120px;margin:0 auto}
@@ -527,7 +622,7 @@ footer{background:linear-gradient(160deg,var(--red-deep),#5a0c09);color:#fff;pad
 .ms .box,.ms .side{grid-row:1}
 .ms.L .box{grid-column:1}.ms.L .side{grid-column:3}
 .ms.R .box{grid-column:3}.ms.R .side{grid-column:1;text-align:right}
-.ms .box{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px 26px;opacity:.28;filter:grayscale(1);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1),filter .7s,box-shadow .5s}
+.ms .box{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px 26px;opacity:.5;filter:grayscale(1);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1),filter .7s,box-shadow .5s}
 .ms.L .box{transform:translateX(-36px)}.ms.R .box{transform:translateX(36px)}
 .ms.lit .box{opacity:1;filter:none;transform:none;box-shadow:0 30px 60px -40px rgba(158,23,18,.55)}
 .ms .box::before{content:"";position:absolute;top:50%;width:46px;height:2px;background:linear-gradient(90deg,var(--red),transparent)}
@@ -753,6 +848,38 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
   <section id="hanh-trinh" class="journey">
+
+    <div class="jbg" aria-hidden="true"><div class="jbg-stick">
+      <div class="jsc s1 on">
+        <div class="paper"></div>
+        <div class="np-mast">PHÁP LUẬT THƯỜNG THỨC<small>SỐ 1 · 10.7.1985 · CƠ QUAN CỦA BỘ TƯ PHÁP</small></div>
+        <div class="np-cols"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="leadtype"><i style="left:43%;top:23%;--r:0deg;--d:3.9s">P</i><i style="left:11%;top:72%;--r:-19deg;--d:2.2s">H</i><i style="left:9%;top:68%;--r:-12deg;--d:0.2s">Á</i><i style="left:57%;top:57%;--r:-21deg;--d:1.4s">P</i><i style="left:72%;top:58%;--r:-22deg;--d:5.0s">L</i><i style="left:17%;top:32%;--r:15deg;--d:3.8s">U</i><i style="left:9%;top:77%;--r:12deg;--d:2.4s">Ậ</i><i style="left:30%;top:9%;--r:10deg;--d:5.2s">T</i><i style="left:39%;top:57%;--r:-16deg;--d:3.2s">T</i><i style="left:75%;top:43%;--r:10deg;--d:4.9s">H</i><i style="left:25%;top:17%;--r:12deg;--d:3.4s">Ư</i><i style="left:26%;top:51%;--r:-19deg;--d:3.3s">Ờ</i><i style="left:10%;top:76%;--r:-22deg;--d:3.7s">N</i><i style="left:65%;top:91%;--r:9deg;--d:2.6s">G</i><i style="left:42%;top:63%;--r:12deg;--d:5.5s">T</i><i style="left:48%;top:42%;--r:-10deg;--d:4.8s">H</i><i style="left:91%;top:35%;--r:-20deg;--d:3.4s">Ứ</i><i style="left:69%;top:67%;--r:-4deg;--d:4.4s">C</i><i style="left:38%;top:81%;--r:-21deg;--d:0.7s">P</i><i style="left:55%;top:25%;--r:23deg;--d:2.1s">H</i><i style="left:64%;top:57%;--r:-23deg;--d:5.8s">Á</i><i style="left:11%;top:75%;--r:11deg;--d:4.7s">P</i><i style="left:42%;top:47%;--r:19deg;--d:2.1s">L</i><i style="left:65%;top:78%;--r:4deg;--d:0.4s">U</i><i style="left:13%;top:38%;--r:5deg;--d:4.2s">Ậ</i><i style="left:10%;top:11%;--r:21deg;--d:4.2s">T</i><i style="left:84%;top:77%;--r:18deg;--d:4.9s">T</i><i style="left:38%;top:53%;--r:17deg;--d:2.1s">H</i></div>
+        <div class="typew"><span id="typew"></span><b>▌</b></div>
+        <div class="halftone"></div>
+      </div>
+      <div class="jsc s2">
+        <div class="press"><i></i><i></i><i></i></div>
+        <div class="sheets"><i></i><i></i><i></i><i></i></div>
+        <div class="laserpage"><div class="lp-lines"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="beam"></div></div>
+        <div class="dotm">LASER PRINT · DÀN TRANG VI TÍNH · TUẦN BÁO</div>
+      </div>
+      <div class="jsc s3">
+        <div class="win w1"><div class="wb"><i></i><i></i><i></i><span>baophapluat.vn</span></div><div class="wc"><b></b><p></p><p></p><p></p><div class="th"></div></div></div>
+        <div class="win w2"><div class="wb"><i></i><i></i><i></i><span>pháp luật · số chủ nhật</span></div><div class="wc"><b></b><p></p><p></p><div class="th"></div><p></p></div></div>
+        <div class="win w3"><div class="wb"><i></i><i></i><i></i><span>toà soạn · CMS</span></div><div class="wc"><p></p><p></p><p></p><p></p></div></div>
+        <div class="tags"><i style="left:61%;top:50%;--d:1.3s">&lt;html&gt;</i><i style="left:16%;top:68%;--d:0.5s">&lt;article&gt;</i><i style="left:38%;top:21%;--d:5.9s">&lt;h1&gt;</i><i style="left:52%;top:55%;--d:7.3s">&lt;img&gt;</i><i style="left:65%;top:15%;--d:1.3s">{ CMS }</i><i style="left:53%;top:75%;--d:2.2s">RSS</i><i style="left:19%;top:60%;--d:6.9s">http://</i><i style="left:37%;top:58%;--d:7.9s">&lt;/div&gt;</i><i style="left:89%;top:53%;--d:7.7s">SEO</i><i style="left:21%;top:15%;--d:1.4s">&lt;p&gt;</i><i style="left:31%;top:89%;--d:1.9s">.php</i><i style="left:64%;top:80%;--d:1.5s">Tin mới</i><i style="left:38%;top:5%;--d:1.2s">&lt;nav&gt;</i><i style="left:70%;top:52%;--d:4.9s">24h</i></div>
+      </div>
+      <div class="jsc s4">
+        <canvas id="jnet"></canvas>
+        <div class="floor"></div>
+        <div class="rings"><i></i><i></i><i></i></div>
+        <div class="chips"><i style="--a:0deg;--d:-0.0s">Web</i><i style="--a:45deg;--d:-2.2s">YouTube</i><i style="--a:90deg;--d:-4.4s">TikTok</i><i style="--a:135deg;--d:-6.6s">Facebook</i><i style="--a:180deg;--d:-8.8s">Video</i><i style="--a:225deg;--d:-11.0s">Podcast</i><i style="--a:270deg;--d:-13.2s">AI</i><i style="--a:315deg;--d:-15.4s">Data</i></div>
+        <div class="scanl"></div>
+      </div>
+      <div class="jyear" id="jyear">1985</div>
+      <div class="jera" id="jera"><b>GIAI ĐOẠN I</b><span>Khởi nghiệp · in chữ chì</span></div>
+    </div></div>
     <div class="sec-head reveal">
       <div><span class="num">02 — HÀNH TRÌNH 40 NĂM</span><h2>Từ toà soạn <em>7 người</em> đến siêu toà soạn số.</h2></div>
       <p>Từ tờ <i>Pháp luật thường thức</i> in chữ chì năm 1985 đến hệ sinh thái đa nền tảng hôm nay, bốn giai đoạn với một mạch xuyên suốt: đưa pháp luật đến gần hơn với Nhân dân.</p>
@@ -1094,7 +1221,29 @@ const stops=[...tl.querySelectorAll('.ms,.era-row')];
 function tlScroll(){const r=tl.getBoundingClientRect(),mid=innerHeight*.55;const h=Math.max(0,Math.min(r.height,mid-r.top));
   fill.style.height=h+'px';headEl.style.top=h+'px';headEl.style.opacity=(h>0&&h<r.height)?1:.0;
   let y='1985';stops.forEach(s=>{const sr=s.getBoundingClientRect();const on=sr.top+sr.height/2<mid;s.classList.toggle('lit',on);if(on&&s.dataset.y)y=s.dataset.y});
-  headEl.dataset.y=y}
+  headEl.dataset.y=y;jScene(y)}
+const J=document.getElementById('hanh-trinh'),jsc=[...J.querySelectorAll('.jsc')],jy=document.getElementById('jyear'),jer=document.getElementById('jera');
+const ERA_TXT={I:'Khởi nghiệp · in chữ chì',II:'Chuyên nghiệp hoá · in laser',III:'Báo điện tử · thương hiệu',IV:'Chuyển đổi số · siêu toà soạn'};
+let jCurEra='',jCurY='';
+function jScene(y){let era='I';tl.querySelectorAll('.era-row').forEach(r=>{if(r.classList.contains('lit'))era=r.id.slice(4)});
+  const yr=y==='90s'?'1995':y;
+  if(era!==jCurEra){jCurEra=era;const k=['I','II','III','IV'].indexOf(era);jsc.forEach((s,i)=>s.classList.toggle('on',i===k));
+    J.dataset.era=era;J.classList.toggle('jdark',era==='IV');jer.innerHTML=`<b>GIAI ĐOẠN ${era}</b><span>${ERA_TXT[era]}</span>`;if(era==='IV')jNet()}
+  if(yr!==jCurY){jCurY=yr;jy.classList.add('flip');setTimeout(()=>{jy.textContent=yr;jy.classList.remove('flip')},260)}}
+/* máy chữ kỳ I */
+(()=>{const el=document.getElementById('typew'),txt=['Pháp luật thường thức — Số 1, ngày 10/7/1985','Toà soạn 7 người · 2 kỳ/tháng · in chữ chì','Tuyên truyền, phổ biến pháp luật đến Nhân dân'];let i=0,j=0,del=false;
+ (function tick(){const t=txt[i];if(!del){el.textContent=t.slice(0,++j);if(j>=t.length){del=true;return setTimeout(tick,2200)}}else{el.textContent=t.slice(0,--j);if(j<=0){del=false;i=(i+1)%txt.length}}setTimeout(tick,del?25:70)})()})();
+/* mạng dữ liệu kỳ IV */
+let jNetOn=false;function jNet(){if(jNetOn)return;jNetOn=true;const c=document.getElementById('jnet'),x=c.getContext('2d');let W,H,P=[],cols=[];
+ function rs(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight;P=Array.from({length:Math.min(70,W/18|0)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4}));cols=Array.from({length:W/22|0},()=>Math.random()*H)}
+ rs();addEventListener('resize',rs);
+ (function fr(){if(!J.classList.contains('jdark')){requestAnimationFrame(fr);return}
+  x.clearRect(0,0,W,H);x.font='13px JetBrains Mono, monospace';
+  cols.forEach((y,i)=>{x.fillStyle='rgba(242,193,78,.16)';x.fillText(Math.random()<.5?'0':'1',i*22,y);cols[i]=y>H+20?-20:y+2.2});
+  P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1});
+  for(let i=0;i<P.length;i++){const a=P[i];x.fillStyle='rgba(255,180,160,.7)';x.beginPath();x.arc(a.x,a.y,1.6,0,7);x.fill();
+   for(let j=i+1;j<P.length;j++){const b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<130){x.strokeStyle=`rgba(232,55,47,${.35*(1-d/130)})`;x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}}
+  requestAnimationFrame(fr)})()}
 addEventListener('scroll',tlScroll,{passive:true});addEventListener('resize',tlScroll);tlScroll();
 /* scramble cho bảng 1985 vs nay */
 const glyph='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*/<>';
