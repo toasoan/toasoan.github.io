@@ -31,6 +31,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 nav.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(14px);box-shadow:0 8px 30px -18px rgba(158,23,18,.4);padding-block:10px}
 .brand img,.mast img,.hero-card .logo,.wall .t.light img.bp{mix-blend-mode:multiply}
 .brand img{height:42px;width:auto;display:block;transition:height .4s}
+.brand{transition:opacity .45s,transform .45s}
+nav:not(.brand-on) .brand{opacity:0;transform:translateY(-8px);pointer-events:none}
 nav.scrolled .brand img{height:34px}
 .navlinks{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--muted)}
 .navlinks a{position:relative;transition:color .3s}
@@ -991,6 +993,10 @@ function build(){const hr=hl.getBoundingClientRect(),mr=box.getBoundingClientRec
 build();let lw=innerWidth;addEventListener('resize',()=>{if(Math.abs(innerWidth-lw)>60){lw=innerWidth;build()}});
 addEventListener('load',build,{once:true});
 new IntersectionObserver(([e])=>hl.classList.toggle('run',e.isIntersecting),{threshold:0}).observe(hl)})();
+
+/* nav brand only after hero masthead leaves view */
+(()=>{const m=document.querySelector('.mast'),n=document.getElementById('nav');if(!m||!n){n&&n.classList.add('brand-on');return}
+new IntersectionObserver(([e])=>n.classList.toggle('brand-on',!e.isIntersecting),{rootMargin:'-70px 0px 0px 0px'}).observe(m)})();
 
 /* reveal + counters */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');
